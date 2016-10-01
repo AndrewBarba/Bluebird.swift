@@ -14,9 +14,11 @@ public enum State<T> {
 
 public final class Promise<Result> {
 
-    fileprivate var resolvedHandlers: [(Result) -> Void] = []
+    private var resolvedHandlers: [(queue: DispatchQueue, handler: (Result) -> Void)] = []
 
-    fileprivate var rejectedHandlers: [(Error) -> Void] = []
+    private var rejectedHandlers: [(queue: DispatchQueue, handler: (Error) -> Void)] = []
+
+    private let stateQueue = DispatchQueue(label: "com.abarba.Bluebird.state")
 
     /**
      Current state of the promise
@@ -26,14 +28,14 @@ public final class Promise<Result> {
     /**
      Initialize to a resolved promise
      */
-    public init(result: Result) {
+    public init(resolve result: Result) {
         self.state = .resolved(result)
     }
 
     /**
      Initialize to a rejected promise
      */
-    public init(error: Error) {
+    public init(reject error: Error) {
         self.state = .rejected(error)
     }
 
@@ -44,12 +46,12 @@ public final class Promise<Result> {
         self.state = .pending
         do {
             try resolver({
-                self.setSynchronous(state: .resolved($0))
+                self.set(state: .resolved($0))
             }, {
-                self.setSynchronous(state: .rejected($0))
+                self.set(state: .rejected($0))
             })
         } catch {
-            setSynchronous(state: .rejected(error))
+            set(state: .rejected(error))
         }
     }
 
@@ -58,15 +60,12 @@ public final class Promise<Result> {
      */
     public convenience init(_ resolver: () throws -> Promise<Result>) {
         self.init { resolve, reject in
-            try resolver().then(resolve).catch(reject)
+            try resolver().addHandlers(resolve, reject)
         }
     }
 
-    /**
-     Always resolve on the main thread
-     */
-    private func setSynchronous(state: State<Result>) {
-        DispatchQueue.main.async {
+    private func set(state: State<Result>) {
+        stateQueue.async {
             switch self.state {
             case .pending:
                 self.state = state
@@ -77,124 +76,32 @@ public final class Promise<Result> {
         }
     }
 
-    /**
-     Trigger resolve functions
-     */
     private func handleStateChanged() {
         switch state {
         case .pending:
             break
         case .resolved(let result):
-            resolvedHandlers.forEach { $0(result) }
+            resolvedHandlers.forEach { item in
+                item.queue.async { item.handler(result) }
+            }
         case .rejected(let error):
-            rejectedHandlers.forEach { $0(error) }
+            rejectedHandlers.forEach { item in
+                item.queue.async { item.handler(error) }
+            }
         }
     }
-}
 
-// MARK: - Then
-
-extension Promise {
-
-    public func then<A>(_ handler: @escaping (Result) throws -> Promise<A>) -> Promise<A> {
+    @discardableResult
+    internal func addHandlers(queue: DispatchQueue = .main, _ resolve: @escaping (Result) -> Void, _ reject: @escaping (Error) -> Void) -> Promise<Result> {
         switch state {
+        case .pending:
+            resolvedHandlers.append((queue, resolve))
+            rejectedHandlers.append((queue, reject))
         case .resolved(let result):
-            do {
-                return try handler(result)
-            } catch {
-                return Promise<A>(error: error)
-            }
+            queue.async { resolve(result) }
         case .rejected(let error):
-            return Promise<A>(error: error)
-        case .pending:
-            return Promise<A> { resolve, reject in
-                resolvedHandlers.append({
-                    do {
-                        try handler($0).then(resolve).catch(reject)
-                    } catch {
-                        reject(error)
-                    }
-                })
-                rejectedHandlers.append({ reject($0) })
-            }
+            queue.async { reject(error) }
         }
-    }
-
-    @discardableResult
-    public func then(_ handler: @escaping (Result) throws -> Void) -> Promise<Void>{
-        return self.then {
-            return try Promise<Void>(result: handler($0))
-        }
-    }
-}
-
-// MARK: - Tap
-
-extension Promise {
-
-    public func tap<A>(_ handler: @escaping (Result) throws -> Promise<A>) -> Promise<Result> {
-        return self.then { result in
-            return try handler(result).then { _ in Promise(result: result) }
-        }
-    }
-
-    @discardableResult
-    public func tap(_ handler: @escaping (Result) throws -> Void) -> Promise<Result> {
-        return self.tap {
-            return try Promise<Void>(result: handler($0))
-        }
-    }
-}
-
-// MARK: - Finally
-
-extension Promise {
-
-    public func finally(_ handler: @escaping () throws -> Void) -> Promise<Result> {
-        return Promise<Result> { resolve, reject in
-            self.then {
-                try handler()
-                resolve($0)
-            }
-            self.catch {
-                try handler()
-                reject($0)
-            }
-        }
-    }
-}
-
-// MARK: - Catch
-
-extension Promise {
-
-    public func `catch`<A>(_ handler: @escaping (Error) throws -> Promise<A>) -> Promise<A> {
-        switch state {
-        case .resolved(_):
-            return Promise<A> { _, _ in }
-        case .rejected(let error):
-            do {
-                return try handler(error)
-            } catch {
-                return Promise<A>(error: error)
-            }
-        case .pending:
-            return Promise<A> { resolve, reject in
-                rejectedHandlers.append ({
-                    do {
-                        try handler($0).then(resolve).catch(reject)
-                    } catch {
-                        reject(error)
-                    }
-                })
-            }
-        }
-    }
-
-    @discardableResult
-    public func `catch`(_ handler: @escaping (Error) throws -> Void) -> Promise<Void> {
-        return self.catch {
-            return try Promise<Void>(result: handler($0))
-        }
+        return self
     }
 }

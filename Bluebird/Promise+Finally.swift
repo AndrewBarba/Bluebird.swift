@@ -1,0 +1,30 @@
+//
+//  Promise+Finally.swift
+//  Bluebird
+//
+//  Created by Andrew Barba on 10/1/16.
+//  Copyright © 2016 Andrew Barba. All rights reserved.
+//
+
+extension Promise {
+
+    public func finally(queue: DispatchQueue = .main, _ handler: @escaping () throws -> Void) -> Promise<Result> {
+        return Promise<Result> { resolve, reject in
+            addHandlers(queue: queue, {
+                do {
+                    try handler()
+                    resolve($0)
+                } catch {
+                    reject(error)
+                }
+            }, {
+                do {
+                    try handler()
+                    reject($0)
+                } catch {
+                    reject(error)
+                }
+            })
+        }
+    }
+}
