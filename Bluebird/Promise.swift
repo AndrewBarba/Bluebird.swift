@@ -93,14 +93,16 @@ public final class Promise<Result> {
 
     @discardableResult
     internal func addHandlers(queue: DispatchQueue = .main, _ resolve: @escaping (Result) -> Void, _ reject: @escaping (Error) -> Void) -> Promise<Result> {
-        switch state {
-        case .pending:
-            resolvedHandlers.append((queue, resolve))
-            rejectedHandlers.append((queue, reject))
-        case .resolved(let result):
-            queue.async { resolve(result) }
-        case .rejected(let error):
-            queue.async { reject(error) }
+        stateQueue.async {
+            switch self.state {
+            case .pending:
+                self.resolvedHandlers.append((queue, resolve))
+                self.rejectedHandlers.append((queue, reject))
+            case .resolved(let result):
+                queue.async { resolve(result) }
+            case .rejected(let error):
+                queue.async { reject(error) }
+            }
         }
         return self
     }
