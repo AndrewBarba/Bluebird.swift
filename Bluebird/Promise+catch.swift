@@ -8,9 +8,9 @@
 
 extension Promise {
 
-    public func `catch`<A>(queue: DispatchQueue = .main, _ handler: @escaping (Error) throws -> Promise<A>) -> Promise<A> {
+    public func `catch`<A>(on queue: DispatchQueue = .main, _ handler: @escaping (Error) throws -> Promise<A>) -> Promise<A> {
         return Promise<A> { resolve, reject in
-            addHandlers(queue: queue, { _ in }, {
+            addHandlers(on: queue, { _ in }, {
                 do {
                     try handler($0).addHandlers(resolve, reject)
                 } catch {
@@ -21,8 +21,8 @@ extension Promise {
     }
 
     @discardableResult
-    public func `catch`(queue: DispatchQueue = .main, _ handler: @escaping (Error) throws -> Void) -> Promise<Void> {
-        return self.catch(queue: queue) {
+    public func `catch`(on queue: DispatchQueue = .main, _ handler: @escaping (Error) throws -> Void) -> Promise<Void> {
+        return self.catch(on: queue) {
             try Promise<Void>(resolve: handler($0))
         }
     }

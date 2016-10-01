@@ -51,10 +51,8 @@ getUser()
     .then { _ in getUserAsync() }
     .tap { print($0) }
     .then { _ in getOrderError() }
+    .tap { print($0) }
     .finally { print("done!") }
-
-Promise.join(getEvent(), getUser())
-//    .then { print($0.0, $0.1) }
 
 
 

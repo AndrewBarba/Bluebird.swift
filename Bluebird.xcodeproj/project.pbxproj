@@ -11,12 +11,13 @@
 		B856C7A51DA0206100D87A1B /* BluebirdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7A41DA0206100D87A1B /* BluebirdTests.swift */; };
 		B856C7A71DA0206100D87A1B /* Bluebird.h in Headers */ = {isa = PBXBuildFile; fileRef = B856C7991DA0206100D87A1B /* Bluebird.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B856C7B11DA020CD00D87A1B /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B01DA020CD00D87A1B /* Promise.swift */; };
-		B856C7B41DA026A600D87A1B /* Promise+Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B31DA026A600D87A1B /* Promise+Then.swift */; };
-		B856C7B61DA026DC00D87A1B /* Promise+Catch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B51DA026DC00D87A1B /* Promise+Catch.swift */; };
-		B856C7B81DA026FA00D87A1B /* Promise+Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B71DA026FA00D87A1B /* Promise+Tap.swift */; };
-		B856C7BA1DA0271C00D87A1B /* Promise+Finally.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B91DA0271C00D87A1B /* Promise+Finally.swift */; };
-		B856C7BC1DA0273900D87A1B /* Promise+Void.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7BB1DA0273900D87A1B /* Promise+Void.swift */; };
-		B856C7BF1DA048BE00D87A1B /* Promise+Join.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7BE1DA048BE00D87A1B /* Promise+Join.swift */; };
+		B856C7B41DA026A600D87A1B /* Promise+then.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B31DA026A600D87A1B /* Promise+then.swift */; };
+		B856C7B61DA026DC00D87A1B /* Promise+catch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B51DA026DC00D87A1B /* Promise+catch.swift */; };
+		B856C7B81DA026FA00D87A1B /* Promise+tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B71DA026FA00D87A1B /* Promise+tap.swift */; };
+		B856C7BA1DA0271C00D87A1B /* Promise+finally.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B91DA0271C00D87A1B /* Promise+finally.swift */; };
+		B856C7BC1DA0273900D87A1B /* Promise+void.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7BB1DA0273900D87A1B /* Promise+void.swift */; };
+		B856C7BF1DA048BE00D87A1B /* Promise+join.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7BE1DA048BE00D87A1B /* Promise+join.swift */; };
+		B856C7C11DA05E1B00D87A1B /* Promise+all.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C01DA05E1B00D87A1B /* Promise+all.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,13 +38,14 @@
 		B856C7A41DA0206100D87A1B /* BluebirdTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluebirdTests.swift; sourceTree = "<group>"; };
 		B856C7A61DA0206100D87A1B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B856C7B01DA020CD00D87A1B /* Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
-		B856C7B31DA026A600D87A1B /* Promise+Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Then.swift"; sourceTree = "<group>"; };
-		B856C7B51DA026DC00D87A1B /* Promise+Catch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Catch.swift"; sourceTree = "<group>"; };
-		B856C7B71DA026FA00D87A1B /* Promise+Tap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Tap.swift"; sourceTree = "<group>"; };
-		B856C7B91DA0271C00D87A1B /* Promise+Finally.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Finally.swift"; sourceTree = "<group>"; };
-		B856C7BB1DA0273900D87A1B /* Promise+Void.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Void.swift"; sourceTree = "<group>"; };
+		B856C7B31DA026A600D87A1B /* Promise+then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+then.swift"; sourceTree = "<group>"; };
+		B856C7B51DA026DC00D87A1B /* Promise+catch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+catch.swift"; sourceTree = "<group>"; };
+		B856C7B71DA026FA00D87A1B /* Promise+tap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+tap.swift"; sourceTree = "<group>"; };
+		B856C7B91DA0271C00D87A1B /* Promise+finally.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+finally.swift"; sourceTree = "<group>"; };
+		B856C7BB1DA0273900D87A1B /* Promise+void.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+void.swift"; sourceTree = "<group>"; };
 		B856C7BD1DA02F1D00D87A1B /* Bluebird.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Bluebird.playground; sourceTree = "<group>"; };
-		B856C7BE1DA048BE00D87A1B /* Promise+Join.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Join.swift"; sourceTree = "<group>"; };
+		B856C7BE1DA048BE00D87A1B /* Promise+join.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+join.swift"; sourceTree = "<group>"; };
+		B856C7C01DA05E1B00D87A1B /* Promise+all.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+all.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,12 +89,13 @@
 			isa = PBXGroup;
 			children = (
 				B856C7B01DA020CD00D87A1B /* Promise.swift */,
-				B856C7B51DA026DC00D87A1B /* Promise+Catch.swift */,
-				B856C7B91DA0271C00D87A1B /* Promise+Finally.swift */,
-				B856C7BE1DA048BE00D87A1B /* Promise+Join.swift */,
-				B856C7B71DA026FA00D87A1B /* Promise+Tap.swift */,
-				B856C7B31DA026A600D87A1B /* Promise+Then.swift */,
-				B856C7BB1DA0273900D87A1B /* Promise+Void.swift */,
+				B856C7C01DA05E1B00D87A1B /* Promise+all.swift */,
+				B856C7B51DA026DC00D87A1B /* Promise+catch.swift */,
+				B856C7B91DA0271C00D87A1B /* Promise+finally.swift */,
+				B856C7BE1DA048BE00D87A1B /* Promise+join.swift */,
+				B856C7B71DA026FA00D87A1B /* Promise+tap.swift */,
+				B856C7B31DA026A600D87A1B /* Promise+then.swift */,
+				B856C7BB1DA0273900D87A1B /* Promise+void.swift */,
 				B856C7B21DA020D100D87A1B /* Supporting Files */,
 			);
 			path = Bluebird;
@@ -230,13 +233,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B856C7B41DA026A600D87A1B /* Promise+Then.swift in Sources */,
-				B856C7BC1DA0273900D87A1B /* Promise+Void.swift in Sources */,
+				B856C7B41DA026A600D87A1B /* Promise+then.swift in Sources */,
+				B856C7BC1DA0273900D87A1B /* Promise+void.swift in Sources */,
 				B856C7B11DA020CD00D87A1B /* Promise.swift in Sources */,
-				B856C7BF1DA048BE00D87A1B /* Promise+Join.swift in Sources */,
-				B856C7BA1DA0271C00D87A1B /* Promise+Finally.swift in Sources */,
-				B856C7B61DA026DC00D87A1B /* Promise+Catch.swift in Sources */,
-				B856C7B81DA026FA00D87A1B /* Promise+Tap.swift in Sources */,
+				B856C7BF1DA048BE00D87A1B /* Promise+join.swift in Sources */,
+				B856C7BA1DA0271C00D87A1B /* Promise+finally.swift in Sources */,
+				B856C7B61DA026DC00D87A1B /* Promise+catch.swift in Sources */,
+				B856C7B81DA026FA00D87A1B /* Promise+tap.swift in Sources */,
+				B856C7C11DA05E1B00D87A1B /* Promise+all.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,7 +11,7 @@ extension Promise {
     @discardableResult
     public func finally(queue: DispatchQueue = .main, _ handler: @escaping () throws -> Void) -> Promise<Result> {
         return Promise<Result> { resolve, reject in
-            addHandlers(queue: queue, {
+            addHandlers(on: queue, {
                 do {
                     try handler()
                     resolve($0)

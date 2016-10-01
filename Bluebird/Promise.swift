@@ -26,6 +26,30 @@ public final class Promise<Result> {
     public private(set) var state: State<Result>
 
     /**
+     The resolved result of this promise
+     */
+    public var result: Result? {
+        switch state {
+        case .resolved(let result):
+            return result
+        default:
+            return nil
+        }
+    }
+
+    /**
+     The resolved error of this promise
+     */
+    public var error: Error? {
+        switch state {
+        case .rejected(let error):
+            return error
+        default:
+            return nil
+        }
+    }
+
+    /**
      Initialize to a resolved promise
      */
     public init(resolve result: Result) {
@@ -92,7 +116,7 @@ public final class Promise<Result> {
     }
 
     @discardableResult
-    internal func addHandlers(queue: DispatchQueue = .main, _ resolve: @escaping (Result) -> Void, _ reject: @escaping (Error) -> Void) -> Promise<Result> {
+    internal func addHandlers(on queue: DispatchQueue = .main, _ resolve: @escaping (Result) -> Void, _ reject: @escaping (Error) -> Void) -> Promise<Result> {
         stateQueue.async {
             switch self.state {
             case .pending:
