@@ -6,8 +6,14 @@
 //  Copyright © 2016 Andrew Barba. All rights reserved.
 //
 
+#import <Foundation/Foundation.h>
+
 //! Project version number for Bluebird.
 FOUNDATION_EXPORT double BluebirdVersionNumber;
 
 //! Project version string for Bluebird.
 FOUNDATION_EXPORT const unsigned char BluebirdVersionString[];
+
+// In this header, you should import all the public headers of your framework using statements like #import <Bluebird/PublicHeader.h>
+
+
