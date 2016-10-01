@@ -10,6 +10,7 @@
 		B8C330F31D9F4C97004761C3 /* Promise.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B8C330E91D9F4C97004761C3 /* Promise.framework */; };
 		B8C330F81D9F4C97004761C3 /* PromiseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C330F71D9F4C97004761C3 /* PromiseTests.swift */; };
 		B8C330FA1D9F4C97004761C3 /* Promise.h in Headers */ = {isa = PBXBuildFile; fileRef = B8C330EC1D9F4C97004761C3 /* Promise.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B8C331041D9F4CD9004761C3 /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C331031D9F4CD9004761C3 /* Promise.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,8 @@
 		B8C330F21D9F4C97004761C3 /* PromiseTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PromiseTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8C330F71D9F4C97004761C3 /* PromiseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PromiseTests.swift; sourceTree = "<group>"; };
 		B8C330F91D9F4C97004761C3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B8C331031D9F4CD9004761C3 /* Promise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Promise.swift; sourceTree = "<group>"; };
+		B8C331061D9F6FCA004761C3 /* PromisePlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = PromisePlayground.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +74,8 @@
 		B8C330EB1D9F4C97004761C3 /* Promise */ = {
 			isa = PBXGroup;
 			children = (
-				B8C330EC1D9F4C97004761C3 /* Promise.h */,
-				B8C330ED1D9F4C97004761C3 /* Info.plist */,
+				B8C331031D9F4CD9004761C3 /* Promise.swift */,
+				B8C331051D9F4D20004761C3 /* Supporting Files */,
 			);
 			path = Promise;
 			sourceTree = "<group>";
@@ -81,9 +84,19 @@
 			isa = PBXGroup;
 			children = (
 				B8C330F71D9F4C97004761C3 /* PromiseTests.swift */,
+				B8C331061D9F6FCA004761C3 /* PromisePlayground.playground */,
 				B8C330F91D9F4C97004761C3 /* Info.plist */,
 			);
 			path = PromiseTests;
+			sourceTree = "<group>";
+		};
+		B8C331051D9F4D20004761C3 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B8C330EC1D9F4C97004761C3 /* Promise.h */,
+				B8C330ED1D9F4C97004761C3 /* Info.plist */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -149,6 +162,7 @@
 					B8C330E81D9F4C97004761C3 = {
 						CreatedOnToolsVersion = 8.0;
 						DevelopmentTeam = EVJS956X67;
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					B8C330F11D9F4C97004761C3 = {
@@ -198,6 +212,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8C331041D9F4CD9004761C3 /* Promise.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -322,6 +337,8 @@
 		B8C330FE1D9F4C97004761C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = EVJS956X67;
@@ -330,10 +347,12 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Promise/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abarba.Promise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -341,6 +360,8 @@
 		B8C330FF1D9F4C97004761C3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = EVJS956X67;
@@ -349,6 +370,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Promise/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abarba.Promise;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -360,6 +382,7 @@
 		B8C331011D9F4C97004761C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = EVJS956X67;
 				INFOPLIST_FILE = PromiseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -372,6 +395,7 @@
 		B8C331021D9F4C97004761C3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = EVJS956X67;
 				INFOPLIST_FILE = PromiseTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
