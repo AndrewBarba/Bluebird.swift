@@ -1,15 +1,15 @@
 //
-//  PromiseTests.swift
-//  PromiseTests
+//  BluebirdTests.swift
+//  BluebirdTests
 //
-//  Created by Andrew Barba on 9/30/16.
+//  Created by Andrew Barba on 10/1/16.
 //  Copyright © 2016 Andrew Barba. All rights reserved.
 //
 
 import XCTest
-@testable import Promise
+@testable import Bluebird
 
-class PromiseTests: XCTestCase {
+class BluebirdTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
