@@ -23,7 +23,11 @@ public final class Promise<Result> {
     /**
      Current state of the promise
      */
-    public private(set) var state: State<Result>
+    public private(set) var state: State<Result> {
+        didSet {
+            handleStateChanged()
+        }
+    }
 
     /**
      The resolved result of this promise
@@ -70,12 +74,12 @@ public final class Promise<Result> {
         self.state = .pending
         do {
             try resolver({
-                self.set(state: .resolved($0))
+                self.set(newState: .resolved($0))
             }, {
-                self.set(state: .rejected($0))
+                self.set(newState: .rejected($0))
             })
         } catch {
-            set(state: .rejected(error))
+            set(newState: .rejected(error))
         }
     }
 
@@ -88,12 +92,11 @@ public final class Promise<Result> {
         }
     }
 
-    private func set(state: State<Result>) {
+    private func set(newState: State<Result>) {
         stateQueue.async {
             switch self.state {
             case .pending:
-                self.state = state
-                self.handleStateChanged()
+                self.state = newState
             default:
                 break
             }

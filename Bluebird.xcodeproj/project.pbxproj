@@ -18,7 +18,9 @@
 		B856C7BC1DA0273900D87A1B /* Promise+void.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7BB1DA0273900D87A1B /* Promise+void.swift */; };
 		B856C7BF1DA048BE00D87A1B /* Promise+join.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7BE1DA048BE00D87A1B /* Promise+join.swift */; };
 		B856C7C11DA05E1B00D87A1B /* Promise+all.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C01DA05E1B00D87A1B /* Promise+all.swift */; };
-		B856C7C31DA05FB500D87A1B /* Promise+race.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C21DA05FB500D87A1B /* Promise+race.swift */; };
+		B856C7C31DA05FB500D87A1B /* Promise+any.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C21DA05FB500D87A1B /* Promise+any.swift */; };
+		B856C7C51DA063BF00D87A1B /* Promise+errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C41DA063BF00D87A1B /* Promise+errors.swift */; };
+		B856C7C71DA0644900D87A1B /* Promise+race.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C61DA0644900D87A1B /* Promise+race.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,7 +49,9 @@
 		B856C7BD1DA02F1D00D87A1B /* Bluebird.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Bluebird.playground; sourceTree = "<group>"; };
 		B856C7BE1DA048BE00D87A1B /* Promise+join.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+join.swift"; sourceTree = "<group>"; };
 		B856C7C01DA05E1B00D87A1B /* Promise+all.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+all.swift"; sourceTree = "<group>"; };
-		B856C7C21DA05FB500D87A1B /* Promise+race.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+race.swift"; sourceTree = "<group>"; };
+		B856C7C21DA05FB500D87A1B /* Promise+any.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+any.swift"; sourceTree = "<group>"; };
+		B856C7C41DA063BF00D87A1B /* Promise+errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+errors.swift"; sourceTree = "<group>"; };
+		B856C7C61DA0644900D87A1B /* Promise+race.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+race.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,10 +96,12 @@
 			children = (
 				B856C7B01DA020CD00D87A1B /* Promise.swift */,
 				B856C7C01DA05E1B00D87A1B /* Promise+all.swift */,
+				B856C7C21DA05FB500D87A1B /* Promise+any.swift */,
 				B856C7B51DA026DC00D87A1B /* Promise+catch.swift */,
+				B856C7C41DA063BF00D87A1B /* Promise+errors.swift */,
 				B856C7B91DA0271C00D87A1B /* Promise+finally.swift */,
 				B856C7BE1DA048BE00D87A1B /* Promise+join.swift */,
-				B856C7C21DA05FB500D87A1B /* Promise+race.swift */,
+				B856C7C61DA0644900D87A1B /* Promise+race.swift */,
 				B856C7B71DA026FA00D87A1B /* Promise+tap.swift */,
 				B856C7B31DA026A600D87A1B /* Promise+then.swift */,
 				B856C7BB1DA0273900D87A1B /* Promise+void.swift */,
@@ -236,6 +242,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B856C7C51DA063BF00D87A1B /* Promise+errors.swift in Sources */,
+				B856C7C71DA0644900D87A1B /* Promise+race.swift in Sources */,
 				B856C7B41DA026A600D87A1B /* Promise+then.swift in Sources */,
 				B856C7BC1DA0273900D87A1B /* Promise+void.swift in Sources */,
 				B856C7B11DA020CD00D87A1B /* Promise.swift in Sources */,
@@ -243,7 +251,7 @@
 				B856C7BA1DA0271C00D87A1B /* Promise+finally.swift in Sources */,
 				B856C7B61DA026DC00D87A1B /* Promise+catch.swift in Sources */,
 				B856C7B81DA026FA00D87A1B /* Promise+tap.swift in Sources */,
-				B856C7C31DA05FB500D87A1B /* Promise+race.swift in Sources */,
+				B856C7C31DA05FB500D87A1B /* Promise+any.swift in Sources */,
 				B856C7C11DA05E1B00D87A1B /* Promise+all.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
