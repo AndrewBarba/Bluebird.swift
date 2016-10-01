@@ -16,6 +16,7 @@
 		B856C7B81DA026FA00D87A1B /* Promise+Tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B71DA026FA00D87A1B /* Promise+Tap.swift */; };
 		B856C7BA1DA0271C00D87A1B /* Promise+Finally.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B91DA0271C00D87A1B /* Promise+Finally.swift */; };
 		B856C7BC1DA0273900D87A1B /* Promise+Void.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7BB1DA0273900D87A1B /* Promise+Void.swift */; };
+		B856C7BF1DA048BE00D87A1B /* Promise+Join.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7BE1DA048BE00D87A1B /* Promise+Join.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -42,6 +43,7 @@
 		B856C7B91DA0271C00D87A1B /* Promise+Finally.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Finally.swift"; sourceTree = "<group>"; };
 		B856C7BB1DA0273900D87A1B /* Promise+Void.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Void.swift"; sourceTree = "<group>"; };
 		B856C7BD1DA02F1D00D87A1B /* Bluebird.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Bluebird.playground; sourceTree = "<group>"; };
+		B856C7BE1DA048BE00D87A1B /* Promise+Join.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Join.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				B856C7B01DA020CD00D87A1B /* Promise.swift */,
 				B856C7B51DA026DC00D87A1B /* Promise+Catch.swift */,
 				B856C7B91DA0271C00D87A1B /* Promise+Finally.swift */,
+				B856C7BE1DA048BE00D87A1B /* Promise+Join.swift */,
 				B856C7B71DA026FA00D87A1B /* Promise+Tap.swift */,
 				B856C7B31DA026A600D87A1B /* Promise+Then.swift */,
 				B856C7BB1DA0273900D87A1B /* Promise+Void.swift */,
@@ -230,6 +233,7 @@
 				B856C7B41DA026A600D87A1B /* Promise+Then.swift in Sources */,
 				B856C7BC1DA0273900D87A1B /* Promise+Void.swift in Sources */,
 				B856C7B11DA020CD00D87A1B /* Promise.swift in Sources */,
+				B856C7BF1DA048BE00D87A1B /* Promise+Join.swift in Sources */,
 				B856C7BA1DA0271C00D87A1B /* Promise+Finally.swift in Sources */,
 				B856C7B61DA026DC00D87A1B /* Promise+Catch.swift in Sources */,
 				B856C7B81DA026FA00D87A1B /* Promise+Tap.swift in Sources */,

@@ -41,7 +41,7 @@ func getOrderError() -> Promise<Order> {
     return Promise(reject: NSError(domain: "", code: 0, userInfo: nil))
 }
 
-let promise = getUser()
+getUser()
     .then { _ in getEvent() }
     .then { _ in getUserError() }
     .catch { _ in getEvent() }
@@ -52,5 +52,41 @@ let promise = getUser()
     .tap { print($0) }
     .then { _ in getOrderError() }
     .finally { print("done!") }
+
+Promise.join(getEvent(), getUser())
+//    .then { print($0.0, $0.1) }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 PlaygroundPage.current.needsIndefiniteExecution = true
