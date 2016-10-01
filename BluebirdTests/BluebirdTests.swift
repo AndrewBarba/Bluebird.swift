@@ -10,27 +10,50 @@ import XCTest
 @testable import Bluebird
 
 class BluebirdTests: XCTestCase {
-    
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+
+    let defaultTimeout: TimeInterval = 1.0
+
+    // MARK: - Init
+
+    func testInitResolved() {
+        let promise: Promise<Int> = Promise(resolve: 10)
+        XCTAssertNil(promise.error)
+        XCTAssertNotNil(promise.result)
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func testInitRejected() {
+        let promise: Promise<Int> = Promise(reject: NSError(domain: "", code: 0, userInfo: nil))
+        XCTAssertNil(promise.result)
+        XCTAssertNotNil(promise.error)
     }
-    
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+
+    func testInitResolverResolve() {
+        let exp = expectation(description: "Promise.init.resolver.resolve")
+        let _result = 5
+        Promise<Int> { resolve, _ in
+            resolve(_result)
+        }.then { result in
+            XCTAssertEqual(result, _result)
+            exp.fulfill()
         }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
-    
+
+    func testInitResolverReject() {
+        let exp = expectation(description: "Promise.init.resolver.reject")
+        let _error = NSError(domain: "", code: 0, userInfo: nil)
+        Promise<Int> { _, reject in
+            reject(NSError(domain: "", code: 0, userInfo: nil))
+        }.catch { error in
+            XCTAssertEqual(error as NSError, _error)
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
+    // MARK: - Then
+
+    // MARK: - Catch
+
+    // MARK: - Tap
 }

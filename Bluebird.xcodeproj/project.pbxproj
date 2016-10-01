@@ -47,7 +47,6 @@
 		B856C7B71DA026FA00D87A1B /* Promise+tap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+tap.swift"; sourceTree = "<group>"; };
 		B856C7B91DA0271C00D87A1B /* Promise+finally.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+finally.swift"; sourceTree = "<group>"; };
 		B856C7BB1DA0273900D87A1B /* Promise+void.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+void.swift"; sourceTree = "<group>"; };
-		B856C7BD1DA02F1D00D87A1B /* Bluebird.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = Bluebird.playground; sourceTree = "<group>"; };
 		B856C7BE1DA048BE00D87A1B /* Promise+join.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+join.swift"; sourceTree = "<group>"; };
 		B856C7C01DA05E1B00D87A1B /* Promise+all.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+all.swift"; sourceTree = "<group>"; };
 		B856C7C21DA05FB500D87A1B /* Promise+any.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+any.swift"; sourceTree = "<group>"; };
@@ -117,7 +116,6 @@
 			isa = PBXGroup;
 			children = (
 				B856C7A41DA0206100D87A1B /* BluebirdTests.swift */,
-				B856C7BD1DA02F1D00D87A1B /* Bluebird.playground */,
 				B856C7A61DA0206100D87A1B /* Info.plist */,
 			);
 			path = BluebirdTests;
