@@ -14,9 +14,9 @@ public enum State<T> {
 
 public final class Promise<Result> {
 
-    fileprivate var resolvedHandler: ((Result) -> Void)?
+    fileprivate var resolvedHandlers: [(Result) -> Void] = []
 
-    fileprivate var rejectedHandler: ((Error) -> Void)?
+    fileprivate var rejectedHandlers: [(Error) -> Void] = []
 
     /**
      Current state of the promise
@@ -85,9 +85,9 @@ public final class Promise<Result> {
         case .pending:
             break
         case .resolved(let result):
-            resolvedHandler?(result)
+            resolvedHandlers.forEach { $0(result) }
         case .rejected(let error):
-            rejectedHandler?(error)
+            rejectedHandlers.forEach { $0(error) }
         }
     }
 }
@@ -96,7 +96,6 @@ public final class Promise<Result> {
 
 extension Promise {
 
-    @discardableResult
     public func then<A>(_ handler: @escaping (Result) throws -> Promise<A>) -> Promise<A> {
         switch state {
         case .resolved(let result):
@@ -109,14 +108,14 @@ extension Promise {
             return Promise<A>(error: error)
         case .pending:
             return Promise<A> { resolve, reject in
-                resolvedHandler = {
+                resolvedHandlers.append({
                     do {
                         try handler($0).then(resolve).catch(reject)
                     } catch {
                         reject(error)
                     }
-                }
-                rejectedHandler = { reject($0) }
+                })
+                rejectedHandlers.append({ reject($0) })
             }
         }
     }
@@ -133,7 +132,6 @@ extension Promise {
 
 extension Promise {
 
-    @discardableResult
     public func tap<A>(_ handler: @escaping (Result) throws -> Promise<A>) -> Promise<Result> {
         return self.then { result in
             return try handler(result).then { _ in Promise(result: result) }
@@ -148,11 +146,28 @@ extension Promise {
     }
 }
 
+// MARK: - Finally
+
+extension Promise {
+
+    public func finally(_ handler: @escaping () throws -> Void) -> Promise<Result> {
+        return Promise<Result> { resolve, reject in
+            self.then {
+                try handler()
+                resolve($0)
+            }
+            self.catch {
+                try handler()
+                reject($0)
+            }
+        }
+    }
+}
+
 // MARK: - Catch
 
 extension Promise {
 
-    @discardableResult
     public func `catch`<A>(_ handler: @escaping (Error) throws -> Promise<A>) -> Promise<A> {
         switch state {
         case .resolved(_):
@@ -165,13 +180,13 @@ extension Promise {
             }
         case .pending:
             return Promise<A> { resolve, reject in
-                rejectedHandler = {
+                rejectedHandlers.append ({
                     do {
                         try handler($0).then(resolve).catch(reject)
                     } catch {
                         reject(error)
                     }
-                }
+                })
             }
         }
     }
