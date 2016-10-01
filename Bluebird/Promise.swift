@@ -101,6 +101,11 @@ public final class Promise<Result> {
     }
 
     private func handleStateChanged() {
+        defer {
+            resolvedHandlers = []
+            rejectedHandlers = []
+        }
+
         switch state {
         case .pending:
             break
