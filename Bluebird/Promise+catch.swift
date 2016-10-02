@@ -10,13 +10,19 @@ extension Promise {
 
     public func `catch`<A>(on queue: DispatchQueue = .main, _ handler: @escaping (Error) throws -> Promise<A>) -> Promise<A> {
         return Promise<A> { resolve, reject in
-            addHandlers(on: queue, { _ in }, {
+            addHandler(on: queue, reject: {
                 do {
-                    try handler($0).addHandlers(resolve, reject)
+                    try handler($0).addHandler(resolve, reject)
                 } catch {
                     return reject(error)
                 }
             })
+        }
+    }
+
+    public func `catch`<A>(on queue: DispatchQueue = .main, _ handler: @escaping (Error) throws -> A) -> Promise<A> {
+        return self.catch(on: queue) {
+            try Promise<A>(resolve: handler($0))
         }
     }
 

@@ -10,15 +10,21 @@ extension Promise {
 
     public func then<A>(on queue: DispatchQueue = .main, _ handler: @escaping (Result) throws -> Promise<A>) -> Promise<A> {
         return Promise<A> { resolve, reject in
-            addHandlers(on: queue, {
+            addHandler(on: queue, {
                 do {
-                    try handler($0).addHandlers(resolve, reject)
+                    try handler($0).addHandler(resolve, reject)
                 } catch {
                     return reject(error)
                 }
             }, {
                 reject($0)
             })
+        }
+    }
+
+    public func then<A>(on queue: DispatchQueue = .main, _ handler: @escaping (Result) throws -> A) -> Promise<A> {
+        return then(on: queue) {
+            try Promise<A>(resolve: handler($0))
         }
     }
 

@@ -74,12 +74,12 @@ public final class Promise<Result> {
         self.state = .pending
         do {
             try resolver({
-                self.set(newState: .resolved($0))
+                self.set(state: .resolved($0))
             }, {
-                self.set(newState: .rejected($0))
+                self.set(state: .rejected($0))
             })
         } catch {
-            set(newState: .rejected(error))
+            set(state: .rejected(error))
         }
     }
 
@@ -88,15 +88,21 @@ public final class Promise<Result> {
      */
     public convenience init(_ resolver: () throws -> Promise<Result>) {
         self.init { resolve, reject in
-            try resolver().addHandlers(resolve, reject)
+            try resolver().addHandler(resolve, reject)
         }
     }
 
-    private func set(newState: State<Result>) {
-        stateQueue.async {
-            switch self.state {
+    private func performStateOperation(_ operation: (State<Result>) -> ()) {
+        stateQueue.sync {
+            operation(state)
+        }
+    }
+
+    private func set(state: State<Result>) {
+        performStateOperation { current in
+            switch current {
             case .pending:
-                self.state = newState
+                self.state = state
             default:
                 break
             }
@@ -124,14 +130,44 @@ public final class Promise<Result> {
     }
 
     @discardableResult
-    internal func addHandlers(on queue: DispatchQueue = .main, _ resolve: @escaping (Result) -> Void, _ reject: @escaping (Error) -> Void) -> Promise<Result> {
-        stateQueue.async {
-            switch self.state {
+    internal func addHandler(on queue: DispatchQueue = .main, _ resolve: @escaping (Result) -> Void, _ reject: @escaping (Error) -> Void) -> Promise<Result> {
+        performStateOperation { current in
+            switch current {
             case .pending:
-                self.resolvedHandlers.append((queue, resolve))
-                self.rejectedHandlers.append((queue, reject))
+                resolvedHandlers.append((queue, resolve))
+                rejectedHandlers.append((queue, reject))
             case .resolved(let result):
                 queue.async { resolve(result) }
+            case .rejected(let error):
+                queue.async { reject(error) }
+            }
+        }
+        return self
+    }
+
+    @discardableResult
+    internal func addHandler(on queue: DispatchQueue = .main, resolve: @escaping (Result) -> Void) -> Promise<Result> {
+        performStateOperation { current in
+            switch current {
+            case .pending:
+                resolvedHandlers.append((queue, resolve))
+            case .resolved(let result):
+                queue.async { resolve(result) }
+            case .rejected(_):
+                break
+            }
+        }
+        return self
+    }
+
+    @discardableResult
+    internal func addHandler(on queue: DispatchQueue = .main, reject: @escaping (Error) -> Void) -> Promise<Result> {
+        performStateOperation { current in
+            switch current {
+            case .pending:
+                rejectedHandlers.append((queue, reject))
+            case .resolved(_):
+                break
             case .rejected(let error):
                 queue.async { reject(error) }
             }

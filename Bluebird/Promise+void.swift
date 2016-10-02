@@ -8,11 +8,11 @@
 
 extension Promise {
 
-    public static func Void() -> Promise<Void> {
-        return Promise<Void>(resolve: ())
-    }
-
     public var asVoid: Promise<Void> {
         return then { _ in }
     }
+}
+
+public func VoidPromise() -> Promise<Void> {
+    return Promise<Void>(resolve: ())
 }
