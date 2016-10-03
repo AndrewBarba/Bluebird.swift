@@ -24,7 +24,6 @@
 		B856C7C91DA064E800D87A1B /* Promise+map.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C81DA064E800D87A1B /* Promise+map.swift */; };
 		B856C7CB1DA06BFD00D87A1B /* Bluebird.podspec in Resources */ = {isa = PBXBuildFile; fileRef = B856C7CA1DA06BFD00D87A1B /* Bluebird.podspec */; };
 		B856C7CD1DA071CE00D87A1B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B856C7CC1DA071CE00D87A1B /* LICENSE */; };
-		B8EF1FEB1DA1E38700201AD0 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = B8EF1FEA1DA1E38700201AD0 /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,7 +57,6 @@
 		B856C7C81DA064E800D87A1B /* Promise+map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+map.swift"; sourceTree = "<group>"; };
 		B856C7CA1DA06BFD00D87A1B /* Bluebird.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Bluebird.podspec; sourceTree = SOURCE_ROOT; };
 		B856C7CC1DA071CE00D87A1B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
-		B8EF1FEA1DA1E38700201AD0 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,7 +129,6 @@
 			isa = PBXGroup;
 			children = (
 				B856C7CA1DA06BFD00D87A1B /* Bluebird.podspec */,
-				B8EF1FEA1DA1E38700201AD0 /* README.md */,
 				B856C7991DA0206100D87A1B /* Bluebird.h */,
 				B856C79A1DA0206100D87A1B /* Info.plist */,
 				B856C7CC1DA071CE00D87A1B /* LICENSE */,
@@ -258,7 +255,6 @@
 				B856C7C71DA0644900D87A1B /* Promise+race.swift in Sources */,
 				B856C7B41DA026A600D87A1B /* Promise+then.swift in Sources */,
 				B856C7BC1DA0273900D87A1B /* Promise+void.swift in Sources */,
-				B8EF1FEB1DA1E38700201AD0 /* README.md in Sources */,
 				B856C7C91DA064E800D87A1B /* Promise+map.swift in Sources */,
 				B856C7B11DA020CD00D87A1B /* Promise.swift in Sources */,
 				B856C7BF1DA048BE00D87A1B /* Promise+join.swift in Sources */,
