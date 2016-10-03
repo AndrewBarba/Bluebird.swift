@@ -277,6 +277,8 @@ class BluebirdTests: XCTestCase {
         let exp = expectation(description: "Promise.finally.single")
         getInt().finally {
             exp.fulfill()
+        }.catch { _ in
+            XCTFail()
         }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
@@ -285,6 +287,8 @@ class BluebirdTests: XCTestCase {
         let exp = expectation(description: "Promise.finally.error")
         getIntError().finally {
             exp.fulfill()
+        }.catch { error in
+            XCTAssertEqual(error as! BluebirdTestError, BluebirdTestError.int)
         }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
@@ -298,6 +302,8 @@ class BluebirdTests: XCTestCase {
         any(p1, p2).then { result in
             XCTAssertEqual(result, p1.result!)
             exp.fulfill()
+        }.catch { _ in
+            XCTFail()
         }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
@@ -309,6 +315,8 @@ class BluebirdTests: XCTestCase {
         any([p1, p2]).then { result in
             XCTAssertEqual(result, p1.result!)
             exp.fulfill()
+        }.catch { _ in
+            XCTFail()
         }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
@@ -323,6 +331,8 @@ class BluebirdTests: XCTestCase {
             XCTAssertEqual(result.0, p1.result!)
             XCTAssertEqual(result.1, p2.result!)
             exp.fulfill()
+        }.catch { _ in
+            XCTFail()
         }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
@@ -337,6 +347,8 @@ class BluebirdTests: XCTestCase {
             XCTAssertEqual(results[0], p1.result!)
             XCTAssertEqual(results[1], p2.result!)
             exp.fulfill()
+        }.catch { _ in
+            XCTFail()
         }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
@@ -349,9 +361,28 @@ class BluebirdTests: XCTestCase {
             XCTAssertEqual(results[0], p1.result!)
             XCTAssertEqual(results[1], p2.result!)
             exp.fulfill()
+        }.catch { _ in
+            XCTFail()
         }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
 
     // MARK: - Map
+
+    func testMapArray() {
+        let exp = expectation(description: "Promise.map.array")
+        let arr = [1, 10, 5, 6, 8, 94, 4]
+        map(arr) { getInt($0) }
+            .then { results in
+                XCTAssertEqual(results.count, arr.count)
+                for (index, result) in results.enumerated() {
+                    XCTAssertEqual(result, arr[index])
+                }
+                exp.fulfill()
+            }
+            .catch { _ in
+                XCTFail()
+            }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
 }
