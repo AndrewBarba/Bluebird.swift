@@ -7,7 +7,7 @@ Bluebird.swift
 [![Platform](https://img.shields.io/cocoapods/p/Bluebird.svg?style=flat)](http://cocoadocs.org/docsets/Bluebird)
 [![Twitter](https://img.shields.io/badge/twitter-@andrew_barba-blue.svg?style=flat)](http://twitter.com/andrew_barba)
 
-Promise/A+, [Bluebird](http://bluebirdjs.com) inspired, implementation in Swift 3
+[Promise/A+](https://promisesaplus.com/) compliant, [Bluebird](http://bluebirdjs.com) inspired, implementation in Swift 3
 
 ## Features
 
@@ -66,7 +66,7 @@ let promise = Promise<Int> { resolve, reject in
 }
 ```
 
-The `resolve` and `reject` functions can be called asynchronously or synchronously. This is a great way to wrap existing Cocoa API to resolve Promises in your own code. For example, say we have an expensive function that manipulates an image:
+The `resolve` and `reject` functions can be called asynchronously or synchronously. This is a great way to wrap existing Cocoa API to resolve Promises in your own code. For example, look at an expensive function that manipulates an image:
 
 ###### Before Promises
 
@@ -100,7 +100,13 @@ func performExpensiveOperation(onImage image: UIImage) -> Promise<UIImage> {
 }
 ```
 
-Okay, so the inner body of the function looks almost identical, aside from the fact that in the Promise implementation we are returning *something*. But look at how much better the function signature looks! Notice no more completion handler, no more optional image in the completion handler, and no more optional error in the completion handler. Those optional in the original function are a dead giveaway that you will be doing a bunch of checks later on unwrap them and act accordingly. But with the Promise implementation that logic is all hidden in the magic of Promises. Using this new function is now a joy:
+Okay, so the inner body of the function looks almost identical...
+
+But look at how much better the function signature looks!
+
+No more completion handler, no more optional image, no more optional error. Optionals in the original function are a dead giveaway that you'll be guarding and unwrapping in the near future.
+
+With the Promise implementation that logic is hidden by good design. Using this new function is now a joy:
 
 ```swift
 let original: UIImage = ...
@@ -129,3 +135,65 @@ performExpensiveOperation(onImage: original)
 ### finally
 
 > In progress...
+
+## Tests
+
+> In progress... [Promise/A+ Test Suite](https://github.com/promises-aplus/promises-tests)
+
+## Bluebird vs PromiseKit
+
+I'd be lying if I said [PromiseKit](https://github.com/mxcl/PromiseKit) wasn't a fantastic library (it is!) but Bluebird has different goals that may or may not appeal to different developers.
+
+#### Xcode 8+, Swift 3+
+
+PromiseKit goes to great length to maintain compatibility with Objective-C, previous versions of Swift, and previous versions of Xcode. Thats a ton of work, god bless them.
+
+#### No Extensions
+
+PromiseKit provides many useful framework extensions that wrap core Cocoa API's in Promise style functions. I currently have no plans to provide such functionality, but if I did, it would be in a different repository so I can keep this one lean and well tested. 
+
+#### Bluebird API Compatible
+
+I began using PromiseKit after heavily using Bluebird.js in my Node/JavaScript projects but became annoyed with the subtle API differences and a few things missing all together. Bluebird.swift attempts to closely follow the API of Bluebird.js:
+
+###### Bluebird.js
+
+```javascript
+Promise.resolve(result)
+Promise.reject(error)
+promise.then(handler)
+promise.catch(handler)
+promise.finally(() => ...)
+promise.tap(value => ...)
+```
+
+###### Bluebird.swift
+
+```swift
+Promise(resolve: result)
+Promise(reject: error)
+promise.then(handler)
+promise.catch(handler)
+promise.finally { ... }
+promise.tap { value in ... }
+```
+
+###### PromiseKit
+
+```
+Promise(value: result)
+Promise(error: error)
+promise.then(execute: handler)
+promise.catch(execute: handler)
+promise.always { ... }
+promise.tap { result in
+  switch result {
+  case .fullfilled(let value):
+    ...
+  case .rejected(let error):
+    ...
+  }
+}
+```
+
+These are just a few of the differences, and Bluebird.swift is certainly missing features in Bluebird.js, but my goal is to close that gap and keep maintaining an API that much more closely matches where applicable.
