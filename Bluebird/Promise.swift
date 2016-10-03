@@ -17,13 +17,19 @@ public enum State<T> {
     case rejected(_: Error)
 }
 
+/// Handler function to be called when a Promise changes state
+///
+/// - resolve: block to be called if Promise resolves
+/// - reject:  block to be called if Promise rejects
+internal enum StateHandler<T> {
+    case resolve(_: DispatchQueue, _: (T) -> ())
+    case reject(_: DispatchQueue, _: (Error) -> ())
+}
+
 public final class Promise<Result> {
 
-    /// Handlers to be called when the promise resolved
-    private var resolvedHandlers: [(queue: DispatchQueue, handler: (Result) -> Void)] = []
-
-    /// Handlers to be called when the promise is rejected
-    private var rejectedHandlers: [(queue: DispatchQueue, handler: (Error) -> Void)] = []
+    /// Handlers to be called when the promise changes state
+    private var stateHandlers: [StateHandler<Result>] = []
 
     /// Private dispatch queue for performing state related operations
     private let stateQueue = DispatchQueue(label: "com.abarba.Bluebird.state")
@@ -98,7 +104,10 @@ public final class Promise<Result> {
     /// - returns: Promise
     public convenience init(_ resolver: () throws -> Promise<Result>) {
         self.init { resolve, reject in
-            try resolver().addHandler(resolve, reject)
+            try resolver().addHandlers([
+                .resolve(.main, resolve),
+                .reject(.main, reject)
+            ])
         }
     }
 
@@ -127,21 +136,18 @@ public final class Promise<Result> {
 
     /// Runs the resolve/reject handlers according to Promise state. Clears handlers after execution
     private func handleStateChanged() {
-        defer {
-            resolvedHandlers = []
-            rejectedHandlers = []
-        }
+        defer { stateHandlers = [] }
 
-        switch state {
-        case .pending:
-            break
-        case .resolved(let result):
-            resolvedHandlers.forEach { item in
-                item.queue.async { item.handler(result) }
-            }
-        case .rejected(let error):
-            rejectedHandlers.forEach { item in
-                item.queue.async { item.handler(error) }
+        stateHandlers.forEach { handler in
+            switch (state, handler) {
+            case (.pending, _):
+                break
+            case (.resolved(let result), .resolve(let queue, let block)):
+                queue.async { block(result) }
+            case (.rejected(let error), .reject(let queue, let block)):
+                queue.async { block(error) }
+            default:
+                break
             }
         }
     }
@@ -154,60 +160,43 @@ public final class Promise<Result> {
     ///
     /// - returns: Self
     @discardableResult
-    internal func addHandler(on queue: DispatchQueue = .main, _ resolve: @escaping (Result) -> Void, _ reject: @escaping (Error) -> Void) -> Promise<Result> {
+    internal func addHandlers(_ handlers: [StateHandler<Result>]) -> Promise<Result> {
         performStateOperation { current in
             switch current {
             case .pending:
-                resolvedHandlers.append((queue, resolve))
-                rejectedHandlers.append((queue, reject))
+                stateHandlers.append(contentsOf: handlers)
             case .resolved(let result):
-                queue.async { resolve(result) }
+                handlers.forEach { runHandler($0, with: result) }
             case .rejected(let error):
-                queue.async { reject(error) }
+                handlers.forEach { runHandler($0, with: error) }
             }
         }
         return self
     }
 
-    /// Adds a handler that will be run when this Promise resolves
+    /// Runs a handler if it is a resolve handler
     ///
-    /// - parameter queue:   the dispatch queue to run the passed in handler on
-    /// - parameter resolve: a block to run when the Promise resolves
-    ///
-    /// - returns: Self
-    @discardableResult
-    internal func addHandler(on queue: DispatchQueue = .main, resolve: @escaping (Result) -> Void) -> Promise<Result> {
-        performStateOperation { current in
-            switch current {
-            case .pending:
-                resolvedHandlers.append((queue, resolve))
-            case .resolved(let result):
-                queue.async { resolve(result) }
-            case .rejected(_):
-                break
-            }
+    /// - parameter handler: handler to run
+    /// - parameter result:  resolved result
+    private func runHandler(_ handler: StateHandler<Result>, with result: Result) {
+        switch handler {
+        case .resolve(let queue, let block):
+            queue.async { block(result) }
+        default:
+            break
         }
-        return self
     }
 
-    /// Adds a handler that will be run when this Promise rejects
+    /// Runs a handler if it is a reject handler
     ///
-    /// - parameter queue:   the dispatch queue to run the passed in handler on
-    /// - parameter resolve: a block to run when the Promise rejects
-    ///
-    /// - returns: Self
-    @discardableResult
-    internal func addHandler(on queue: DispatchQueue = .main, reject: @escaping (Error) -> Void) -> Promise<Result> {
-        performStateOperation { current in
-            switch current {
-            case .pending:
-                rejectedHandlers.append((queue, reject))
-            case .resolved(_):
-                break
-            case .rejected(let error):
-                queue.async { reject(error) }
-            }
+    /// - parameter handler: handler to run
+    /// - parameter error:   resolved error
+    private func runHandler(_ handler: StateHandler<Result>, with error: Error) {
+        switch handler {
+        case .reject(let queue, let block):
+            queue.async { block(error) }
+        default:
+            break
         }
-        return self
     }
 }

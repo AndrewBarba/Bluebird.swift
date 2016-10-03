@@ -37,7 +37,12 @@ extension Promise {
                 resolve(promises.map { $0.result! })
             }
 
-            promises.forEach { $0.addHandler(on: queue, check, reject) }
+            promises.forEach {
+                $0.addHandlers([
+                    .resolve(queue, check),
+                    .reject(queue, reject)
+                ])
+            }
         }
     }
 }

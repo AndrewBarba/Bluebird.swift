@@ -24,7 +24,12 @@ extension Promise {
     /// - returns: Promise
     public static func race<A>(_ promises: [Promise<A>]) -> Promise<A> {
         return Promise<A> { resolve, reject in
-            promises.forEach { $0.addHandler(resolve, reject) }
+            promises.forEach {
+                $0.addHandlers([
+                    .resolve(.main, resolve),
+                    .reject(.main, reject)
+                ])
+            }
         }
     }
 }

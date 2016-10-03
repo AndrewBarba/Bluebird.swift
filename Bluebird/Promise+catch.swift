@@ -16,13 +16,18 @@ extension Promise {
     /// - returns: Promise
     public func `catch`<A>(on queue: DispatchQueue = .main, _ handler: @escaping (Error) throws -> Promise<A>) -> Promise<A> {
         return Promise<A> { resolve, reject in
-            addHandler(on: queue, reject: {
-                do {
-                    try handler($0).addHandler(resolve, reject)
-                } catch {
-                    return reject(error)
-                }
-            })
+            addHandlers([
+                .reject(queue, {
+                    do {
+                        try handler($0).addHandlers([
+                            .resolve(.main, resolve),
+                            .reject(.main, reject)
+                        ])
+                    } catch {
+                        return reject(error)
+                    }
+                })
+            ])
         }
     }
 

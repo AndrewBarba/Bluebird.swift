@@ -17,21 +17,24 @@ extension Promise {
     @discardableResult
     public func finally(queue: DispatchQueue = .main, _ handler: @escaping () throws -> Void) -> Promise<Result> {
         return Promise<Result> { resolve, reject in
-            addHandler(on: queue, {
-                do {
-                    try handler()
-                    resolve($0)
-                } catch {
-                    reject(error)
-                }
-            }, {
-                do {
-                    try handler()
-                    reject($0)
-                } catch {
-                    reject(error)
-                }
-            })
+            addHandlers([
+                .resolve(queue, {
+                    do {
+                        try handler()
+                        resolve($0)
+                    } catch {
+                        reject(error)
+                    }
+                }),
+                .reject(queue, {
+                    do {
+                        try handler()
+                        reject($0)
+                    } catch {
+                        reject(error)
+                    }
+                })
+            ])
         }
     }
 }

@@ -28,7 +28,12 @@ extension Promise {
         }
 
         return Promise<A> { resolve, reject in
-            promises.forEach { $0.addHandler(resolve, reject) }
+            promises.forEach {
+                $0.addHandlers([
+                    .resolve(.main, resolve),
+                    .reject(.main, reject)
+                ])
+            }
         }
     }
 }
