@@ -9,9 +9,25 @@
 import XCTest
 @testable import Bluebird
 
+func getInt(_ result: Int = 10) -> Promise<Int> {
+    return Promise<Int> { resolve, _ in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            resolve(result)
+        }
+    }
+}
+
+func getString(_ result: String = "Hello, Bluebird") -> Promise<String> {
+    return Promise<String> { resolve, _ in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            resolve(result)
+        }
+    }
+}
+
 class BluebirdTests: XCTestCase {
 
-    let defaultTimeout: TimeInterval = 1.0
+    let defaultTimeout: TimeInterval = 5.0
 
     // MARK: - Init
 
@@ -108,7 +124,51 @@ class BluebirdTests: XCTestCase {
 
     // MARK: - Then
 
+    func testThenSingle() {
+        let exp = expectation(description: "Promise.then.single")
+        let int = 5
+        getInt(int).then { result in
+            XCTAssertEqual(result, int)
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
+    func testThenPromise() {
+        let exp = expectation(description: "Promise.then.promise")
+        let int = 5
+        getInt(int).then {
+            getString("\($0)")
+        }.then {
+            XCTAssertEqual($0, "\(int)")
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
+    func testThenValue() {
+        let exp = expectation(description: "Promise.then.value")
+        let int = 5
+        getInt(int).then {
+            "\($0)"
+        }.then {
+            XCTAssertEqual($0, "\(int)")
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
     // MARK: - Catch
 
     // MARK: - Tap
+
+    // MARK: - Finally
+
+    // MARK: - Any/Race
+
+    // MARK: - Join
+
+    // MARK: - All
+
+    // MARK: - Map
 }

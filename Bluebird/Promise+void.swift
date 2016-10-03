@@ -10,7 +10,7 @@ extension Promise {
 
     /// Converts the current Promise to a generic Void Promise
     public var asVoid: Promise<Void> {
-        return then { _ in }
+        return then { _ in () }
     }
 }
 
