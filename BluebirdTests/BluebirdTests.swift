@@ -248,6 +248,8 @@ class BluebirdTests: XCTestCase {
         }.tap { result in
             XCTAssertEqual(result, string)
             exp.fulfill()
+        }.catch { _ in
+            XCTFail()
         }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
@@ -262,17 +264,94 @@ class BluebirdTests: XCTestCase {
         }.tap { result in
             XCTAssertEqual(result, string!)
             exp.fulfill()
+
+        }.catch { _ in
+            XCTFail()
         }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
 
     // MARK: - Finally
 
+    func testFinallySingle() {
+        let exp = expectation(description: "Promise.finally.single")
+        getInt().finally {
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
+    func testFinallyError() {
+        let exp = expectation(description: "Promise.finally.error")
+        getIntError().finally {
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
     // MARK: - Any/Race
+
+    func testAnyArgs() {
+        let exp = expectation(description: "Promise.any.args")
+        let p1 = Promise<Int>(resolve: 1)
+        let p2 = getInt(5)
+        any(p1, p2).then { result in
+            XCTAssertEqual(result, p1.result!)
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
+    func testAnyArray() {
+        let exp = expectation(description: "Promise.any.array")
+        let p1 = Promise<Int>(resolve: 1)
+        let p2 = getInt(5)
+        any([p1, p2]).then { result in
+            XCTAssertEqual(result, p1.result!)
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
 
     // MARK: - Join
 
+    func testJoinArgs() {
+        let exp = expectation(description: "Promise.join.args")
+        let p1 = Promise<Int>(resolve: 1)
+        let p2 = getInt(5)
+        join(p1, p2).then { result in
+            XCTAssertEqual(result.0, p1.result!)
+            XCTAssertEqual(result.1, p2.result!)
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
     // MARK: - All
+
+    func testAllArgs() {
+        let exp = expectation(description: "Promise.all.args")
+        let p1 = Promise<Int>(resolve: 1)
+        let p2 = getInt(5)
+        all(p1, p2).then { results in
+            XCTAssertEqual(results[0], p1.result!)
+            XCTAssertEqual(results[1], p2.result!)
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
+    func testAllArray() {
+        let exp = expectation(description: "Promise.all.array")
+        let p1 = Promise<Int>(resolve: 1)
+        let p2 = getInt(5)
+        all([p1, p2]).then { results in
+            XCTAssertEqual(results[0], p1.result!)
+            XCTAssertEqual(results[1], p2.result!)
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
 
     // MARK: - Map
 }
