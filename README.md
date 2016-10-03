@@ -1,7 +1,9 @@
 Bluebird.swift
 ==============
 
-[Bluebird](https://github.com/petkaantonov/bluebird/) compatible, Promise/A+ implementation in Swift 3
+[![Build Status](https://www.bitrise.io/app/701ab7c9f38d6256.svg?token=iG7jwI_9wFXyDl886lLAWw&branch=master)](https://www.bitrise.io/app/701ab7c9f38d6256)
+
+Promise/A+, [Bluebird](https://github.com/petkaantonov/bluebird/) inspired, implementation in Swift 3
 
 ## Features
 
