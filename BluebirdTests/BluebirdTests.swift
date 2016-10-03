@@ -9,6 +9,11 @@
 import XCTest
 @testable import Bluebird
 
+enum BluebirdTestError: Error {
+    case int
+    case string
+}
+
 func getInt(_ result: Int = 10) -> Promise<Int> {
     return Promise<Int> { resolve, _ in
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
@@ -17,10 +22,26 @@ func getInt(_ result: Int = 10) -> Promise<Int> {
     }
 }
 
+func getIntError(_ result: Int = 10) -> Promise<Int> {
+    return Promise<Int> { _, reject in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            reject(BluebirdTestError.int)
+        }
+    }
+}
+
 func getString(_ result: String = "Hello, Bluebird") -> Promise<String> {
     return Promise<String> { resolve, _ in
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             resolve(result)
+        }
+    }
+}
+
+func getStringError(_ result: String = "Hello, Bluebird") -> Promise<String> {
+    return Promise<String> { _, reject in
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+            reject(BluebirdTestError.string)
         }
     }
 }
@@ -160,7 +181,90 @@ class BluebirdTests: XCTestCase {
 
     // MARK: - Catch
 
+    func testCatchSingle() {
+        let exp = expectation(description: "Promise.catch.single")
+        let int = 5
+        getIntError(int).then { _ in
+            XCTFail()
+        }.catch { error in
+            XCTAssertEqual(BluebirdTestError.int, error as! BluebirdTestError)
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
+    func testCatchChain() {
+        let exp = expectation(description: "Promise.catch.chain")
+        let int = 5
+        getInt(int).then { _ in
+            getStringError()
+        }.then { _ in
+            XCTFail()
+        }.catch { error in
+            XCTAssertEqual(BluebirdTestError.string, error as! BluebirdTestError)
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
+    func testCatchRecover() {
+        let exp = expectation(description: "Promise.catch.recover")
+        let int = 5
+        let string = "Hello, Bluebird"
+        getInt(int).then { _ in
+            getStringError()
+        }.then { _ in
+            XCTFail()
+        }.catch { _ in
+            getString(string)
+        }.then { result in
+            XCTAssertEqual(result, string)
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
     // MARK: - Tap
+
+    func testTapSingle() {
+        let exp = expectation(description: "Promise.tap.single")
+        let int = 5
+        getInt(int).tap { result in
+            XCTAssertEqual(result, int)
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
+    func testTapChain() {
+        let exp = expectation(description: "Promise.tap.chain")
+        let int = 5
+        let string = "Hello, World"
+        getInt(int).tap { result in
+            XCTAssertEqual(result, int)
+        }.then { result -> Promise<String> in
+            XCTAssertEqual(result, int)
+            return getString(string)
+        }.tap { result in
+            XCTAssertEqual(result, string)
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
+    func testTapPromise() {
+        let exp = expectation(description: "Promise.tap.promise")
+        let int = 5
+        var string: String? = nil
+        getInt(int).then { result -> Promise<String> in
+            XCTAssertEqual(result, int)
+            return getString().tap { string = $0 }
+        }.tap { result in
+            XCTAssertEqual(result, string!)
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
 
     // MARK: - Finally
 

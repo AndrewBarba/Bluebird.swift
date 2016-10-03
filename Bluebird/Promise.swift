@@ -22,8 +22,8 @@ public enum State<T> {
 /// - resolve: block to be called if Promise resolves
 /// - reject:  block to be called if Promise rejects
 internal enum StateHandler<T> {
-    case resolve(_: DispatchQueue, _: (T) -> ())
-    case reject(_: DispatchQueue, _: (Error) -> ())
+    case resolve(_: DispatchQueue, _: (T) -> Void)
+    case reject(_: DispatchQueue, _: (Error) -> Void)
 }
 
 public final class Promise<Result> {
