@@ -144,13 +144,13 @@ performExpensiveOperation(onImage: original)
 
 I'd be lying if I said [PromiseKit](https://github.com/mxcl/PromiseKit) wasn't a fantastic library (it is!) but Bluebird has different goals that may or may not appeal to different developers.
 
-#### Xcode 8+, Swift 3+
+#### Xcode 8+ / Swift 3+
 
 PromiseKit goes to great length to maintain compatibility with Objective-C, previous versions of Swift, and previous versions of Xcode. Thats a ton of work, god bless them.
 
 #### No Extensions
 
-PromiseKit provides many useful framework extensions that wrap core Cocoa API's in Promise style functions. I currently have no plans to provide such functionality, but if I did, it would be in a different repository so I can keep this one lean and well tested. 
+PromiseKit provides many useful framework extensions that wrap core Cocoa API's in Promise style functions. I currently have no plans to provide such functionality, but if I did, it would be in a different repository so I can keep this one lean and well tested.
 
 #### Bluebird API Compatible
 
