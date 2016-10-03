@@ -7,7 +7,7 @@ Bluebird.swift
 [![Platform](https://img.shields.io/cocoapods/p/Bluebird.svg?style=flat)](http://cocoadocs.org/docsets/Bluebird)
 [![Twitter](https://img.shields.io/badge/twitter-@andrew_barba-blue.svg?style=flat)](http://twitter.com/andrew_barba)
 
-Promise/A+, [Bluebird](https://github.com/petkaantonov/bluebird/) inspired, implementation in Swift 3
+Promise/A+, [Bluebird](http://bluebirdjs.com) inspired, implementation in Swift 3
 
 ## Features
 

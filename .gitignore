@@ -19,7 +19,8 @@ DerivedData
 *.ipa
 *.xcworkspace
 
-# Dependency managers
+# Other
 Carthage/
 Pods/
 build/
+docs/
