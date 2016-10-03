@@ -22,13 +22,11 @@ public final class Promise<Result> {
     /// Handlers to be called when the promise resolved
     private var resolvedHandlers: [(queue: DispatchQueue, handler: (Result) -> Void)] = []
 
-
     /// Handlers to be called when the promise is rejected
     private var rejectedHandlers: [(queue: DispatchQueue, handler: (Error) -> Void)] = []
 
     /// Private dispatch queue for performing state related operations
     private let stateQueue = DispatchQueue(label: "com.abarba.Bluebird.state")
-
 
     /// The current state of the promise
     public private(set) var state: State<Result> {
