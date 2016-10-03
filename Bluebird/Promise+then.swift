@@ -27,9 +27,7 @@ extension Promise {
                         return reject(error)
                     }
                 }),
-                .reject(queue, {
-                    reject($0)
-                })
+                .reject(queue, reject)
             ])
         }
     }
