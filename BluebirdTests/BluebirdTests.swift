@@ -27,11 +27,32 @@ class BluebirdTests: XCTestCase {
         XCTAssertNotNil(promise.error)
     }
 
-    func testInitResolverResolve() {
-        let exp = expectation(description: "Promise.init.resolver.resolve")
+    func testInitResolverResolveSync() {
         let _result = 5
-        Promise<Int> { resolve, _ in
+        let p = Promise<Int> { resolve, _ in
             resolve(_result)
+        }
+        XCTAssertEqual(p.result!, _result)
+    }
+
+    func testInitResolverResolveSyncRace() {
+        let _result = 5
+        let _error = NSError(domain: "", code: 0, userInfo: nil)
+        let p = Promise<Int> { resolve, reject in
+            resolve(_result)
+            reject(_error)
+        }
+        XCTAssertEqual(p.result!, _result)
+        XCTAssertNil(p.error)
+    }
+
+    func testInitResolverResolveAsync() {
+        let exp = expectation(description: "Promise.init.resolver.resolve")
+        let _result: Int = 5
+        Promise<Int> { resolve, reject in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                resolve(5)
+            }
         }.then { result in
             XCTAssertEqual(result, _result)
             exp.fulfill()
@@ -39,15 +60,49 @@ class BluebirdTests: XCTestCase {
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
 
-    func testInitResolverReject() {
+    func testInitResolverRejectSync() {
+        let _error = NSError(domain: "", code: 0, userInfo: nil)
+        let p = Promise<Int> { _, reject in
+            reject(_error)
+        }
+        XCTAssertEqual(p.error as! NSError, _error)
+    }
+
+    func testInitResolverRejectSyncRace() {
+        let _result = 5
+        let _error = NSError(domain: "", code: 0, userInfo: nil)
+        let p = Promise<Int> { resolve, reject in
+            reject(_error)
+            resolve(_result)
+        }
+        XCTAssertEqual(p.error as! NSError, _error)
+        XCTAssertNil(p.result)
+    }
+
+    func testInitResolverRejectAsync() {
         let exp = expectation(description: "Promise.init.resolver.reject")
         let _error = NSError(domain: "", code: 0, userInfo: nil)
         Promise<Int> { _, reject in
-            reject(NSError(domain: "", code: 0, userInfo: nil))
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+                reject(NSError(domain: "", code: 0, userInfo: nil))
+            }
         }.catch { error in
             XCTAssertEqual(error as NSError, _error)
             exp.fulfill()
         }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
+    func testInitResolverPromise() {
+        let exp = expectation(description: "Promise.init.resolver.promise")
+        let promise = VoidPromise()
+        let p = Promise<Void> {
+            return promise
+        }.then {
+            exp.fulfill()
+        }
+        XCTAssertNil(p.result)
+        XCTAssertNil(p.error)
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
 
