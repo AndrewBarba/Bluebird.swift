@@ -8,10 +8,20 @@
 
 extension Promise {
 
+    /// Returns a Promise that resolved when all passed in Promises resolve. Rejects as soon as one promise rejects.
+    ///
+    /// - parameter promises: comma separated list of Promises to resolve
+    ///
+    /// - returns: Promise
     public static func all<A>(_ promises: Promise<A>...) -> Promise<[A]> {
         return all(promises)
     }
 
+    /// Returns a Promise that resolved when all passed in Promises resolve. Rejects as soon as one promise rejects.
+    ///
+    /// - parameter promises: array of Promises to resolve
+    ///
+    /// - returns: Promise
     public static func all<A>(_ promises: [Promise<A>]) -> Promise<[A]> {
         guard promises.count > 0 else { return Promise<[A]>(resolve: []) }
 

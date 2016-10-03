@@ -6,6 +6,11 @@
 //  Copyright © 2016 Andrew Barba. All rights reserved.
 //
 
+/// Enum representing the current state of a Promise
+///
+/// - pending:  in a pending state, neither resolved or rejected
+/// - resolved: resolved. the promise can never change to another state
+/// - rejected: rejected. the promise can never change to another state
 public enum State<T> {
     case pending
     case resolved(_: T)
@@ -14,24 +19,25 @@ public enum State<T> {
 
 public final class Promise<Result> {
 
+    /// Handlers to be called when the promise resolved
     private var resolvedHandlers: [(queue: DispatchQueue, handler: (Result) -> Void)] = []
 
+
+    /// Handlers to be called when the promise is rejected
     private var rejectedHandlers: [(queue: DispatchQueue, handler: (Error) -> Void)] = []
 
+    /// Private dispatch queue for performing state related operations
     private let stateQueue = DispatchQueue(label: "com.abarba.Bluebird.state")
 
-    /**
-     Current state of the promise
-     */
+
+    /// The current state of the promise
     public private(set) var state: State<Result> {
         didSet {
             handleStateChanged()
         }
     }
 
-    /**
-     The resolved result of this promise
-     */
+    /// The resolved result of the promise
     public var result: Result? {
         switch state {
         case .resolved(let result):
@@ -41,9 +47,7 @@ public final class Promise<Result> {
         }
     }
 
-    /**
-     The resolved error of this promise
-     */
+    /// The rejected error of the promise
     public var error: Error? {
         switch state {
         case .rejected(let error):
@@ -53,23 +57,29 @@ public final class Promise<Result> {
         }
     }
 
-    /**
-     Initialize to a resolved promise
-     */
+    /// Initialize to a resolved result
+    ///
+    /// - parameter result: the final result of the promise
+    ///
+    /// - returns: Promise
     public init(resolve result: Result) {
         self.state = .resolved(result)
     }
 
-    /**
-     Initialize to a rejected promise
-     */
+    /// Initializa to a rejected error
+    ///
+    /// - parameter error: the final error of the promise
+    ///
+    /// - returns: Promise
     public init(reject error: Error) {
         self.state = .rejected(error)
     }
 
-    /**
-     Initialize with a resolver function
-     */
+    /// Initialize using a resolver function
+    ///
+    /// - parameter resolver: takes in a two blocks, one to resolve and one to reject the promise. Can be called synchronously or asynchronously
+    ///
+    /// - returns: Promise
     public init(_ resolver: (@escaping (Result) -> Void, @escaping (Error) -> Void) throws -> Void) {
         self.state = .pending
         do {
@@ -83,21 +93,29 @@ public final class Promise<Result> {
         }
     }
 
-    /**
-     Initialize with a resolver promise function
-     */
+    /// Convenience initializer to resolve this Promise when a returned Promise is resolved
+    ///
+    /// - parameter resolver: block that returns a Promise that this Promise will resolve to
+    ///
+    /// - returns: Promise
     public convenience init(_ resolver: () throws -> Promise<Result>) {
         self.init { resolve, reject in
             try resolver().addHandler(resolve, reject)
         }
     }
 
+    /// Safely perform an operation on the Promise's state
+    ///
+    /// - parameter operation: block to safely execute
     private func performStateOperation(_ operation: (State<Result>) -> ()) {
         stateQueue.sync {
             operation(state)
         }
     }
 
+    /// Safely set the state of this Promise
+    ///
+    /// - parameter state: the new state of the Promise
     private func set(state: State<Result>) {
         performStateOperation { current in
             switch current {
@@ -109,6 +127,7 @@ public final class Promise<Result> {
         }
     }
 
+    /// Runs the resolve/reject handlers according to Promise state. Clears handlers after execution
     private func handleStateChanged() {
         defer {
             resolvedHandlers = []
@@ -129,6 +148,13 @@ public final class Promise<Result> {
         }
     }
 
+    /// Adds handlers that will be run when this Promise resolves or rejects
+    ///
+    /// - parameter queue:   the dispatch queue to run the passed in handlers on
+    /// - parameter resolve: a block to run when the Promise resolves
+    /// - parameter reject:  a block to run when the Promise rejects
+    ///
+    /// - returns: Self
     @discardableResult
     internal func addHandler(on queue: DispatchQueue = .main, _ resolve: @escaping (Result) -> Void, _ reject: @escaping (Error) -> Void) -> Promise<Result> {
         performStateOperation { current in
@@ -145,6 +171,12 @@ public final class Promise<Result> {
         return self
     }
 
+    /// Adds a handler that will be run when this Promise resolves
+    ///
+    /// - parameter queue:   the dispatch queue to run the passed in handler on
+    /// - parameter resolve: a block to run when the Promise resolves
+    ///
+    /// - returns: Self
     @discardableResult
     internal func addHandler(on queue: DispatchQueue = .main, resolve: @escaping (Result) -> Void) -> Promise<Result> {
         performStateOperation { current in
@@ -160,6 +192,12 @@ public final class Promise<Result> {
         return self
     }
 
+    /// Adds a handler that will be run when this Promise rejects
+    ///
+    /// - parameter queue:   the dispatch queue to run the passed in handler on
+    /// - parameter resolve: a block to run when the Promise rejects
+    ///
+    /// - returns: Self
     @discardableResult
     internal func addHandler(on queue: DispatchQueue = .main, reject: @escaping (Error) -> Void) -> Promise<Result> {
         performStateOperation { current in

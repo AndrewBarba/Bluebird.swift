@@ -8,11 +8,15 @@
 
 extension Promise {
 
+    /// Converts the current Promise to a generic Void Promise
     public var asVoid: Promise<Void> {
         return then { _ in }
     }
 }
 
+/// Convenient function for creating a resolved Void Promise
+///
+/// - returns: Promise
 public func VoidPromise() -> Promise<Void> {
     return Promise<Void>(resolve: ())
 }
