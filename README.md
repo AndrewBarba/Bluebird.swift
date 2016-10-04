@@ -52,6 +52,11 @@ github "AndrewBarba/Bluebird.swift" ~> 1.0
 - [catch](#catch)
 - [tap](#tap)
 - [finally](#finally)
+- [join](#join)
+- [map](#map)
+- [all](#all)
+- [any](#any)
+- [try](#try)
 
 ### Promise
 
@@ -212,6 +217,78 @@ authService.login(email: email, password: "bad password")
   .catch { error in
     // handle error
   }
+```
+
+### join
+
+Join different types of Promises seamlessly:
+
+```
+join(fetchArticle(id: "123"), fetchAuthor(id: "456"))
+  .then { article, author in
+    // ...
+  }
+```
+
+### map
+
+Iterate over a sequence of elements and perform an operation each:
+
+```
+let articles = ...
+
+map(articles) { article in
+  return favoriteService.like(article: article)
+}.then { _ in
+  // all articles liked successfully
+}.catch { error in
+  // handle error
+}
+```
+
+You can also iterate over a sequence in series using `map(series:)`.
+
+### all
+
+Wait for all promises to complete:
+
+```
+all([
+  favoriteService.like(article: article1),
+  favoriteService.like(article: article2),
+  favoriteService.like(article: article3),
+  favoriteService.like(article: article4),
+]).then { _ in
+  // all articles liked
+}
+```
+
+### any
+
+Easily handle race conditions with `any`, as soon as one Promise resolves the handler is called and will never be called again:
+
+```
+let host1 = "https://east.us.com/file"
+let host2 = "https://west.us.com/file"
+any(download(host1), download(host2))
+  .then { data in
+    ...
+  }
+```
+
+### try
+
+Start off a Promise chain:
+
+```
+// Prefix with Bluebird since try is reserved in Swift
+Bluebird.try {
+  authService.login(email: email, password: password)
+}.then { auth in
+  // handle login
+}.catch { error in
+  // handle error
+}
 ```
 
 ## Tests

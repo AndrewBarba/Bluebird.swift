@@ -340,10 +340,10 @@ class BluebirdTests: XCTestCase {
     func testJoinArgs() {
         let exp = expectation(description: "Promise.join.args")
         let p1 = Promise<Int>(resolve: 1)
-        let p2 = getInt(5)
-        join(p1, p2).then { result in
-            XCTAssertEqual(result.0, p1.result!)
-            XCTAssertEqual(result.1, p2.result!)
+        let p2 = getString("hello")
+        join(p1, p2).then { int, string in
+            XCTAssertEqual(int, p1.result!)
+            XCTAssertEqual(string, p2.result!)
             exp.fulfill()
         }.catch { _ in
             XCTFail()
