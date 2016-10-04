@@ -22,8 +22,8 @@ public func any<A>(on queue: DispatchQueue = .main, _ promises: Promise<A>...) -
 /// - parameter promises: array of Promises to resolve
 ///
 /// - returns: Promise that resolves to first resolved Promise
-public func any<A>(on queue: DispatchQueue = .main, _ promises: [Promise<A>]) -> Promise<A> {
-    guard promises.count > 0 else {
+public func any<A, S: Sequence>(on queue: DispatchQueue = .main, _ promises: S) -> Promise<A> where S.Iterator.Element == Promise<A> {
+    guard Array(promises).count > 0 else {
         return Promise<A>(reject: BluebirdError.rangeError)
     }
 

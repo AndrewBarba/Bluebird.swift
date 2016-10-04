@@ -13,7 +13,7 @@
 /// - parameter transform: transform function run on each item
 ///
 /// - returns: Promise
-public func map<A, B>(on queue: DispatchQueue = .main, _ items: [A], _ transform: @escaping (A) throws -> Promise<B>) -> Promise<[B]> {
+public func map<A, B, S: Sequence>(on queue: DispatchQueue = .main, _ items: S, _ transform: @escaping (A) throws -> Promise<B>) -> Promise<[B]> where S.Iterator.Element == A {
     return Bluebird.try(on: queue) {
         do {
             return all(on: queue, try items.map { try transform($0) })
@@ -30,7 +30,7 @@ public func map<A, B>(on queue: DispatchQueue = .main, _ items: [A], _ transform
 /// - parameter transform: transform function run on each item
 ///
 /// - returns: Promise
-public func map<A, B>(on queue: DispatchQueue = .main, series items: [A], _ transform: @escaping (A) throws -> Promise<B>) -> Promise<[B]> {
+public func map<A, B, S: Sequence>(on queue: DispatchQueue = .main, series items: S, _ transform: @escaping (A) throws -> Promise<B>) -> Promise<[B]> where S.Iterator.Element == A {
     let initial = Promise<[B]>(resolve: [])
 
     return items.reduce(initial) { chain, item in

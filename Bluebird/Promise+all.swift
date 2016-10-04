@@ -22,12 +22,16 @@ public func all<A>(on queue: DispatchQueue = .main, _ promises: Promise<A>...) -
 /// - parameter promises: array of Promises to resolve
 ///
 /// - returns: Promise
-public func all<A>(on queue: DispatchQueue = .main, _ promises: [Promise<A>]) -> Promise<[A]> {
-    guard promises.count > 0 else { return Promise<[A]>(resolve: []) }
+public func all<A, S: Sequence>(on queue: DispatchQueue = .main, _ promises: S) -> Promise<[A]> where S.Iterator.Element == Promise<A> {
+    let count = Array(promises).count
+
+    guard count > 0 else {
+        return Promise<[A]>(resolve: [])
+    }
 
     return Promise<[A]> { resolve, reject in
 
-        var remaining = promises.count
+        var remaining = count
 
         let queue = DispatchQueue(label: "com.abarba.Bluebird.all")
 

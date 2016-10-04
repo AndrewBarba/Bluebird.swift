@@ -5,6 +5,10 @@ Change Log
 
 ---
 
+## [1.4.1](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.4.0)
+
+1. Support generic sequence types in `map`, `all`, `any`, `race`
+
 ## [1.4.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.4.0)
 
 1. Add a `(on:queue)` parameter to all functions. Defaults to `.main`

@@ -22,7 +22,7 @@ public func race<A>(on queue: DispatchQueue = .main, _ promises: Promise<A>...) 
 /// - parameter promises: promises to resolve
 ///
 /// - returns: Promise
-public func race<A>(on queue: DispatchQueue = .main, _ promises: [Promise<A>]) -> Promise<A> {
+public func race<A, S: Sequence>(on queue: DispatchQueue = .main, _ promises: S) -> Promise<A> where S.Iterator.Element == Promise<A> {
     return Promise<A> { resolve, reject in
         promises.forEach {
             $0.addHandlers([
