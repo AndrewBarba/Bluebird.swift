@@ -335,15 +335,75 @@ class BluebirdTests: XCTestCase {
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
 
+    func testRaceArgs() {
+        let exp = expectation(description: "Promise.race.args")
+        let p1 = Promise<Int>(resolve: 1)
+        let p2 = getInt(5)
+        race(p1, p2).then { result in
+            XCTAssertEqual(result, p1.result!)
+            exp.fulfill()
+        }.catch { _ in
+            XCTFail()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
+    func testRaceArray() {
+        let exp = expectation(description: "Promise.race.array")
+        let p1 = Promise<Int>(resolve: 1)
+        let p2 = getInt(5)
+        race([p1, p2]).then { result in
+            XCTAssertEqual(result, p1.result!)
+            exp.fulfill()
+        }.catch { _ in
+            XCTFail()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
     // MARK: - Join
 
-    func testJoinArgs() {
-        let exp = expectation(description: "Promise.join.args")
+    func testJoinTwo() {
+        let exp = expectation(description: "Promise.join.two")
         let p1 = Promise<Int>(resolve: 1)
         let p2 = getString("hello")
         join(p1, p2).then { int, string in
             XCTAssertEqual(int, p1.result!)
             XCTAssertEqual(string, p2.result!)
+            exp.fulfill()
+        }.catch { _ in
+            XCTFail()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
+    func testJoinThree() {
+        let exp = expectation(description: "Promise.join.three")
+        let p1 = Promise<Int>(resolve: 1)
+        let p2 = getString("hello")
+        let p3 = getString("hello2")
+        join(p1, p2, p3).then { int, string1, string2 in
+            XCTAssertEqual(int, p1.result!)
+            XCTAssertEqual(string1, p2.result!)
+            XCTAssertEqual(string2, p3.result!)
+            exp.fulfill()
+        }.catch { _ in
+            XCTFail()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
+    func testJoinFour() {
+        let exp = expectation(description: "Promise.join.four")
+        let p1 = Promise<Int>(resolve: 1)
+        let p2 = getString("hello")
+        let p3 = getString("hello2")
+        let p4 = getString("hello3")
+        join(p1, p2, p3, p4).then { int, string1, string2, string3 in
+            XCTAssertEqual(int, p1.result!)
+            XCTAssertEqual(string1, p2.result!)
+            XCTAssertEqual(string2, p3.result!)
+            XCTAssertEqual(string3, p4.result!)
             exp.fulfill()
         }.catch { _ in
             XCTFail()
