@@ -127,7 +127,7 @@ authService.login(email: email, password: password)
 
 Notice each time you return a Promise (or a value) from a `then` handler, the next `then` handler receives the resolution of that handler, waiting for the previous to fully resolve. This is extremely powerful for asynchronous control flow.
 
-####### Grand Central Dispatch
+###### Grand Central Dispatch
 
 Any method in `Bluebird` that accepts a handler also accepts a `DispatchQueue` so you can control what queue you want the handler to run on:
 
