@@ -27,7 +27,9 @@ public func map<A, B>(_ items: [A], _ transform: (A) throws -> Promise<B>) -> Pr
 ///
 /// - returns: Promise
 public func map<A, B>(series items: [A], on queue: DispatchQueue = .main, _ transform: @escaping (A) throws -> Promise<B>) -> Promise<[B]> {
-    return items.reduce(Promise<[B]>(resolve: [])) { chain, item in
+    let initial = Promise<[B]>(resolve: [])
+
+    return items.reduce(initial) { chain, item in
         return chain.then(on: queue) { results in
             try transform(item).then(on: queue) { results + [$0] }
         }
