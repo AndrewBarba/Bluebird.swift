@@ -27,35 +27,9 @@ public func map<A, B>(_ items: [A], _ transform: (A) throws -> Promise<B>) -> Pr
 ///
 /// - returns: Promise
 public func map<A, B>(series items: [A], on queue: DispatchQueue = .main, _ transform: @escaping (A) throws -> Promise<B>) -> Promise<[B]> {
-    guard items.count > 0 else {
-        return Promise<[B]>(resolve: [])
-    }
-
-    return Promise<[B]> { resolve, reject in
-        var results: [B] = []
-        var check: ((B) -> Void)!
-
-        let next = {
-            queue.async {
-                do {
-                    try transform(items[results.count]).addHandlers([
-                        .resolve(queue, check),
-                        .reject(queue, reject)
-                    ])
-                } catch {
-                    reject(error)
-                }
-            }
+    return items.reduce(Promise<[B]>(resolve: [])) { chain, item in
+        return chain.then(on: queue) { results in
+            try transform(item).then(on: queue) { results + [$0] }
         }
-
-        check = { result in
-            results.append(result)
-            guard results.count < items.count else {
-                return resolve(results)
-            }
-            next()
-        }
-        
-        next()
     }
 }
