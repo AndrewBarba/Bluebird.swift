@@ -5,6 +5,11 @@ Change Log
 
 ---
 
+## [1.4.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.4.0)
+
+1. Add a `(on:queue)` parameter to all functions. Defaults to `.main`
+2. Add a `try` function for beginning a Promise chain
+
 ## [1.3.1](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.3.1)
 
 1. A much cleaner, more readable implementation of `map(series:)`
