@@ -140,8 +140,6 @@ public final class Promise<Result> {
 
         stateHandlers.forEach { handler in
             switch (state, handler) {
-            case (.pending, _):
-                break
             case (.resolved(let result), .resolve(let queue, let block)):
                 queue.async { block(result) }
             case (.rejected(let error), .reject(let queue, let block)):
