@@ -24,6 +24,7 @@
 		B856C7C91DA064E800D87A1B /* Promise+map.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C81DA064E800D87A1B /* Promise+map.swift */; };
 		B856C7CB1DA06BFD00D87A1B /* Bluebird.podspec in Resources */ = {isa = PBXBuildFile; fileRef = B856C7CA1DA06BFD00D87A1B /* Bluebird.podspec */; };
 		B856C7CD1DA071CE00D87A1B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B856C7CC1DA071CE00D87A1B /* LICENSE */; };
+		B89DAE0D1DA3FF1500252AD7 /* Promise+try.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89DAE0C1DA3FF1500252AD7 /* Promise+try.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		B856C7C81DA064E800D87A1B /* Promise+map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+map.swift"; sourceTree = "<group>"; };
 		B856C7CA1DA06BFD00D87A1B /* Bluebird.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Bluebird.podspec; sourceTree = SOURCE_ROOT; };
 		B856C7CC1DA071CE00D87A1B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		B89DAE0C1DA3FF1500252AD7 /* Promise+try.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+try.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				B856C7C61DA0644900D87A1B /* Promise+race.swift */,
 				B856C7B71DA026FA00D87A1B /* Promise+tap.swift */,
 				B856C7B31DA026A600D87A1B /* Promise+then.swift */,
+				B89DAE0C1DA3FF1500252AD7 /* Promise+try.swift */,
 				B856C7BB1DA0273900D87A1B /* Promise+void.swift */,
 				B856C7B21DA020D100D87A1B /* Supporting Files */,
 			);
@@ -252,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B856C7C51DA063BF00D87A1B /* Promise+errors.swift in Sources */,
+				B89DAE0D1DA3FF1500252AD7 /* Promise+try.swift in Sources */,
 				B856C7C71DA0644900D87A1B /* Promise+race.swift in Sources */,
 				B856C7B41DA026A600D87A1B /* Promise+then.swift in Sources */,
 				B856C7BC1DA0273900D87A1B /* Promise+void.swift in Sources */,

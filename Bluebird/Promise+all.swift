@@ -8,19 +8,21 @@
 
 /// Returns a Promise that resolved when all passed in Promises resolve. Rejects as soon as one promise rejects.
 ///
+/// - parameter queue:    dispatch queue to run the handler on
 /// - parameter promises: comma separated list of Promises to resolve
 ///
 /// - returns: Promise
-public func all<A>(_ promises: Promise<A>...) -> Promise<[A]> {
-    return all(promises)
+public func all<A>(on queue: DispatchQueue = .main, _ promises: Promise<A>...) -> Promise<[A]> {
+    return all(on: queue, promises)
 }
 
 /// Returns a Promise that resolved when all passed in Promises resolve. Rejects as soon as one promise rejects.
 ///
+/// - parameter queue:    dispatch queue to run the handler on
 /// - parameter promises: array of Promises to resolve
 ///
 /// - returns: Promise
-public func all<A>(_ promises: [Promise<A>]) -> Promise<[A]> {
+public func all<A>(on queue: DispatchQueue = .main, _ promises: [Promise<A>]) -> Promise<[A]> {
     guard promises.count > 0 else { return Promise<[A]>(resolve: []) }
 
     return Promise<[A]> { resolve, reject in
@@ -32,7 +34,9 @@ public func all<A>(_ promises: [Promise<A>]) -> Promise<[A]> {
         let check: (A) -> () = { _ in
             remaining -= 1
             guard remaining == 0 else { return }
-            resolve(promises.map { $0.result! })
+            queue.async {
+                resolve(promises.map { $0.result! })
+            }
         }
 
         promises.forEach {

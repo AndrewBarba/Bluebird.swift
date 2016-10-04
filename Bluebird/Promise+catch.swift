@@ -20,8 +20,8 @@ extension Promise {
                 .reject(queue, {
                     do {
                         try handler($0).addHandlers([
-                            .resolve(.main, resolve),
-                            .reject(.main, reject)
+                            .resolve(queue, resolve),
+                            .reject(queue, reject)
                         ])
                     } catch {
                         return reject(error)

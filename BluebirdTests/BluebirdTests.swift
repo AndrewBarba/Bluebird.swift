@@ -207,8 +207,8 @@ class BluebirdTests: XCTestCase {
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
 
-    func testCatchRecover() {
-        let exp = expectation(description: "Promise.catch.recover")
+    func testCatchRecoverPromise() {
+        let exp = expectation(description: "Promise.catch.recover.promise")
         let int = 5
         let string = "Hello, Bluebird"
         getInt(int).then { _ in
@@ -219,6 +219,20 @@ class BluebirdTests: XCTestCase {
             getString(string)
         }.then { result in
             XCTAssertEqual(result, string)
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
+    func testCatchRecoverVoid() {
+        let exp = expectation(description: "Promise.catch.recover.promise")
+        getInt().then { _ in
+            getStringError()
+        }.then { _ in
+            XCTFail()
+        }.catch { error in
+            XCTAssertEqual(error as! BluebirdTestError, BluebirdTestError.string)
+        }.then { result in
             exp.fulfill()
         }
         waitForExpectations(timeout: defaultTimeout, handler: nil)

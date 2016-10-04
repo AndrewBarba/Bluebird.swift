@@ -143,11 +143,35 @@ userService.read(id: "123")
   }
 ```
 
-By default we run all resolutions on the `.main` queue.
+By default all handlers are run on the `.main` queue.
 
 ### catch
 
-> Examples coming soon...
+Use `catch` to handle / recover from errors that happen in a Promise chain:
+
+```
+authService.login(email: email, password: password)
+  .then { auth in userService.read(with: auth) }
+  .then { user in favoriteService.list(for: user) }
+  .then { favorites in ... }
+  .catch { error in
+    self.present(error: error)
+  }
+```
+
+Above, if any `then` handler `throw`s an error, or if one of the Promises returned from a handler rejects, then the final catch handler will be called.
+
+You can also perform complex recovery when running multiple asynchronous operations:
+
+```
+Bluebird.try { performFirstOp().catch(handleOpError) }
+  .then { performSecondOp().catch(handleOpError) }
+  .then { performThirdOp().catch(handleOpError) }
+  .then { performFourthOp().catch(handleOpError) }
+  .then {
+    // all completed
+  }
+```
 
 ### tap
 
