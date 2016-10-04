@@ -59,10 +59,8 @@ Promises are generic and allow you to specify a type that they will eventually r
 
 ```swift
 let promise = Promise<Int> { resolve, reject in
-  // ...
   // - resolve(someInt)
   // - reject(someError)
-  // ...
 }
 ```
 
@@ -100,13 +98,9 @@ func performExpensiveOperation(onImage image: UIImage) -> Promise<UIImage> {
 }
 ```
 
-Okay, so the inner body of the function looks almost identical...
+Okay, so the inner body of the function looks almost identical... But look at how much better the function signature looks!
 
-But look at how much better the function signature looks!
-
-No more completion handler, no more optional image, no more optional error. Optionals in the original function are a dead giveaway that you'll be guarding and unwrapping in the near future.
-
-With the Promise implementation that logic is hidden by good design. Using this new function is now a joy:
+No more completion handler, no more optional image, no more optional error. Optionals in the original function are a dead giveaway that you'll be guarding and unwrapping in the near future. With the Promise implementation that logic is hidden by good design. Using this new function is now a joy:
 
 ```swift
 let original: UIImage = ...
@@ -122,7 +116,34 @@ performExpensiveOperation(onImage: original)
 
 ### then
 
-> Examples coming soon...
+You can easily perform a series of operations with the `then` method:
+
+```
+authService.login(email: email, password: password)
+  .then { auth in userService.read(with: auth) }
+  .then { user in favoriteService.list(for: user) }
+  .then { favorites in ... }
+```
+
+Notice each time you return a Promise (or a value) from a `then` handler, the next `then` handler receives the resolution of that handler, waiting for the previous to fully resolve. This is extremely powerful for asynchronous control flow.
+
+####### Grand Central Dispatch
+
+Any method in `Bluebird` that accepts a handler also accepts a `DispatchQueue` so you can control what queue you want the handler to run on:
+
+```
+userService.read(id: "123")
+  .then(on: backgroundQueue) { user -> UIImage in
+    let image = UIImage(user: user)
+    ... perform complex image operation ...
+    return image
+  }
+  .then(on: .main) { image in
+    self.imageView.image = image
+  }
+```
+
+By default we run all resolutions on the `.main` queue.
 
 ### catch
 
