@@ -19,3 +19,43 @@ public func map<A, B>(_ items: [A], _ transform: (A) throws -> Promise<B>) -> Pr
         return Promise<[B]>(reject: error)
     }
 }
+
+/// Map an array of items to Promises, and resolve each Promise in series. Rejects as soon as any Promise rejects.
+///
+/// - parameter items:     items to map
+/// - parameter transform: transform function run on each item
+///
+/// - returns: Promise
+public func map<A, B>(series items: [A], on queue: DispatchQueue = .main, _ transform: @escaping (A) throws -> Promise<B>) -> Promise<[B]> {
+    guard items.count > 0 else {
+        return Promise<[B]>(resolve: [])
+    }
+
+    return Promise<[B]> { resolve, reject in
+        var results: [B] = []
+        var check: ((B) -> Void)!
+
+        let next = {
+            queue.async {
+                do {
+                    try transform(items[results.count]).addHandlers([
+                        .resolve(queue, check),
+                        .reject(queue, reject)
+                    ])
+                } catch {
+                    reject(error)
+                }
+            }
+        }
+
+        check = { result in
+            results.append(result)
+            guard results.count < items.count else {
+                return resolve(results)
+            }
+            next()
+        }
+        
+        next()
+    }
+}

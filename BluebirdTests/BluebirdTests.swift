@@ -369,10 +369,27 @@ class BluebirdTests: XCTestCase {
 
     // MARK: - Map
 
-    func testMapArray() {
-        let exp = expectation(description: "Promise.map.array")
+    func testMapConcurrent() {
+        let exp = expectation(description: "Promise.map.concurrent")
         let arr = [1, 10, 5, 6, 8, 94, 4]
         map(arr) { getInt($0) }
+            .then { results in
+                XCTAssertEqual(results.count, arr.count)
+                for (index, result) in results.enumerated() {
+                    XCTAssertEqual(result, arr[index])
+                }
+                exp.fulfill()
+            }
+            .catch { _ in
+                XCTFail()
+            }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
+    func testMapSeries() {
+        let exp = expectation(description: "Promise.map.series")
+        let arr = [1, 10, 5, 6, 8, 94, 4]
+        map(series: arr) { getInt($0) }
             .then { results in
                 XCTAssertEqual(results.count, arr.count)
                 for (index, result) in results.enumerated() {
