@@ -191,7 +191,7 @@ authService.login(email: email, password: password)
   .then { favorites in ... }
 ```
 
-You can also return a Promsie from the `tap` handler and the chain will wait for that promise to resolve:
+You can also return a Promise from the `tap` handler and the chain will wait for that promise to resolve:
 
 ```swift
 authService.login(email: email, password: password)
