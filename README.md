@@ -175,15 +175,48 @@ Bluebird.try { performFirstOp().catch(handleOpError) }
 
 ### tap
 
-> Examples coming soon...
+Useful for performing an operation in the middle of a promise chain without changing the type of the Promise:
+
+```
+authService.login(email: email, password: password)
+  .tap { auth in print(auth) }
+  .then { auth in userService.read(with: auth) }
+  .tap { user in print(user) }
+  .then { user in favoriteService.list(for: user) }
+  .then { favorites in ... }
+```
+
+You can also return a Promsie from the `tap` handler and the chain will wait for that promise to resolve:
+
+```
+authService.login(email: email, password: password)
+  .then { auth in userService.read(with: auth) }
+  .tap { user in userService.updateLastActive(for: user) }
+  .then { user in favoriteService.list(for: user) }
+  .then { favorites in ... }
+```
 
 ### finally
 
-> Examples coming soon...
+With `finally` you can register a handler to run at the end of a Promise chain, regardless of it's result:
+
+```
+spinner.startAnimating()
+
+authService.login(email: email, password: "bad password")
+  .then { auth in userService.read(with: auth) } // will not run
+  .then { user in favoriteService.list(for: user) } // will not run
+  .finally { // this will run!
+    spinner.stopAnimating()
+  }
+  .catch { error in
+    // handle error
+  }
+```
 
 ## Tests
 
-> In progress... [Promise/A+ Test Suite](https://github.com/promises-aplus/promises-tests)
+Tests are continuously run on [Bitrise](https://www.bitrise.io/). Since Bitrise doesn't support public test runs I can't link to them, but you can run the tests yourself by opening the Xcode project and running the tests manually from the Bluebird scheme.
 
 ## Bluebird vs PromiseKit
 
