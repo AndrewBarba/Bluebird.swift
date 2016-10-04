@@ -118,7 +118,7 @@ performExpensiveOperation(onImage: original)
 
 You can easily perform a series of operations with the `then` method:
 
-```
+```swift
 authService.login(email: email, password: password)
   .then { auth in userService.read(with: auth) }
   .then { user in favoriteService.list(for: user) }
@@ -131,7 +131,7 @@ Notice each time you return a Promise (or a value) from a `then` handler, the ne
 
 Any method in `Bluebird` that accepts a handler also accepts a `DispatchQueue` so you can control what queue you want the handler to run on:
 
-```
+```swift
 userService.read(id: "123")
   .then(on: backgroundQueue) { user -> UIImage in
     let image = UIImage(user: user)
@@ -149,7 +149,7 @@ By default all handlers are run on the `.main` queue.
 
 Use `catch` to handle / recover from errors that happen in a Promise chain:
 
-```
+```swift
 authService.login(email: email, password: password)
   .then { auth in userService.read(with: auth) }
   .then { user in favoriteService.list(for: user) }
@@ -163,7 +163,7 @@ Above, if any `then` handler `throw`s an error, or if one of the Promises return
 
 You can also perform complex recovery when running multiple asynchronous operations:
 
-```
+```swift
 Bluebird.try { performFirstOp().catch(handleOpError) }
   .then { performSecondOp().catch(handleOpError) }
   .then { performThirdOp().catch(handleOpError) }
@@ -177,7 +177,7 @@ Bluebird.try { performFirstOp().catch(handleOpError) }
 
 Useful for performing an operation in the middle of a promise chain without changing the type of the Promise:
 
-```
+```swift
 authService.login(email: email, password: password)
   .tap { auth in print(auth) }
   .then { auth in userService.read(with: auth) }
@@ -188,7 +188,7 @@ authService.login(email: email, password: password)
 
 You can also return a Promsie from the `tap` handler and the chain will wait for that promise to resolve:
 
-```
+```swift
 authService.login(email: email, password: password)
   .then { auth in userService.read(with: auth) }
   .tap { user in userService.updateLastActive(for: user) }
@@ -200,7 +200,7 @@ authService.login(email: email, password: password)
 
 With `finally` you can register a handler to run at the end of a Promise chain, regardless of it's result:
 
-```
+```swift
 spinner.startAnimating()
 
 authService.login(email: email, password: "bad password")
@@ -258,7 +258,7 @@ promise.tap { value in ... }
 
 ###### PromiseKit
 
-```
+```swift
 Promise(value: result)
 Promise(error: error)
 promise.then(execute: handler)
