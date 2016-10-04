@@ -223,7 +223,7 @@ authService.login(email: email, password: "bad password")
 
 Join different types of Promises seamlessly:
 
-```
+```swift
 join(fetchArticle(id: "123"), fetchAuthor(id: "456"))
   .then { article, author in
     // ...
@@ -234,7 +234,7 @@ join(fetchArticle(id: "123"), fetchAuthor(id: "456"))
 
 Iterate over a sequence of elements and perform an operation each:
 
-```
+```swift
 let articles = ...
 
 map(articles) { article in
@@ -252,7 +252,7 @@ You can also iterate over a sequence in series using `map(series:)`.
 
 Wait for all promises to complete:
 
-```
+```swift
 all([
   favoriteService.like(article: article1),
   favoriteService.like(article: article2),
@@ -267,9 +267,10 @@ all([
 
 Easily handle race conditions with `any`, as soon as one Promise resolves the handler is called and will never be called again:
 
-```
+```swift
 let host1 = "https://east.us.com/file"
 let host2 = "https://west.us.com/file"
+
 any(download(host1), download(host2))
   .then { data in
     ...
@@ -280,7 +281,7 @@ any(download(host1), download(host2))
 
 Start off a Promise chain:
 
-```
+```swift
 // Prefix with Bluebird since try is reserved in Swift
 Bluebird.try {
   authService.login(email: email, password: password)
