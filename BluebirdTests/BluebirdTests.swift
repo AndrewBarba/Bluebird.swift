@@ -9,7 +9,7 @@
 import XCTest
 @testable import Bluebird
 
-enum BluebirdTestError: Error {
+enum TestError: Error {
     case int
     case string
 }
@@ -25,7 +25,7 @@ func getInt(_ result: Int = 10) -> Promise<Int> {
 func getIntError(_ result: Int = 10) -> Promise<Int> {
     return Promise<Int> { _, reject in
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            reject(BluebirdTestError.int)
+            reject(TestError.int)
         }
     }
 }
@@ -41,7 +41,7 @@ func getString(_ result: String = "Hello, Bluebird") -> Promise<String> {
 func getStringError(_ result: String = "Hello, Bluebird") -> Promise<String> {
     return Promise<String> { _, reject in
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            reject(BluebirdTestError.string)
+            reject(TestError.string)
         }
     }
 }
@@ -187,7 +187,7 @@ class BluebirdTests: XCTestCase {
         getIntError(int).then { _ in
             XCTFail()
         }.catch { error in
-            XCTAssertEqual(BluebirdTestError.int, error as! BluebirdTestError)
+            XCTAssertEqual(TestError.int, error as! TestError)
             exp.fulfill()
         }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
@@ -201,7 +201,7 @@ class BluebirdTests: XCTestCase {
         }.then { _ in
             XCTFail()
         }.catch { error in
-            XCTAssertEqual(BluebirdTestError.string, error as! BluebirdTestError)
+            XCTAssertEqual(TestError.string, error as! TestError)
             exp.fulfill()
         }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
@@ -231,7 +231,7 @@ class BluebirdTests: XCTestCase {
         }.then { _ in
             XCTFail()
         }.catch { error in
-            XCTAssertEqual(error as! BluebirdTestError, BluebirdTestError.string)
+            XCTAssertEqual(error as! TestError, TestError.string)
         }.then { result in
             exp.fulfill()
         }
@@ -302,7 +302,7 @@ class BluebirdTests: XCTestCase {
         getIntError().finally {
             exp.fulfill()
         }.catch { error in
-            XCTAssertEqual(error as! BluebirdTestError, BluebirdTestError.int)
+            XCTAssertEqual(error as! TestError, TestError.int)
         }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
