@@ -476,4 +476,33 @@ class BluebirdTests: XCTestCase {
             }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
+
+    // MARK: - Reduce
+
+    func testReduce() {
+        let exp = expectation(description: "Promise.reduce")
+        reduce([1, 2, 3, 4, 5], 0) { partial, item in
+            return getInt(2).then { partial + (item * $0) }
+        }.then { result in
+            XCTAssertEqual(result, 30)
+            exp.fulfill()
+        }.catch { _ in
+            XCTFail()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
+    func testReduceError() {
+        let exp = expectation(description: "Promise.reduce")
+        reduce([1, 2, 3, 4, 5], 0) { partial, item in
+            guard partial < 10 else { return getIntError() }
+            return getInt(2).then { partial + (item * $0) }
+        }.then { _ in
+            XCTFail()
+        }.catch { error in
+            XCTAssertEqual(error as! TestError, TestError.int)
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
 }

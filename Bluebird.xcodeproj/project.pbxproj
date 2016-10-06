@@ -25,6 +25,7 @@
 		B856C7CB1DA06BFD00D87A1B /* Bluebird.podspec in Resources */ = {isa = PBXBuildFile; fileRef = B856C7CA1DA06BFD00D87A1B /* Bluebird.podspec */; };
 		B856C7CD1DA071CE00D87A1B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B856C7CC1DA071CE00D87A1B /* LICENSE */; };
 		B89DAE0D1DA3FF1500252AD7 /* Promise+try.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89DAE0C1DA3FF1500252AD7 /* Promise+try.swift */; };
+		B8A63AA81DA6D64200083BFC /* Promise+reduce.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A63AA71DA6D64200083BFC /* Promise+reduce.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,7 @@
 		B856C7CA1DA06BFD00D87A1B /* Bluebird.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Bluebird.podspec; sourceTree = SOURCE_ROOT; };
 		B856C7CC1DA071CE00D87A1B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
 		B89DAE0C1DA3FF1500252AD7 /* Promise+try.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+try.swift"; sourceTree = "<group>"; };
+		B8A63AA71DA6D64200083BFC /* Promise+reduce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+reduce.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -110,6 +112,7 @@
 				B856C7BE1DA048BE00D87A1B /* Promise+join.swift */,
 				B856C7C81DA064E800D87A1B /* Promise+map.swift */,
 				B856C7C61DA0644900D87A1B /* Promise+race.swift */,
+				B8A63AA71DA6D64200083BFC /* Promise+reduce.swift */,
 				B856C7B71DA026FA00D87A1B /* Promise+tap.swift */,
 				B856C7B31DA026A600D87A1B /* Promise+then.swift */,
 				B89DAE0C1DA3FF1500252AD7 /* Promise+try.swift */,
@@ -267,6 +270,7 @@
 				B856C7B81DA026FA00D87A1B /* Promise+tap.swift in Sources */,
 				B856C7C31DA05FB500D87A1B /* Promise+any.swift in Sources */,
 				B856C7C11DA05E1B00D87A1B /* Promise+all.swift in Sources */,
+				B8A63AA81DA6D64200083BFC /* Promise+reduce.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

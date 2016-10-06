@@ -54,6 +54,7 @@ github "AndrewBarba/Bluebird.swift" ~> 1.4
 - [finally](#finally)
 - [join](#join)
 - [map](#map)
+- [reduce](#reduce)
 - [all](#all)
 - [any](#any)
 - [try](#try)
@@ -247,6 +248,24 @@ map(articles) { article in
 ```
 
 You can also iterate over a sequence in series using `map(series:)`.
+
+### reduce
+
+Iterate over a sequence and reduce down to a Promise that resolves to a single value:
+
+```swift
+let users = ...
+
+reduce(users, 0) { partialTime, user in
+  return userService.getActiveTime(for: user).then { time in
+    return partialTime + time
+  }
+}.then { totalTime in
+  // calculated total time spent in app
+}.catch { error in
+  // handle error
+}
+```
 
 ### all
 
