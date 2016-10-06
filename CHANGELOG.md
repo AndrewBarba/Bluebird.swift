@@ -5,7 +5,11 @@ Change Log
 
 ---
 
-## [1.4.1](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.4.0)
+## [1.5.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.5.0)
+
+1. Add `reduce` function to iterate over a sequence and resolve to a single value
+
+## [1.4.1](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.4.1)
 
 1. Support generic sequence types in `map`, `all`, `any`, `race`
 
