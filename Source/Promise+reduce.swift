@@ -23,3 +23,19 @@ public func reduce<A, B, S: Sequence>(on queue: DispatchQueue = .main, _ items: 
         }
     }
 }
+
+extension Promise where Result: Sequence {
+
+    /// Identical to `reduce()`, but can be chained on an existing promise that resolves to a sequence type
+    ///
+    /// - parameter queue:     dispatch queue to run the handler on
+    /// - parameter initial:   initial value to begin reducing
+    /// - parameter transform: transform function to run on each item
+    ///
+    /// - returns: Promise
+    public func reduce<B>(on queue: DispatchQueue = .main, _ initial: B, _ transform: @escaping (B, Result.Iterator.Element) throws -> Promise<B>) -> Promise<B> {
+        return then(on: queue) { results in
+            return Bluebird.reduce(on: queue, results, initial, transform)
+        }
+    }
+}

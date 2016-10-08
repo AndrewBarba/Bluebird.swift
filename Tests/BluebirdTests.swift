@@ -477,11 +477,62 @@ class BluebirdTests: XCTestCase {
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
 
+    func testMapChain() {
+        let exp = expectation(description: "Promise.map.chain.concurrent")
+        let arr = [1, 10, 5, 6, 8, 94, 4]
+        map(arr) { getInt($0) }
+            .map { getInt($0 + 1) }
+            .then { results in
+                XCTAssertEqual(results.count, arr.count)
+                for (index, result) in results.enumerated() {
+                    XCTAssertEqual(result, arr[index] + 1)
+                }
+                exp.fulfill()
+            }
+            .catch { _ in
+                XCTFail()
+            }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
+    func testMapSeriesChain() {
+        let exp = expectation(description: "Promise.map.chain.series")
+        let arr = [1, 10, 5, 6, 8, 94, 4]
+        map(series: arr) { getInt($0) }
+            .mapSeries { getInt($0 + 1) }
+            .then { results in
+                XCTAssertEqual(results.count, arr.count)
+                for (index, result) in results.enumerated() {
+                    XCTAssertEqual(result, arr[index] + 1)
+                }
+                exp.fulfill()
+            }
+            .catch { _ in
+                XCTFail()
+            }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
     // MARK: - Reduce
 
     func testReduce() {
         let exp = expectation(description: "Promise.reduce")
         reduce([1, 2, 3, 4, 5], 0) { partial, item in
+            return getInt(2).then { partial + (item * $0) }
+        }.then { result in
+            XCTAssertEqual(result, 30)
+            exp.fulfill()
+        }.catch { _ in
+            XCTFail()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
+    func testReduceChain() {
+        let exp = expectation(description: "Promise.reduce.chain")
+        map([1, 2, 3, 4, 5]) {
+            getInt($0)
+        }.reduce(0) { partial, item in
             return getInt(2).then { partial + (item * $0) }
         }.then { result in
             XCTAssertEqual(result, 30)
