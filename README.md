@@ -314,6 +314,12 @@ Bluebird.try {
 
 Tests are continuously run on [Bitrise](https://www.bitrise.io/). Since Bitrise doesn't support public test runs I can't link to them, but you can run the tests yourself by opening the Xcode project and running the tests manually from the Bluebird scheme.
 
+## Who's Using Bluebird
+
+- [Tablelist](https://itunes.apple.com/us/app/tablelist-a-better-night-out/id634444177)
+
+> Using Bluebird in production? Open a pull request.
+
 ## Bluebird vs PromiseKit
 
 I'd be lying if I said [PromiseKit](https://github.com/mxcl/PromiseKit) wasn't a fantastic library (it is!) but Bluebird has different goals that may or may not appeal to different developers.
