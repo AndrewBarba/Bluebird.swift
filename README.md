@@ -34,13 +34,13 @@ Full documentation can be found on [CocoaDocs](http://cocoadocs.org/docsets/Blue
 > CocoaPods 1.1.0+ is required to build Bluebird
 
 ```ruby
-pod 'Bluebird', '~> 1.6'
+pod 'Bluebird', '~> 1.7'
 ```
 
 ### Carthage
 
 ```ogdl
-github "AndrewBarba/Bluebird.swift" ~> 1.6
+github "AndrewBarba/Bluebird.swift" ~> 1.7
 ```
 
 ## Who's Using Bluebird
@@ -251,7 +251,7 @@ map(articles) { article in
 }
 ```
 
-You can also iterate over a sequence in series using `map(series:)`.
+You can also iterate over a sequence in series using `mapSeries()`.
 
 ### reduce
 

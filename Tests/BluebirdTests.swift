@@ -463,7 +463,7 @@ class BluebirdTests: XCTestCase {
     func testMapSeries() {
         let exp = expectation(description: "Promise.map.series")
         let arr = [1, 10, 5, 6, 8, 94, 4]
-        map(series: arr) { getInt($0) }
+        mapSeries(arr) { getInt($0) }
             .then { results in
                 XCTAssertEqual(results.count, arr.count)
                 for (index, result) in results.enumerated() {
@@ -498,7 +498,7 @@ class BluebirdTests: XCTestCase {
     func testMapSeriesChain() {
         let exp = expectation(description: "Promise.map.chain.series")
         let arr = [1, 10, 5, 6, 8, 94, 4]
-        map(series: arr) { getInt($0) }
+        mapSeries(arr) { getInt($0) }
             .mapSeries { getInt($0 + 1) }
             .then { results in
                 XCTAssertEqual(results.count, arr.count)

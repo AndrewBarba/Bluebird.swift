@@ -30,7 +30,7 @@ public func map<A, B, S: Sequence>(on queue: DispatchQueue = .main, _ items: S, 
 /// - parameter transform: transform function run on each item
 ///
 /// - returns: Promise
-public func map<A, B, S: Sequence>(on queue: DispatchQueue = .main, series items: S, _ transform: @escaping (A) throws -> Promise<B>) -> Promise<[B]> where S.Iterator.Element == A {
+public func mapSeries<A, B, S: Sequence>(on queue: DispatchQueue = .main, _ items: S, _ transform: @escaping (A) throws -> Promise<B>) -> Promise<[B]> where S.Iterator.Element == A {
     let initial = Promise<[B]>(resolve: [])
 
     return items.reduce(initial) { chain, item in
@@ -62,7 +62,7 @@ extension Promise where Result: Sequence {
     /// - returns: Promise
     public func mapSeries<B>(on queue: DispatchQueue = .main, _ transform: @escaping (Result.Iterator.Element) throws -> Promise<B>) -> Promise<[B]> {
         return then(on: queue) { results in
-            return Bluebird.map(on: queue, series: results, transform)
+            return Bluebird.mapSeries(on: queue, results, transform)
         }
     }
 }
