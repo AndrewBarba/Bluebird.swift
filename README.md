@@ -48,7 +48,7 @@ github "AndrewBarba/Bluebird.swift" ~> 1.6
 
 - [Tablelist](https://itunes.apple.com/us/app/tablelist-a-better-night-out/id634444177)
 
-> Using Bluebird in production? Open a pull request.
+> Using Bluebird in production? Open a pull request or an issue.
 
 ## Usage
 
