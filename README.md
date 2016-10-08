@@ -37,7 +37,6 @@ Full documentation can be found on [CocoaDocs](http://cocoadocs.org/docsets/Blue
 pod 'Bluebird', '~> 1.6'
 ```
 
-
 ### Carthage
 
 ```ogdl
