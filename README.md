@@ -327,6 +327,14 @@ I'd be lying if I said [PromiseKit](https://github.com/mxcl/PromiseKit) wasn't a
 
 PromiseKit goes to great length to maintain compatibility with Objective-C, previous versions of Swift, and previous versions of Xcode. Thats a ton of work, god bless them.
 
+#### Generics & Composition
+
+Bluebird has a more sophisticated use of generics throughout the library giving us really nice API for composing Promise chains in Swift.
+
+Bluebird supports `map`, `reduce`, `all`, `any` with any Sequence type, not just arrays. For example, you could use [Realm's](https://realm.io/docs/swift/latest/) `List` or `Result` types in all of those functions, you can't do this with PromiseKit.
+
+Bluebird also supports `Promise.map` and `Promise.reduce` which act just like their global equivalent, but can be chained inline on an existing Promise, greatly enhancing Promise composition.
+
 #### No Extensions
 
 PromiseKit provides many useful framework extensions that wrap core Cocoa API's in Promise style functions. I currently have no plans to provide such functionality, but if I did, it would be in a different repository so I can keep this one lean and well tested.
