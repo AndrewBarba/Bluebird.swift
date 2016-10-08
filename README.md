@@ -333,7 +333,7 @@ Bluebird has a more sophisticated use of generics throughout the library giving 
 
 Bluebird supports `map`, `reduce`, `all`, `any` with any Sequence type, not just arrays. For example, you could use [Realm's](https://realm.io/docs/swift/latest/) `List` or `Result` types in all of those functions, you can't do this with PromiseKit.
 
-Bluebird also supports `Promise.map` and `Promise.reduce` which act just like their global equivalent, but can be chained inline on an existing Promise, greatly enhancing Promise composition.
+Bluebird also supports `Promise.map` and `Promise.reduce` (same as Bluebird.js) which act just like their global equivalent, but can be chained inline on an existing Promise, greatly enhancing Promise composition.
 
 #### No Extensions
 
