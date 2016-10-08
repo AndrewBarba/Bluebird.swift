@@ -5,6 +5,11 @@ Change Log
 
 ---
 
+## [1.6.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.6.0)
+
+1. Add targets for all platforms: iOS, macOS, tvOS, watchOS
+2. Fix incorrect dispatch queue usage in `all`
+
 ## [1.5.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.5.0)
 
 1. Add `reduce` function to iterate over a sequence and resolve to a single value

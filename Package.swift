@@ -10,5 +10,5 @@ import PackageDescription
 
 let package = Package(
     name: "Bluebird",
-    exclude: ["BluebirdTests"]
+    exclude: ["Tests"]
 )

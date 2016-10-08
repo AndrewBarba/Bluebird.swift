@@ -33,7 +33,7 @@ public func all<A, S: Sequence>(on queue: DispatchQueue = .main, _ promises: S) 
 
         var remaining = count
 
-        let queue = DispatchQueue(label: "com.abarba.Bluebird.all")
+        let _queue = DispatchQueue(label: "com.abarba.Bluebird.all")
 
         let check: (A) -> () = { _ in
             remaining -= 1
@@ -45,8 +45,8 @@ public func all<A, S: Sequence>(on queue: DispatchQueue = .main, _ promises: S) 
 
         promises.forEach {
             $0.addHandlers([
-                .resolve(queue, check),
-                .reject(queue, reject)
+                .resolve(_queue, check),
+                .reject(_queue, reject)
             ])
         }
     }

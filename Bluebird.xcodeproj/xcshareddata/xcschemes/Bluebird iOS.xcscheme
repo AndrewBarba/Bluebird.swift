@@ -16,7 +16,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "B856C7951DA0206100D87A1B"
                BuildableName = "Bluebird.framework"
-               BlueprintName = "Bluebird"
+               BlueprintName = "Bluebird iOS"
                ReferencedContainer = "container:Bluebird.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,7 +45,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B856C7951DA0206100D87A1B"
             BuildableName = "Bluebird.framework"
-            BlueprintName = "Bluebird"
+            BlueprintName = "Bluebird iOS"
             ReferencedContainer = "container:Bluebird.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -67,7 +67,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B856C7951DA0206100D87A1B"
             BuildableName = "Bluebird.framework"
-            BlueprintName = "Bluebird"
+            BlueprintName = "Bluebird iOS"
             ReferencedContainer = "container:Bluebird.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -85,7 +85,7 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "B856C7951DA0206100D87A1B"
             BuildableName = "Bluebird.framework"
-            BlueprintName = "Bluebird"
+            BlueprintName = "Bluebird iOS"
             ReferencedContainer = "container:Bluebird.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

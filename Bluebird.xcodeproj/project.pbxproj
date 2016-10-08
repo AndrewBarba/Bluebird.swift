@@ -22,8 +22,51 @@
 		B856C7C51DA063BF00D87A1B /* Promise+errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C41DA063BF00D87A1B /* Promise+errors.swift */; };
 		B856C7C71DA0644900D87A1B /* Promise+race.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C61DA0644900D87A1B /* Promise+race.swift */; };
 		B856C7C91DA064E800D87A1B /* Promise+map.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C81DA064E800D87A1B /* Promise+map.swift */; };
-		B856C7CB1DA06BFD00D87A1B /* Bluebird.podspec in Resources */ = {isa = PBXBuildFile; fileRef = B856C7CA1DA06BFD00D87A1B /* Bluebird.podspec */; };
-		B856C7CD1DA071CE00D87A1B /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = B856C7CC1DA071CE00D87A1B /* LICENSE */; };
+		B86D33BB1DA9596B001A3A0B /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B01DA020CD00D87A1B /* Promise.swift */; };
+		B86D33BC1DA9596B001A3A0B /* Promise+all.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C01DA05E1B00D87A1B /* Promise+all.swift */; };
+		B86D33BD1DA9596B001A3A0B /* Promise+any.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C21DA05FB500D87A1B /* Promise+any.swift */; };
+		B86D33BE1DA9596B001A3A0B /* Promise+catch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B51DA026DC00D87A1B /* Promise+catch.swift */; };
+		B86D33BF1DA9596B001A3A0B /* Promise+errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C41DA063BF00D87A1B /* Promise+errors.swift */; };
+		B86D33C01DA9596B001A3A0B /* Promise+finally.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B91DA0271C00D87A1B /* Promise+finally.swift */; };
+		B86D33C11DA9596B001A3A0B /* Promise+join.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7BE1DA048BE00D87A1B /* Promise+join.swift */; };
+		B86D33C21DA9596B001A3A0B /* Promise+map.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C81DA064E800D87A1B /* Promise+map.swift */; };
+		B86D33C31DA9596B001A3A0B /* Promise+race.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C61DA0644900D87A1B /* Promise+race.swift */; };
+		B86D33C41DA9596B001A3A0B /* Promise+reduce.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A63AA71DA6D64200083BFC /* Promise+reduce.swift */; };
+		B86D33C51DA9596B001A3A0B /* Promise+tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B71DA026FA00D87A1B /* Promise+tap.swift */; };
+		B86D33C61DA9596B001A3A0B /* Promise+then.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B31DA026A600D87A1B /* Promise+then.swift */; };
+		B86D33C71DA9596B001A3A0B /* Promise+try.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89DAE0C1DA3FF1500252AD7 /* Promise+try.swift */; };
+		B86D33C81DA9596B001A3A0B /* Promise+void.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7BB1DA0273900D87A1B /* Promise+void.swift */; };
+		B86D33C91DA9596C001A3A0B /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B01DA020CD00D87A1B /* Promise.swift */; };
+		B86D33CA1DA9596C001A3A0B /* Promise+all.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C01DA05E1B00D87A1B /* Promise+all.swift */; };
+		B86D33CB1DA9596C001A3A0B /* Promise+any.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C21DA05FB500D87A1B /* Promise+any.swift */; };
+		B86D33CC1DA9596C001A3A0B /* Promise+catch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B51DA026DC00D87A1B /* Promise+catch.swift */; };
+		B86D33CD1DA9596C001A3A0B /* Promise+errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C41DA063BF00D87A1B /* Promise+errors.swift */; };
+		B86D33CE1DA9596C001A3A0B /* Promise+finally.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B91DA0271C00D87A1B /* Promise+finally.swift */; };
+		B86D33CF1DA9596C001A3A0B /* Promise+join.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7BE1DA048BE00D87A1B /* Promise+join.swift */; };
+		B86D33D01DA9596C001A3A0B /* Promise+map.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C81DA064E800D87A1B /* Promise+map.swift */; };
+		B86D33D11DA9596C001A3A0B /* Promise+race.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C61DA0644900D87A1B /* Promise+race.swift */; };
+		B86D33D21DA9596C001A3A0B /* Promise+reduce.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A63AA71DA6D64200083BFC /* Promise+reduce.swift */; };
+		B86D33D31DA9596C001A3A0B /* Promise+tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B71DA026FA00D87A1B /* Promise+tap.swift */; };
+		B86D33D41DA9596C001A3A0B /* Promise+then.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B31DA026A600D87A1B /* Promise+then.swift */; };
+		B86D33D51DA9596C001A3A0B /* Promise+try.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89DAE0C1DA3FF1500252AD7 /* Promise+try.swift */; };
+		B86D33D61DA9596C001A3A0B /* Promise+void.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7BB1DA0273900D87A1B /* Promise+void.swift */; };
+		B86D33D71DA9596C001A3A0B /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B01DA020CD00D87A1B /* Promise.swift */; };
+		B86D33D81DA9596C001A3A0B /* Promise+all.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C01DA05E1B00D87A1B /* Promise+all.swift */; };
+		B86D33D91DA9596C001A3A0B /* Promise+any.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C21DA05FB500D87A1B /* Promise+any.swift */; };
+		B86D33DA1DA9596C001A3A0B /* Promise+catch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B51DA026DC00D87A1B /* Promise+catch.swift */; };
+		B86D33DB1DA9596C001A3A0B /* Promise+errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C41DA063BF00D87A1B /* Promise+errors.swift */; };
+		B86D33DC1DA9596C001A3A0B /* Promise+finally.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B91DA0271C00D87A1B /* Promise+finally.swift */; };
+		B86D33DD1DA9596C001A3A0B /* Promise+join.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7BE1DA048BE00D87A1B /* Promise+join.swift */; };
+		B86D33DE1DA9596C001A3A0B /* Promise+map.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C81DA064E800D87A1B /* Promise+map.swift */; };
+		B86D33DF1DA9596C001A3A0B /* Promise+race.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C61DA0644900D87A1B /* Promise+race.swift */; };
+		B86D33E01DA9596C001A3A0B /* Promise+reduce.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A63AA71DA6D64200083BFC /* Promise+reduce.swift */; };
+		B86D33E11DA9596C001A3A0B /* Promise+tap.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B71DA026FA00D87A1B /* Promise+tap.swift */; };
+		B86D33E21DA9596C001A3A0B /* Promise+then.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B31DA026A600D87A1B /* Promise+then.swift */; };
+		B86D33E31DA9596C001A3A0B /* Promise+try.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89DAE0C1DA3FF1500252AD7 /* Promise+try.swift */; };
+		B86D33E41DA9596C001A3A0B /* Promise+void.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7BB1DA0273900D87A1B /* Promise+void.swift */; };
+		B86D33E51DA959AC001A3A0B /* Bluebird.h in Headers */ = {isa = PBXBuildFile; fileRef = B856C7991DA0206100D87A1B /* Bluebird.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B86D33E61DA959AC001A3A0B /* Bluebird.h in Headers */ = {isa = PBXBuildFile; fileRef = B856C7991DA0206100D87A1B /* Bluebird.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B86D33E71DA959AD001A3A0B /* Bluebird.h in Headers */ = {isa = PBXBuildFile; fileRef = B856C7991DA0206100D87A1B /* Bluebird.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B89DAE0D1DA3FF1500252AD7 /* Promise+try.swift in Sources */ = {isa = PBXBuildFile; fileRef = B89DAE0C1DA3FF1500252AD7 /* Promise+try.swift */; };
 		B8A63AA81DA6D64200083BFC /* Promise+reduce.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A63AA71DA6D64200083BFC /* Promise+reduce.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +102,12 @@
 		B856C7C81DA064E800D87A1B /* Promise+map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+map.swift"; sourceTree = "<group>"; };
 		B856C7CA1DA06BFD00D87A1B /* Bluebird.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Bluebird.podspec; sourceTree = SOURCE_ROOT; };
 		B856C7CC1DA071CE00D87A1B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		B86D33991DA95883001A3A0B /* Bluebird.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bluebird.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B86D33A61DA9590B001A3A0B /* Bluebird.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bluebird.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B86D33B31DA95928001A3A0B /* Bluebird.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bluebird.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B86D33B51DA95929001A3A0B /* Bluebird tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bluebird tvOS.h"; sourceTree = "<group>"; };
+		B86D33B61DA95929001A3A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B86D33E81DA95ACE001A3A0B /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
 		B89DAE0C1DA3FF1500252AD7 /* Promise+try.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+try.swift"; sourceTree = "<group>"; };
 		B8A63AA71DA6D64200083BFC /* Promise+reduce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+reduce.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -79,14 +128,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B86D33951DA95883001A3A0B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B86D33A21DA9590B001A3A0B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B86D33AF1DA95928001A3A0B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		B856C78C1DA0206100D87A1B = {
 			isa = PBXGroup;
 			children = (
-				B856C7981DA0206100D87A1B /* Bluebird */,
-				B856C7A31DA0206100D87A1B /* BluebirdTests */,
+				B856C7981DA0206100D87A1B /* Source */,
+				B856C7A31DA0206100D87A1B /* Tests */,
+				B86D33B41DA95929001A3A0B /* Bluebird tvOS */,
 				B856C7971DA0206100D87A1B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -96,11 +167,14 @@
 			children = (
 				B856C7961DA0206100D87A1B /* Bluebird.framework */,
 				B856C79F1DA0206100D87A1B /* BluebirdTests.xctest */,
+				B86D33991DA95883001A3A0B /* Bluebird.framework */,
+				B86D33A61DA9590B001A3A0B /* Bluebird.framework */,
+				B86D33B31DA95928001A3A0B /* Bluebird.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B856C7981DA0206100D87A1B /* Bluebird */ = {
+		B856C7981DA0206100D87A1B /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				B856C7B01DA020CD00D87A1B /* Promise.swift */,
@@ -119,16 +193,16 @@
 				B856C7BB1DA0273900D87A1B /* Promise+void.swift */,
 				B856C7B21DA020D100D87A1B /* Supporting Files */,
 			);
-			path = Bluebird;
+			path = Source;
 			sourceTree = "<group>";
 		};
-		B856C7A31DA0206100D87A1B /* BluebirdTests */ = {
+		B856C7A31DA0206100D87A1B /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				B856C7A41DA0206100D87A1B /* BluebirdTests.swift */,
 				B856C7A61DA0206100D87A1B /* Info.plist */,
 			);
-			path = BluebirdTests;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		B856C7B21DA020D100D87A1B /* Supporting Files */ = {
@@ -137,9 +211,19 @@
 				B856C7CA1DA06BFD00D87A1B /* Bluebird.podspec */,
 				B856C7991DA0206100D87A1B /* Bluebird.h */,
 				B856C79A1DA0206100D87A1B /* Info.plist */,
+				B86D33E81DA95ACE001A3A0B /* Info-tvOS.plist */,
 				B856C7CC1DA071CE00D87A1B /* LICENSE */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B86D33B41DA95929001A3A0B /* Bluebird tvOS */ = {
+			isa = PBXGroup;
+			children = (
+				B86D33B51DA95929001A3A0B /* Bluebird tvOS.h */,
+				B86D33B61DA95929001A3A0B /* Info.plist */,
+			);
+			path = "Bluebird tvOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -153,12 +237,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B86D33961DA95883001A3A0B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B86D33E51DA959AC001A3A0B /* Bluebird.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B86D33A31DA9590B001A3A0B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B86D33E61DA959AC001A3A0B /* Bluebird.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B86D33B01DA95928001A3A0B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B86D33E71DA959AD001A3A0B /* Bluebird.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		B856C7951DA0206100D87A1B /* Bluebird */ = {
+		B856C7951DA0206100D87A1B /* Bluebird iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B856C7AA1DA0206100D87A1B /* Build configuration list for PBXNativeTarget "Bluebird" */;
+			buildConfigurationList = B856C7AA1DA0206100D87A1B /* Build configuration list for PBXNativeTarget "Bluebird iOS" */;
 			buildPhases = (
 				B856C7911DA0206100D87A1B /* Sources */,
 				B856C7921DA0206100D87A1B /* Frameworks */,
@@ -169,7 +277,7 @@
 			);
 			dependencies = (
 			);
-			name = Bluebird;
+			name = "Bluebird iOS";
 			productName = Bluebird;
 			productReference = B856C7961DA0206100D87A1B /* Bluebird.framework */;
 			productType = "com.apple.product-type.framework";
@@ -192,6 +300,60 @@
 			productReference = B856C79F1DA0206100D87A1B /* BluebirdTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		B86D33981DA95883001A3A0B /* Bluebird watchOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B86D339E1DA95883001A3A0B /* Build configuration list for PBXNativeTarget "Bluebird watchOS" */;
+			buildPhases = (
+				B86D33941DA95883001A3A0B /* Sources */,
+				B86D33951DA95883001A3A0B /* Frameworks */,
+				B86D33961DA95883001A3A0B /* Headers */,
+				B86D33971DA95883001A3A0B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bluebird watchOS";
+			productName = "Bluebird watchOS";
+			productReference = B86D33991DA95883001A3A0B /* Bluebird.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B86D33A51DA9590B001A3A0B /* Bluebird macOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B86D33AB1DA9590B001A3A0B /* Build configuration list for PBXNativeTarget "Bluebird macOS" */;
+			buildPhases = (
+				B86D33A11DA9590B001A3A0B /* Sources */,
+				B86D33A21DA9590B001A3A0B /* Frameworks */,
+				B86D33A31DA9590B001A3A0B /* Headers */,
+				B86D33A41DA9590B001A3A0B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bluebird macOS";
+			productName = "Bluebird macOS";
+			productReference = B86D33A61DA9590B001A3A0B /* Bluebird.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		B86D33B21DA95928001A3A0B /* Bluebird tvOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B86D33B81DA95929001A3A0B /* Build configuration list for PBXNativeTarget "Bluebird tvOS" */;
+			buildPhases = (
+				B86D33AE1DA95928001A3A0B /* Sources */,
+				B86D33AF1DA95928001A3A0B /* Frameworks */,
+				B86D33B01DA95928001A3A0B /* Headers */,
+				B86D33B11DA95928001A3A0B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Bluebird tvOS";
+			productName = "Bluebird tvOS";
+			productReference = B86D33B31DA95928001A3A0B /* Bluebird.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -213,6 +375,21 @@
 						DevelopmentTeam = EVJS956X67;
 						ProvisioningStyle = Automatic;
 					};
+					B86D33981DA95883001A3A0B = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = EVJS956X67;
+						ProvisioningStyle = Automatic;
+					};
+					B86D33A51DA9590B001A3A0B = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = EVJS956X67;
+						ProvisioningStyle = Automatic;
+					};
+					B86D33B21DA95928001A3A0B = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = EVJS956X67;
+						ProvisioningStyle = Automatic;
+					};
 				};
 			};
 			buildConfigurationList = B856C7901DA0206100D87A1B /* Build configuration list for PBXProject "Bluebird" */;
@@ -227,7 +404,10 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B856C7951DA0206100D87A1B /* Bluebird */,
+				B856C7951DA0206100D87A1B /* Bluebird iOS */,
+				B86D33981DA95883001A3A0B /* Bluebird watchOS */,
+				B86D33A51DA9590B001A3A0B /* Bluebird macOS */,
+				B86D33B21DA95928001A3A0B /* Bluebird tvOS */,
 				B856C79E1DA0206100D87A1B /* BluebirdTests */,
 			);
 		};
@@ -238,12 +418,31 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B856C7CD1DA071CE00D87A1B /* LICENSE in Resources */,
-				B856C7CB1DA06BFD00D87A1B /* Bluebird.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		B856C79D1DA0206100D87A1B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B86D33971DA95883001A3A0B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B86D33A41DA9590B001A3A0B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B86D33B11DA95928001A3A0B /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -282,12 +481,75 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B86D33941DA95883001A3A0B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B86D33BF1DA9596B001A3A0B /* Promise+errors.swift in Sources */,
+				B86D33C71DA9596B001A3A0B /* Promise+try.swift in Sources */,
+				B86D33BB1DA9596B001A3A0B /* Promise.swift in Sources */,
+				B86D33BC1DA9596B001A3A0B /* Promise+all.swift in Sources */,
+				B86D33C11DA9596B001A3A0B /* Promise+join.swift in Sources */,
+				B86D33C21DA9596B001A3A0B /* Promise+map.swift in Sources */,
+				B86D33C41DA9596B001A3A0B /* Promise+reduce.swift in Sources */,
+				B86D33BD1DA9596B001A3A0B /* Promise+any.swift in Sources */,
+				B86D33BE1DA9596B001A3A0B /* Promise+catch.swift in Sources */,
+				B86D33C51DA9596B001A3A0B /* Promise+tap.swift in Sources */,
+				B86D33C31DA9596B001A3A0B /* Promise+race.swift in Sources */,
+				B86D33C81DA9596B001A3A0B /* Promise+void.swift in Sources */,
+				B86D33C61DA9596B001A3A0B /* Promise+then.swift in Sources */,
+				B86D33C01DA9596B001A3A0B /* Promise+finally.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B86D33A11DA9590B001A3A0B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B86D33CD1DA9596C001A3A0B /* Promise+errors.swift in Sources */,
+				B86D33D51DA9596C001A3A0B /* Promise+try.swift in Sources */,
+				B86D33C91DA9596C001A3A0B /* Promise.swift in Sources */,
+				B86D33CA1DA9596C001A3A0B /* Promise+all.swift in Sources */,
+				B86D33CF1DA9596C001A3A0B /* Promise+join.swift in Sources */,
+				B86D33D01DA9596C001A3A0B /* Promise+map.swift in Sources */,
+				B86D33D21DA9596C001A3A0B /* Promise+reduce.swift in Sources */,
+				B86D33CB1DA9596C001A3A0B /* Promise+any.swift in Sources */,
+				B86D33CC1DA9596C001A3A0B /* Promise+catch.swift in Sources */,
+				B86D33D31DA9596C001A3A0B /* Promise+tap.swift in Sources */,
+				B86D33D11DA9596C001A3A0B /* Promise+race.swift in Sources */,
+				B86D33D61DA9596C001A3A0B /* Promise+void.swift in Sources */,
+				B86D33D41DA9596C001A3A0B /* Promise+then.swift in Sources */,
+				B86D33CE1DA9596C001A3A0B /* Promise+finally.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B86D33AE1DA95928001A3A0B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B86D33DB1DA9596C001A3A0B /* Promise+errors.swift in Sources */,
+				B86D33E31DA9596C001A3A0B /* Promise+try.swift in Sources */,
+				B86D33D71DA9596C001A3A0B /* Promise.swift in Sources */,
+				B86D33D81DA9596C001A3A0B /* Promise+all.swift in Sources */,
+				B86D33DD1DA9596C001A3A0B /* Promise+join.swift in Sources */,
+				B86D33DE1DA9596C001A3A0B /* Promise+map.swift in Sources */,
+				B86D33E01DA9596C001A3A0B /* Promise+reduce.swift in Sources */,
+				B86D33D91DA9596C001A3A0B /* Promise+any.swift in Sources */,
+				B86D33DA1DA9596C001A3A0B /* Promise+catch.swift in Sources */,
+				B86D33E11DA9596C001A3A0B /* Promise+tap.swift in Sources */,
+				B86D33DF1DA9596C001A3A0B /* Promise+race.swift in Sources */,
+				B86D33E41DA9596C001A3A0B /* Promise+void.swift in Sources */,
+				B86D33E21DA9596C001A3A0B /* Promise+then.swift in Sources */,
+				B86D33DC1DA9596C001A3A0B /* Promise+finally.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
 		B856C7A21DA0206100D87A1B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = B856C7951DA0206100D87A1B /* Bluebird */;
+			target = B856C7951DA0206100D87A1B /* Bluebird iOS */;
 			targetProxy = B856C7A11DA0206100D87A1B /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -337,6 +599,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = Bluebird;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -384,6 +647,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = Bluebird;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				SWIFT_VERSION = 3.0;
@@ -405,11 +669,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Bluebird/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abarba.Bluebird;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Bluebird;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -427,11 +692,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = Bluebird/Info.plist;
+				INFOPLIST_FILE = Source/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abarba.Bluebird;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Bluebird;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
 			};
@@ -442,7 +708,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = EVJS956X67;
-				INFOPLIST_FILE = BluebirdTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abarba.BluebirdTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -455,11 +721,151 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = EVJS956X67;
-				INFOPLIST_FILE = BluebirdTests/Info.plist;
+				INFOPLIST_FILE = Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abarba.BluebirdTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		B86D339F1DA95883001A3A0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = EVJS956X67;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.abarba.Bluebird;
+				PRODUCT_NAME = Bluebird;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Debug;
+		};
+		B86D33A01DA95883001A3A0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = EVJS956X67;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.abarba.Bluebird;
+				PRODUCT_NAME = Bluebird;
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 3.0;
+			};
+			name = Release;
+		};
+		B86D33AC1DA9590B001A3A0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = EVJS956X67;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.abarba.Bluebird;
+				PRODUCT_NAME = Bluebird;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		B86D33AD1DA9590B001A3A0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = EVJS956X67;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Source/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				PRODUCT_BUNDLE_IDENTIFIER = com.abarba.Bluebird;
+				PRODUCT_NAME = Bluebird;
+				SDKROOT = macosx;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		B86D33B91DA95929001A3A0B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = EVJS956X67;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Source/Info-tvOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.abarba.Bluebird;
+				PRODUCT_NAME = Bluebird;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
+			};
+			name = Debug;
+		};
+		B86D33BA1DA95929001A3A0B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = EVJS956X67;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Source/Info-tvOS.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.abarba.Bluebird;
+				PRODUCT_NAME = Bluebird;
+				SDKROOT = appletvos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+				TARGETED_DEVICE_FAMILY = 3;
+				TVOS_DEPLOYMENT_TARGET = 10.0;
 			};
 			name = Release;
 		};
@@ -475,7 +881,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B856C7AA1DA0206100D87A1B /* Build configuration list for PBXNativeTarget "Bluebird" */ = {
+		B856C7AA1DA0206100D87A1B /* Build configuration list for PBXNativeTarget "Bluebird iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B856C7AB1DA0206100D87A1B /* Debug */,
@@ -489,6 +895,33 @@
 			buildConfigurations = (
 				B856C7AE1DA0206100D87A1B /* Debug */,
 				B856C7AF1DA0206100D87A1B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B86D339E1DA95883001A3A0B /* Build configuration list for PBXNativeTarget "Bluebird watchOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B86D339F1DA95883001A3A0B /* Debug */,
+				B86D33A01DA95883001A3A0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B86D33AB1DA9590B001A3A0B /* Build configuration list for PBXNativeTarget "Bluebird macOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B86D33AC1DA9590B001A3A0B /* Debug */,
+				B86D33AD1DA9590B001A3A0B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B86D33B81DA95929001A3A0B /* Build configuration list for PBXNativeTarget "Bluebird tvOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B86D33B91DA95929001A3A0B /* Debug */,
+				B86D33BA1DA95929001A3A0B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

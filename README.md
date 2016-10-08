@@ -4,7 +4,6 @@ Bluebird.swift
 [![Build Status](https://www.bitrise.io/app/701ab7c9f38d6256.svg?token=iG7jwI_9wFXyDl886lLAWw&branch=master)](https://www.bitrise.io/app/701ab7c9f38d6256)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/Bluebird.svg)](https://img.shields.io/cocoapods/v/Bluebird.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![Platform](https://img.shields.io/cocoapods/p/Bluebird.svg?style=flat)](http://cocoadocs.org/docsets/Bluebird)
 [![Twitter](https://img.shields.io/badge/twitter-@andrew_barba-blue.svg?style=flat)](http://twitter.com/andrew_barba)
 
 [Promise/A+](https://promisesaplus.com/) compliant, [Bluebird](http://bluebirdjs.com) inspired, implementation in Swift 3
@@ -35,14 +34,14 @@ Full documentation can be found on [CocoaDocs](http://cocoadocs.org/docsets/Blue
 > CocoaPods 1.1.0+ is required to build Bluebird
 
 ```ruby
-pod 'Bluebird', '~> 1.4'
+pod 'Bluebird', '~> 1.6'
 ```
 
 
 ### Carthage
 
 ```ogdl
-github "AndrewBarba/Bluebird.swift" ~> 1.4
+github "AndrewBarba/Bluebird.swift" ~> 1.6
 ```
 
 ## Usage
