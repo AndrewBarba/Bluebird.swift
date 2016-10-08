@@ -7,7 +7,7 @@ Change Log
 
 ## [1.7.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.7.0)
 
-1. Add `Promise.map`, identical to the global `map()`, but can be chained on an existing Promise that resolves to a sequence
+1. Add `Promise.map` and `Promise.mapSeries`, identical to the global `map()` and `map(series)`, but can be chained on an existing Promise that resolves to a sequence
 2. Add `Promise.reduce`, identical to the global `reduce()`, but can be chained on an existing Promise that resolves to a sequence
 
 ## [1.6.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.6.0)
