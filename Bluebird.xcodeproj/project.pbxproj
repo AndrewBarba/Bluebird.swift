@@ -105,9 +105,6 @@
 		B86D33991DA95883001A3A0B /* Bluebird.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bluebird.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86D33A61DA9590B001A3A0B /* Bluebird.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bluebird.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86D33B31DA95928001A3A0B /* Bluebird.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bluebird.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B86D33B51DA95929001A3A0B /* Bluebird tvOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Bluebird tvOS.h"; sourceTree = "<group>"; };
-		B86D33B61DA95929001A3A0B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B86D33E81DA95ACE001A3A0B /* Info-tvOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-tvOS.plist"; sourceTree = "<group>"; };
 		B89DAE0C1DA3FF1500252AD7 /* Promise+try.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+try.swift"; sourceTree = "<group>"; };
 		B8A63AA71DA6D64200083BFC /* Promise+reduce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+reduce.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,7 +154,6 @@
 			children = (
 				B856C7981DA0206100D87A1B /* Source */,
 				B856C7A31DA0206100D87A1B /* Tests */,
-				B86D33B41DA95929001A3A0B /* Bluebird tvOS */,
 				B856C7971DA0206100D87A1B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -211,19 +207,9 @@
 				B856C7CA1DA06BFD00D87A1B /* Bluebird.podspec */,
 				B856C7991DA0206100D87A1B /* Bluebird.h */,
 				B856C79A1DA0206100D87A1B /* Info.plist */,
-				B86D33E81DA95ACE001A3A0B /* Info-tvOS.plist */,
 				B856C7CC1DA071CE00D87A1B /* LICENSE */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		B86D33B41DA95929001A3A0B /* Bluebird tvOS */ = {
-			isa = PBXGroup;
-			children = (
-				B86D33B51DA95929001A3A0B /* Bluebird tvOS.h */,
-				B86D33B61DA95929001A3A0B /* Info.plist */,
-			);
-			path = "Bluebird tvOS";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -833,7 +819,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Source/Info-tvOS.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abarba.Bluebird;
@@ -856,7 +842,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Source/Info-tvOS.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/Source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.abarba.Bluebird;
