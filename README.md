@@ -23,7 +23,7 @@ Full documentation can be found on [CocoaDocs](http://cocoadocs.org/docsets/Blue
 
 ## Requirements
 
-- iOS 8.0+ / macOS 10.11+ / watchOS 2.0+
+- iOS 9.0+ / macOS 10.11+ / tvOS 9.0+ / watchOS 2.0+
 - Xcode 8.0+
 - Swift 3.0+
 
@@ -43,6 +43,12 @@ pod 'Bluebird', '~> 1.6'
 ```ogdl
 github "AndrewBarba/Bluebird.swift" ~> 1.6
 ```
+
+## Who's Using Bluebird
+
+- [Tablelist](https://itunes.apple.com/us/app/tablelist-a-better-night-out/id634444177)
+
+> Using Bluebird in production? Open a pull request.
 
 ## Usage
 
@@ -313,12 +319,6 @@ Bluebird.try {
 ## Tests
 
 Tests are continuously run on [Bitrise](https://www.bitrise.io/). Since Bitrise doesn't support public test runs I can't link to them, but you can run the tests yourself by opening the Xcode project and running the tests manually from the Bluebird scheme.
-
-## Who's Using Bluebird
-
-- [Tablelist](https://itunes.apple.com/us/app/tablelist-a-better-night-out/id634444177)
-
-> Using Bluebird in production? Open a pull request.
 
 ## Bluebird vs PromiseKit
 
