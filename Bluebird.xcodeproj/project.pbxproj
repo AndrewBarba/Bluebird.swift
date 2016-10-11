@@ -22,6 +22,14 @@
 		B856C7C51DA063BF00D87A1B /* Promise+errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C41DA063BF00D87A1B /* Promise+errors.swift */; };
 		B856C7C71DA0644900D87A1B /* Promise+race.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C61DA0644900D87A1B /* Promise+race.swift */; };
 		B856C7C91DA064E800D87A1B /* Promise+map.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C81DA064E800D87A1B /* Promise+map.swift */; };
+		B860BE261DAD9BF0006F4327 /* Promise+reflect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B860BE251DAD9BF0006F4327 /* Promise+reflect.swift */; };
+		B860BE271DAD9BF0006F4327 /* Promise+reflect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B860BE251DAD9BF0006F4327 /* Promise+reflect.swift */; };
+		B860BE281DAD9BF0006F4327 /* Promise+reflect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B860BE251DAD9BF0006F4327 /* Promise+reflect.swift */; };
+		B860BE291DAD9BF0006F4327 /* Promise+reflect.swift in Sources */ = {isa = PBXBuildFile; fileRef = B860BE251DAD9BF0006F4327 /* Promise+reflect.swift */; };
+		B860BE2B1DAD9F25006F4327 /* Promise+defer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B860BE2A1DAD9F25006F4327 /* Promise+defer.swift */; };
+		B860BE2C1DAD9F25006F4327 /* Promise+defer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B860BE2A1DAD9F25006F4327 /* Promise+defer.swift */; };
+		B860BE2D1DAD9F25006F4327 /* Promise+defer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B860BE2A1DAD9F25006F4327 /* Promise+defer.swift */; };
+		B860BE2E1DAD9F25006F4327 /* Promise+defer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B860BE2A1DAD9F25006F4327 /* Promise+defer.swift */; };
 		B86D33BB1DA9596B001A3A0B /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B01DA020CD00D87A1B /* Promise.swift */; };
 		B86D33BC1DA9596B001A3A0B /* Promise+all.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C01DA05E1B00D87A1B /* Promise+all.swift */; };
 		B86D33BD1DA9596B001A3A0B /* Promise+any.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7C21DA05FB500D87A1B /* Promise+any.swift */; };
@@ -102,6 +110,8 @@
 		B856C7C81DA064E800D87A1B /* Promise+map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+map.swift"; sourceTree = "<group>"; };
 		B856C7CA1DA06BFD00D87A1B /* Bluebird.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Bluebird.podspec; sourceTree = SOURCE_ROOT; };
 		B856C7CC1DA071CE00D87A1B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = SOURCE_ROOT; };
+		B860BE251DAD9BF0006F4327 /* Promise+reflect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+reflect.swift"; sourceTree = "<group>"; };
+		B860BE2A1DAD9F25006F4327 /* Promise+defer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+defer.swift"; sourceTree = "<group>"; };
 		B86D33991DA95883001A3A0B /* Bluebird.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bluebird.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86D33A61DA9590B001A3A0B /* Bluebird.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bluebird.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B86D33B31DA95928001A3A0B /* Bluebird.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bluebird.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -177,12 +187,14 @@
 				B856C7C01DA05E1B00D87A1B /* Promise+all.swift */,
 				B856C7C21DA05FB500D87A1B /* Promise+any.swift */,
 				B856C7B51DA026DC00D87A1B /* Promise+catch.swift */,
+				B860BE2A1DAD9F25006F4327 /* Promise+defer.swift */,
 				B856C7C41DA063BF00D87A1B /* Promise+errors.swift */,
 				B856C7B91DA0271C00D87A1B /* Promise+finally.swift */,
 				B856C7BE1DA048BE00D87A1B /* Promise+join.swift */,
 				B856C7C81DA064E800D87A1B /* Promise+map.swift */,
 				B856C7C61DA0644900D87A1B /* Promise+race.swift */,
 				B8A63AA71DA6D64200083BFC /* Promise+reduce.swift */,
+				B860BE251DAD9BF0006F4327 /* Promise+reflect.swift */,
 				B856C7B71DA026FA00D87A1B /* Promise+tap.swift */,
 				B856C7B31DA026A600D87A1B /* Promise+then.swift */,
 				B89DAE0C1DA3FF1500252AD7 /* Promise+try.swift */,
@@ -455,6 +467,8 @@
 				B856C7B81DA026FA00D87A1B /* Promise+tap.swift in Sources */,
 				B856C7C31DA05FB500D87A1B /* Promise+any.swift in Sources */,
 				B856C7C11DA05E1B00D87A1B /* Promise+all.swift in Sources */,
+				B860BE261DAD9BF0006F4327 /* Promise+reflect.swift in Sources */,
+				B860BE2B1DAD9F25006F4327 /* Promise+defer.swift in Sources */,
 				B8A63AA81DA6D64200083BFC /* Promise+reduce.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +498,8 @@
 				B86D33C31DA9596B001A3A0B /* Promise+race.swift in Sources */,
 				B86D33C81DA9596B001A3A0B /* Promise+void.swift in Sources */,
 				B86D33C61DA9596B001A3A0B /* Promise+then.swift in Sources */,
+				B860BE271DAD9BF0006F4327 /* Promise+reflect.swift in Sources */,
+				B860BE2C1DAD9F25006F4327 /* Promise+defer.swift in Sources */,
 				B86D33C01DA9596B001A3A0B /* Promise+finally.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -505,6 +521,8 @@
 				B86D33D11DA9596C001A3A0B /* Promise+race.swift in Sources */,
 				B86D33D61DA9596C001A3A0B /* Promise+void.swift in Sources */,
 				B86D33D41DA9596C001A3A0B /* Promise+then.swift in Sources */,
+				B860BE281DAD9BF0006F4327 /* Promise+reflect.swift in Sources */,
+				B860BE2D1DAD9F25006F4327 /* Promise+defer.swift in Sources */,
 				B86D33CE1DA9596C001A3A0B /* Promise+finally.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -526,6 +544,8 @@
 				B86D33DF1DA9596C001A3A0B /* Promise+race.swift in Sources */,
 				B86D33E41DA9596C001A3A0B /* Promise+void.swift in Sources */,
 				B86D33E21DA9596C001A3A0B /* Promise+then.swift in Sources */,
+				B860BE291DAD9BF0006F4327 /* Promise+reflect.swift in Sources */,
+				B860BE2E1DAD9F25006F4327 /* Promise+defer.swift in Sources */,
 				B86D33DC1DA9596C001A3A0B /* Promise+finally.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

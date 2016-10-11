@@ -15,6 +15,36 @@ public enum State<T> {
     case pending
     case resolved(_: T)
     case rejected(_: Error)
+
+    /// Is this a pending state
+    public var isPending: Bool {
+        switch self {
+        case .pending:
+            return true
+        default:
+            return false
+        }
+    }
+
+    /// The resolved result
+    public var result: T? {
+        switch self {
+        case .resolved(let result):
+            return result
+        default:
+            return nil
+        }
+    }
+
+    /// The rejected error
+    public var error: Error? {
+        switch self {
+        case .rejected(let error):
+            return error
+        default:
+            return nil
+        }
+    }
 }
 
 /// Handler function to be called when a Promise changes state
@@ -41,24 +71,19 @@ public final class Promise<Result> {
         }
     }
 
+    /// Is this Promise in a pending state
+    public var isPending: Bool {
+        return state.isPending
+    }
+
     /// The resolved result of the promise
     public var result: Result? {
-        switch state {
-        case .resolved(let result):
-            return result
-        default:
-            return nil
-        }
+        return state.result
     }
 
     /// The rejected error of the promise
     public var error: Error? {
-        switch state {
-        case .rejected(let error):
-            return error
-        default:
-            return nil
-        }
+        return state.error
     }
 
     /// Initialize to a resolved result
