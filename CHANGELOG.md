@@ -5,6 +5,11 @@ Change Log
 
 ---
 
+## [1.8.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.8.0)
+
+1. Add `Promise.reflect` for returning a Promise that will always resolve
+2. Add `Promise<Type>.defer` for returning a resolver tuple that can be used to resolve a Promise outside of the default constructors
+
 ## [1.7.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.7.0)
 
 1. Add `Promise.map` and `Promise.mapSeries`, identical to the global `map()` and `mapSeries()`, but can be chained on an existing Promise that resolves to a sequence
