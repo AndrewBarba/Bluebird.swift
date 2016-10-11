@@ -441,6 +441,19 @@ class BluebirdTests: XCTestCase {
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
 
+    func testAllArrayError() {
+        let exp = expectation(description: "Promise.all.array.error")
+        let p1 = Promise<Int>(resolve: 1)
+        let p2 = getIntError()
+        all([p1, p2]).then { results in
+            XCTFail()
+        }.catch { error in
+            XCTAssertEqual(error as! TestError, TestError.int)
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
     // MARK: - Map
 
     func testMapConcurrent() {
@@ -556,4 +569,81 @@ class BluebirdTests: XCTestCase {
         }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
+
+    // MARK: - reflect
+
+    func testReflect() {
+        let exp = expectation(description: "Promise.reflect")
+        let p1 = Promise<Int>(resolve: 1).reflect()
+        let p2 = getIntError().reflect()
+        all([p1, p2]).then { results in
+            XCTAssertNotNil(results[0].result)
+            XCTAssertNotNil(results[1].error)
+            exp.fulfill()
+        }.catch { _ in
+            XCTFail()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
+    // MARK: - defer
+
+    func testDefer() {
+        let exp = expectation(description: "Promise.defer")
+        let resolver = Promise<Int>.defer()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            resolver.resolve(5)
+        }
+        resolver.promise.then { result in
+            XCTAssertEqual(result, 5)
+            exp.fulfill()
+        }.catch { _ in
+            XCTFail()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
+    func testDeferError() {
+        let exp = expectation(description: "Promise.defer.error")
+        let resolver = Promise<Int>.defer()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            resolver.reject(TestError.int)
+        }
+        resolver.promise.then { result in
+            XCTFail()
+        }.catch { error in
+            XCTAssertEqual(error as! TestError, TestError.int)
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
