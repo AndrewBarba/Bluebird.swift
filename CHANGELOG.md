@@ -5,6 +5,11 @@ Change Log
 
 ---
 
+## [1.9.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.9.0)
+
+1. Add `Promise.delay` for delaying the execution of a Promise chain
+2. Add `Promise.timeout` to reject a Promise if it does not resolve in a given amount of time
+
 ## [1.8.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.8.0)
 
 1. Add `Promise.reflect` for returning a Promise that will always resolve

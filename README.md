@@ -34,13 +34,13 @@ Full documentation can be found on [CocoaDocs](http://cocoadocs.org/docsets/Blue
 > CocoaPods 1.1.0+ is required to build Bluebird
 
 ```ruby
-pod 'Bluebird', '~> 1.8'
+pod 'Bluebird', '~> 1.9'
 ```
 
 ### Carthage
 
 ```ogdl
-github "AndrewBarba/Bluebird.swift" ~> 1.8
+github "AndrewBarba/Bluebird.swift" ~> 1.9
 ```
 
 ## Who's Using Bluebird
