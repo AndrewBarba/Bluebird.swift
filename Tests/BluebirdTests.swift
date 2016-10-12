@@ -14,33 +14,33 @@ enum TestError: Error {
     case string
 }
 
-func getInt(_ result: Int = 10) -> Promise<Int> {
+func getInt(delay: TimeInterval = 0.1, _ result: Int = 10) -> Promise<Int> {
     return Promise<Int> { resolve, _ in
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             resolve(result)
         }
     }
 }
 
-func getIntError(_ result: Int = 10) -> Promise<Int> {
+func getIntError(delay: TimeInterval = 0.1, _ result: Int = 10) -> Promise<Int> {
     return Promise<Int> { _, reject in
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             reject(TestError.int)
         }
     }
 }
 
-func getString(_ result: String = "Hello, Bluebird") -> Promise<String> {
+func getString(delay: TimeInterval = 0.1, _ result: String = "Hello, Bluebird") -> Promise<String> {
     return Promise<String> { resolve, _ in
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             resolve(result)
         }
     }
 }
 
-func getStringError(_ result: String = "Hello, Bluebird") -> Promise<String> {
+func getStringError(delay: TimeInterval = 0.1, _ result: String = "Hello, Bluebird") -> Promise<String> {
     return Promise<String> { _, reject in
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay) {
             reject(TestError.string)
         }
     }
@@ -617,33 +617,58 @@ class BluebirdTests: XCTestCase {
         }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
+
+    // MARK: - Timeout
+
+    func testTimeout() {
+        let exp = expectation(description: "Promise.timeout")
+        getInt(delay: 0.25, 7)
+            .timeout(0.5)
+            .then { result in
+                XCTAssertEqual(7, result)
+                exp.fulfill()
+            }
+            .catch { error in
+                XCTFail()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
+    func testTimeoutError() {
+        let exp = expectation(description: "Promise.timeout.error")
+        getInt(delay: 0.5)
+            .timeout(0.25)
+            .then { _ in
+                XCTFail()
+            }
+            .catch { error in
+                switch error as! BluebirdError {
+                case .timeout(let seconds):
+                    XCTAssertEqual(0.25, seconds)
+                default:
+                    XCTFail()
+                }
+                exp.fulfill()
+            }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
+    // MARK: - Delay
+
+    func testDelay() {
+        let exp = expectation(description: "Promise.delay")
+        let start = Date().timeIntervalSince1970
+        getInt(5)
+            .delay(1.0)
+            .then { result in
+                let diff = Date().timeIntervalSince1970 - start
+                XCTAssertGreaterThan(diff, 1.0)
+                XCTAssertLessThan(diff, 2.0)
+                exp.fulfill()
+            }
+            .catch { _ in
+                XCTFail()
+            }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
