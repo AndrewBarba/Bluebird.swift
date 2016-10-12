@@ -10,8 +10,8 @@ extension Promise {
 
     /// Reject the receiving Promise if it does not resolve / reject after a given number of seconds
     ///
-    /// - parameter queue: dispatch queue to reject on
-    /// - parameter ms:    seconds to wait before rejecting the Promise
+    /// - parameter queue:   dispatch queue to reject on
+    /// - parameter seconds: seconds to wait before rejecting the Promise
     ///
     /// - returns: Promise
     public func timeout(on queue: DispatchQueue = .main, _ seconds: TimeInterval, _ error: Error? = nil) -> Promise<Result> {
