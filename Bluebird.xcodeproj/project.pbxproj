@@ -81,6 +81,10 @@
 		B8A899E11DADD6C100515174 /* Promise+delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A899DF1DADD6C100515174 /* Promise+delay.swift */; };
 		B8A899E21DADD6C100515174 /* Promise+delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A899DF1DADD6C100515174 /* Promise+delay.swift */; };
 		B8A899E31DADD6C100515174 /* Promise+delay.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A899DF1DADD6C100515174 /* Promise+delay.swift */; };
+		B8A899E51DADDABA00515174 /* Promise+timeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A899E41DADDABA00515174 /* Promise+timeout.swift */; };
+		B8A899E61DADDABA00515174 /* Promise+timeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A899E41DADDABA00515174 /* Promise+timeout.swift */; };
+		B8A899E71DADDABA00515174 /* Promise+timeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A899E41DADDABA00515174 /* Promise+timeout.swift */; };
+		B8A899E81DADDABA00515174 /* Promise+timeout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A899E41DADDABA00515174 /* Promise+timeout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -122,6 +126,7 @@
 		B89DAE0C1DA3FF1500252AD7 /* Promise+try.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+try.swift"; sourceTree = "<group>"; };
 		B8A63AA71DA6D64200083BFC /* Promise+reduce.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+reduce.swift"; sourceTree = "<group>"; };
 		B8A899DF1DADD6C100515174 /* Promise+delay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+delay.swift"; sourceTree = "<group>"; };
+		B8A899E41DADDABA00515174 /* Promise+timeout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+timeout.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -202,6 +207,7 @@
 				B8A63AA71DA6D64200083BFC /* Promise+reduce.swift */,
 				B860BE251DAD9BF0006F4327 /* Promise+reflect.swift */,
 				B856C7B71DA026FA00D87A1B /* Promise+tap.swift */,
+				B8A899E41DADDABA00515174 /* Promise+timeout.swift */,
 				B856C7B31DA026A600D87A1B /* Promise+then.swift */,
 				B89DAE0C1DA3FF1500252AD7 /* Promise+try.swift */,
 				B856C7BB1DA0273900D87A1B /* Promise+void.swift */,
@@ -471,6 +477,7 @@
 				B856C7BF1DA048BE00D87A1B /* Promise+join.swift in Sources */,
 				B856C7BA1DA0271C00D87A1B /* Promise+finally.swift in Sources */,
 				B856C7B61DA026DC00D87A1B /* Promise+catch.swift in Sources */,
+				B8A899E51DADDABA00515174 /* Promise+timeout.swift in Sources */,
 				B856C7B81DA026FA00D87A1B /* Promise+tap.swift in Sources */,
 				B856C7C31DA05FB500D87A1B /* Promise+any.swift in Sources */,
 				B856C7C11DA05E1B00D87A1B /* Promise+all.swift in Sources */,
@@ -503,6 +510,7 @@
 				B86D33BD1DA9596B001A3A0B /* Promise+any.swift in Sources */,
 				B86D33BE1DA9596B001A3A0B /* Promise+catch.swift in Sources */,
 				B86D33C51DA9596B001A3A0B /* Promise+tap.swift in Sources */,
+				B8A899E61DADDABA00515174 /* Promise+timeout.swift in Sources */,
 				B86D33C31DA9596B001A3A0B /* Promise+race.swift in Sources */,
 				B86D33C81DA9596B001A3A0B /* Promise+void.swift in Sources */,
 				B86D33C61DA9596B001A3A0B /* Promise+then.swift in Sources */,
@@ -527,6 +535,7 @@
 				B86D33CB1DA9596C001A3A0B /* Promise+any.swift in Sources */,
 				B86D33CC1DA9596C001A3A0B /* Promise+catch.swift in Sources */,
 				B86D33D31DA9596C001A3A0B /* Promise+tap.swift in Sources */,
+				B8A899E71DADDABA00515174 /* Promise+timeout.swift in Sources */,
 				B86D33D11DA9596C001A3A0B /* Promise+race.swift in Sources */,
 				B86D33D61DA9596C001A3A0B /* Promise+void.swift in Sources */,
 				B86D33D41DA9596C001A3A0B /* Promise+then.swift in Sources */,
@@ -551,6 +560,7 @@
 				B86D33D91DA9596C001A3A0B /* Promise+any.swift in Sources */,
 				B86D33DA1DA9596C001A3A0B /* Promise+catch.swift in Sources */,
 				B86D33E11DA9596C001A3A0B /* Promise+tap.swift in Sources */,
+				B8A899E81DADDABA00515174 /* Promise+timeout.swift in Sources */,
 				B86D33DF1DA9596C001A3A0B /* Promise+race.swift in Sources */,
 				B86D33E41DA9596C001A3A0B /* Promise+void.swift in Sources */,
 				B86D33E21DA9596C001A3A0B /* Promise+then.swift in Sources */,
