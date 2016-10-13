@@ -5,6 +5,10 @@ Change Log
 
 ---
 
+## [1.10.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.10.0)
+
+1. Introduce `Promise.catchThen` to recover from a rejection with another result of the same type
+
 ## [1.9.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.9.0)
 
 1. Add `Promise.delay` for delaying the execution of a Promise chain
