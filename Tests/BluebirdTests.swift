@@ -213,9 +213,9 @@ class BluebirdTests: XCTestCase {
         let string = "Hello, Bluebird"
         getInt(int).then { _ in
             getStringError()
-        }.then { _ in
+        }.tap { _ in
             XCTFail()
-        }.catch { _ in
+        }.catchThen { _ in
             getString(string)
         }.then { result in
             XCTAssertEqual(result, string)
@@ -232,7 +232,7 @@ class BluebirdTests: XCTestCase {
             XCTFail()
         }.catch { error in
             XCTAssertEqual(error as! TestError, TestError.string)
-        }.then { result in
+        }.then { _ in
             exp.fulfill()
         }
         waitForExpectations(timeout: defaultTimeout, handler: nil)

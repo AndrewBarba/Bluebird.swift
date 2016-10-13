@@ -8,15 +8,41 @@
 
 extension Promise {
 
-    /// Catches an error in a Promise chain and allows the chain to recover to a new Promise
+    /// Catches an error in a Promise chain and allows the chain to recover
     ///
     /// - parameter queue:   dispatch queue to run the catch handler on
     /// - parameter handler: block to run when Promise chain rejects
     ///
     /// - returns: Promise
-    public func `catch`<A>(on queue: DispatchQueue = .main, _ handler: @escaping (Error) throws -> Promise<A>) -> Promise<A> {
-        return Promise<A> { resolve, reject in
+    @discardableResult
+    public func `catch`(on queue: DispatchQueue = .main, _ handler: @escaping (Error) throws -> Void) -> Promise<Void> {
+        return Promise<Void> { resolve, reject in
             addHandlers([
+                .resolve(queue) { _ in
+                    resolve(())
+                },
+                .reject(queue, {
+                    do {
+                        try handler($0)
+                    } catch {
+                        return reject(error)
+                    }
+                    resolve(())
+                })
+            ])
+        }
+    }
+
+    /// Catch a Promise rejection and recover from it if possible
+    ///
+    /// - parameter queue:   dispatch queue to run the handler on
+    /// - parameter handler: handler that returns a Promise used to recover the rejected Promise
+    ///
+    /// - returns: Promise
+    public func catchThen(on queue: DispatchQueue = .main, _ handler: @escaping (Error) throws -> Promise<Result>) -> Promise<Result> {
+        return Promise<Result> { resolve, reject in
+            addHandlers([
+                .resolve(queue, resolve),
                 .reject(queue, {
                     do {
                         try handler($0).addHandlers([
@@ -31,16 +57,15 @@ extension Promise {
         }
     }
 
-    /// Catches an error in a Promise chain and allows the chain to recover to a new Promise
+    /// Catch a Promise rejection and recover from it if possible
     ///
-    /// - parameter queue:   dispatch queue to run the catch handler on
-    /// - parameter handler: block to run when Promise chain rejects
+    /// - parameter queue:   dispatch queue to run the handler on
+    /// - parameter handler: handler that returns a value used to recover the rejected Promise
     ///
     /// - returns: Promise
-    @discardableResult
-    public func `catch`<A>(on queue: DispatchQueue = .main, _ handler: @escaping (Error) throws -> A) -> Promise<A> {
-        return self.catch(on: queue) {
-            try Promise<A>(resolve: handler($0))
+    public func catchThen(on queue: DispatchQueue = .main, _ handler: @escaping (Error) throws -> Result) -> Promise<Result> {
+        return self.catchThen(on: queue) {
+            try Promise<Result>(resolve: handler($0))
         }
     }
 }
