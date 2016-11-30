@@ -15,7 +15,7 @@ public enum State<T> {
     case pending
     case resolved(_: T)
     case rejected(_: Error)
-
+    
     /// Is this a pending state
     public var isPending: Bool {
         switch self {
@@ -25,7 +25,7 @@ public enum State<T> {
             return false
         }
     }
-
+    
     /// The resolved result
     public var result: T? {
         switch self {
@@ -35,7 +35,7 @@ public enum State<T> {
             return nil
         }
     }
-
+    
     /// The rejected error
     public var error: Error? {
         switch self {
@@ -57,35 +57,37 @@ internal enum StateHandler<T> {
 }
 
 public final class Promise<Result> {
-
+    
     /// Handlers to be called when the promise changes state
     private var stateHandlers: [StateHandler<Result>] = []
-
+    
     /// Private dispatch queue for performing state related operations
     private let stateQueue = DispatchQueue(label: "com.abarba.Bluebird.state")
-
+    
     /// The current state of the promise
-    public private(set) var state: State<Result> {
-        didSet {
-            handleStateChanged()
-        }
-    }
-
+    public private(set) var state: State<Result>
+    
     /// Is this Promise in a pending state
     public var isPending: Bool {
-        return state.isPending
+        return stateQueue.sync {
+            state.isPending
+        }
     }
-
+    
     /// The resolved result of the promise
     public var result: Result? {
-        return state.result
+        return stateQueue.sync {
+            return state.result
+        }
     }
-
+    
     /// The rejected error of the promise
     public var error: Error? {
-        return state.error
+        return stateQueue.sync {
+            return state.error
+        }
     }
-
+    
     /// Initialize to a resolved result
     ///
     /// - parameter result: the final result of the promise
@@ -94,7 +96,7 @@ public final class Promise<Result> {
     public init(resolve result: Result) {
         self.state = .resolved(result)
     }
-
+    
     /// Initializa to a rejected error
     ///
     /// - parameter error: the final error of the promise
@@ -103,7 +105,7 @@ public final class Promise<Result> {
     public init(reject error: Error) {
         self.state = .rejected(error)
     }
-
+    
     /// Initialize using a resolver function
     ///
     /// - parameter resolver: takes in a two blocks, one to resolve and one to reject the promise. Can be called synchronously or asynchronously
@@ -121,7 +123,7 @@ public final class Promise<Result> {
             set(state: .rejected(error))
         }
     }
-
+    
     /// Convenience initializer to resolve this Promise when a returned Promise is resolved
     ///
     /// - parameter resolver: block that returns a Promise that this Promise will resolve to
@@ -132,49 +134,40 @@ public final class Promise<Result> {
             try resolver().addHandlers([
                 .resolve(.main, resolve),
                 .reject(.main, reject)
-            ])
+                ])
         }
     }
-
-    /// Safely perform an operation on the Promise's state
-    ///
-    /// - parameter operation: block to safely execute
-    private func performStateOperation(_ operation: (State<Result>) -> ()) {
+    
+    deinit {
         stateQueue.sync {
-            operation(state)
+            stateHandlers = []
         }
     }
-
+    
     /// Safely set the state of this Promise
     ///
     /// - parameter state: the new state of the Promise
-    private func set(state: State<Result>) {
-        performStateOperation { current in
-            switch current {
-            case .pending:
-                self.state = state
-            default:
-                break
+    private func set(state newState: State<Result>) {
+        stateQueue.sync {
+            guard case .pending = state else { return }
+            
+            state = newState
+            
+            stateHandlers.forEach { handler in
+                switch (state, handler) {
+                case (.resolved(let result), .resolve(let queue, let block)):
+                    queue.async { block(result) }
+                case (.rejected(let error), .reject(let queue, let block)):
+                    queue.async { block(error) }
+                default:
+                    break
+                }
             }
+            
+            stateHandlers = []
         }
     }
-
-    /// Runs the resolve/reject handlers according to Promise state. Clears handlers after execution
-    private func handleStateChanged() {
-        defer { stateHandlers = [] }
-
-        stateHandlers.forEach { handler in
-            switch (state, handler) {
-            case (.resolved(let result), .resolve(let queue, let block)):
-                queue.async { block(result) }
-            case (.rejected(let error), .reject(let queue, let block)):
-                queue.async { block(error) }
-            default:
-                break
-            }
-        }
-    }
-
+    
     /// Adds handlers that will be run when this Promise resolves or rejects
     ///
     /// - parameter queue:   the dispatch queue to run the passed in handlers on
@@ -184,8 +177,8 @@ public final class Promise<Result> {
     /// - returns: Self
     @discardableResult
     internal func addHandlers(_ handlers: [StateHandler<Result>]) -> Promise<Result> {
-        performStateOperation { current in
-            switch current {
+        return stateQueue.sync {
+            switch state {
             case .pending:
                 stateHandlers.append(contentsOf: handlers)
             case .resolved(let result):
@@ -193,10 +186,10 @@ public final class Promise<Result> {
             case .rejected(let error):
                 handlers.forEach { runHandler($0, with: error) }
             }
+            return self
         }
-        return self
     }
-
+    
     /// Runs a handler if it is a resolve handler
     ///
     /// - parameter handler: handler to run
@@ -209,7 +202,7 @@ public final class Promise<Result> {
             break
         }
     }
-
+    
     /// Runs a handler if it is a reject handler
     ///
     /// - parameter handler: handler to run

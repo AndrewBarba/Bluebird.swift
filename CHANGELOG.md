@@ -5,6 +5,10 @@ Change Log
 
 ---
 
+## [1.10.1](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.10.1)
+
+1. Better state handling using the sync queue. Fixes any issues I found in Xcode 8's Thread Sanitizer.
+
 ## [1.10.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.10.0)
 
 1. Introduce `Promise.catchThen` to recover from a rejection with another result of the same type
