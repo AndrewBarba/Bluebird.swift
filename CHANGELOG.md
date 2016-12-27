@@ -5,6 +5,10 @@ Change Log
 
 ---
 
+## [1.10.2](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.10.2)
+
+1. Open `Promise` class
+
 ## [1.10.1](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.10.1)
 
 1. Better state handling using the sync queue. Fixes any issues I found in Xcode 8's Thread Sanitizer.
