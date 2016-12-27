@@ -56,7 +56,7 @@ internal enum StateHandler<T> {
     case reject(_: DispatchQueue, _: (Error) -> Void)
 }
 
-public final class Promise<Result> {
+open class Promise<Result> {
     
     /// Handlers to be called when the promise changes state
     private var stateHandlers: [StateHandler<Result>] = []
