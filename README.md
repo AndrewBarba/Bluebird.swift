@@ -45,8 +45,8 @@ github "AndrewBarba/Bluebird.swift" ~> 1.10
 
 ## Who's Using Bluebird
 
-- [Tablelist](https://itunes.apple.com/us/app/tablelist-a-better-night-out/id634444177)
-- [NightPro](https://itunes.apple.com/us/app/nightpro-venue-event-management/id1122116578)
+- [Tablelist − A Better Night Out](https://itunes.apple.com/us/app/tablelist-a-better-night-out/id634444177)
+- [NightPro − Venue & Event Management](https://itunes.apple.com/us/app/nightpro-venue-event-management/id1122116578)
 
 > Using Bluebird in production? Let me know with a Pull Request or an Issue.
 
