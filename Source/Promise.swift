@@ -62,7 +62,7 @@ open class Promise<Result> {
     private var stateHandlers: [StateHandler<Result>] = []
     
     /// Private dispatch queue for performing state related operations
-    private let stateQueue = DispatchQueue(label: "com.abarba.Bluebird.state")
+    private let stateQueue = DispatchQueue(label: "com.abarba.Bluebird.state", qos: .userInteractive)
     
     /// The current state of the promise
     public private(set) var state: State<Result>
@@ -134,7 +134,7 @@ open class Promise<Result> {
             try resolver().addHandlers([
                 .resolve(.main, resolve),
                 .reject(.main, reject)
-                ])
+            ])
         }
     }
     

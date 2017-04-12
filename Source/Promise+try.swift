@@ -13,8 +13,11 @@
 ///
 /// - returns: Promise
 public func `try`<A>(on queue: DispatchQueue = .main, _ handler: @escaping () throws -> Promise<A>) -> Promise<A> {
-    return VoidPromise().then(on: queue) {
-        try handler()
+    return Promise<A> { resolve, reject in
+        try handler().addHandlers([
+            .resolve(queue, resolve),
+            .reject(queue, reject)
+        ])
     }
 }
 

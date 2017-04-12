@@ -5,6 +5,10 @@ Change Log
 
 ---
 
+## [1.10.3](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.10.3)
+
+1. QOS on internal state queue
+
 ## [1.10.2](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.10.2)
 
 1. Open `Promise` class
