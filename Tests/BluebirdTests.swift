@@ -102,7 +102,7 @@ class BluebirdTests: XCTestCase {
         let p = Promise<Int> { _, reject in
             reject(_error)
         }
-        XCTAssertEqual(p.error as! NSError, _error)
+        XCTAssertEqual(p.error! as NSError, _error)
     }
 
     func testInitResolverRejectSyncRace() {
@@ -112,7 +112,7 @@ class BluebirdTests: XCTestCase {
             reject(_error)
             resolve(_result)
         }
-        XCTAssertEqual(p.error as! NSError, _error)
+        XCTAssertEqual(p.error! as NSError, _error)
         XCTAssertNil(p.result)
     }
 
@@ -135,7 +135,7 @@ class BluebirdTests: XCTestCase {
         let promise = VoidPromise()
         let p = Promise<Void> {
             return promise
-        }.then {
+        }.then {_ in
             exp.fulfill()
         }
         XCTAssertNil(p.result)
@@ -367,7 +367,9 @@ class BluebirdTests: XCTestCase {
         let exp = expectation(description: "Promise.join.two")
         let p1 = Promise<Int>(resolve: 1)
         let p2 = getString("hello")
-        join(p1, p2).then { int, string in
+        join(p1, p2).then { (arg) in
+            
+            let (int, string) = arg
             XCTAssertEqual(int, p1.result!)
             XCTAssertEqual(string, p2.result!)
             exp.fulfill()
@@ -382,7 +384,9 @@ class BluebirdTests: XCTestCase {
         let p1 = Promise<Int>(resolve: 1)
         let p2 = getString("hello")
         let p3 = getString("hello2")
-        join(p1, p2, p3).then { int, string1, string2 in
+        join(p1, p2, p3).then { (arg) in
+            
+            let (int, string1, string2) = arg
             XCTAssertEqual(int, p1.result!)
             XCTAssertEqual(string1, p2.result!)
             XCTAssertEqual(string2, p3.result!)
@@ -399,7 +403,9 @@ class BluebirdTests: XCTestCase {
         let p2 = getString("hello")
         let p3 = getString("hello2")
         let p4 = getString("hello3")
-        join(p1, p2, p3, p4).then { int, string1, string2, string3 in
+        join(p1, p2, p3, p4).then { (arg) in
+            
+            let (int, string1, string2, string3) = arg
             XCTAssertEqual(int, p1.result!)
             XCTAssertEqual(string1, p2.result!)
             XCTAssertEqual(string2, p3.result!)
