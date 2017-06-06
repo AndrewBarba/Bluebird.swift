@@ -11,7 +11,7 @@ Bluebird.swift
 ## Features
 
 - [x] Promise/A+ Compliant
-- [x] Swift 3
+- [x] Swift 3.1
 - [x] Performance
 - [x] Lightweight
 - [x] Unit Tests
