@@ -102,7 +102,7 @@ class BluebirdTests: XCTestCase {
         let p = Promise<Int> { _, reject in
             reject(_error)
         }
-        XCTAssertEqual(p.error as! NSError, _error)
+        XCTAssertEqual(p.error! as NSError, _error)
     }
 
     func testInitResolverRejectSyncRace() {
@@ -112,7 +112,7 @@ class BluebirdTests: XCTestCase {
             reject(_error)
             resolve(_result)
         }
-        XCTAssertEqual(p.error as! NSError, _error)
+        XCTAssertEqual(p.error! as NSError, _error)
         XCTAssertNil(p.result)
     }
 
