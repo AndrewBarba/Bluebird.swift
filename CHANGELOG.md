@@ -5,6 +5,10 @@ Change Log
 
 ---
 
+## [2.0.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/2.0.0)
+
+1. Swift 4 and Xcode 9
+
 ## [1.11.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.11.0)
 
 1. Swift 3.1

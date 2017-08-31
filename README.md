@@ -6,12 +6,12 @@ Bluebird.swift
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Twitter](https://img.shields.io/badge/twitter-@andrew_barba-blue.svg?style=flat)](http://twitter.com/andrew_barba)
 
-[Promise/A+](https://promisesaplus.com/) compliant, [Bluebird](http://bluebirdjs.com) inspired, implementation in Swift 3
+[Promise/A+](https://promisesaplus.com/) compliant, [Bluebird](http://bluebirdjs.com) inspired, implementation in Swift 4
 
 ## Features
 
 - [x] Promise/A+ Compliant
-- [x] Swift 3.0
+- [x] Swift 4.0
 - [x] Performance
 - [x] Lightweight
 - [x] Unit Tests
@@ -24,8 +24,8 @@ Full documentation can be found on [CocoaDocs](http://cocoadocs.org/docsets/Blue
 ## Requirements
 
 - iOS 9.0+ / macOS 10.11+ / tvOS 9.0+ / watchOS 2.0+
-- Xcode 8.0+
-- Swift 3.0+
+- Xcode 9.0+
+- Swift 4.0+
 
 ## Installation
 
@@ -34,13 +34,13 @@ Full documentation can be found on [CocoaDocs](http://cocoadocs.org/docsets/Blue
 > CocoaPods 1.1.0+ is required to build Bluebird
 
 ```ruby
-pod 'Bluebird', '~> 1.11'
+pod 'Bluebird', '~> 2.0'
 ```
 
 ### Carthage
 
 ```ogdl
-github "AndrewBarba/Bluebird.swift" ~> 1.10
+github "AndrewBarba/Bluebird.swift" ~> 2.0
 ```
 
 ## Who's Using Bluebird
@@ -325,7 +325,7 @@ Tests are continuously run on [Bitrise](https://www.bitrise.io/). Since Bitrise 
 
 I'd be lying if I said [PromiseKit](https://github.com/mxcl/PromiseKit) wasn't a fantastic library (it is!) but Bluebird has different goals that may or may not appeal to different developers.
 
-#### Xcode 8+ / Swift 3+
+#### Xcode 9+ / Swift 4+
 
 PromiseKit goes to great length to maintain compatibility with Objective-C, previous versions of Swift, and previous versions of Xcode. Thats a ton of work, god bless them.
 
