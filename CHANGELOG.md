@@ -5,6 +5,10 @@ Change Log
 
 ---
 
+## [1.11.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.11.0)
+
+1. Swift 3.1
+
 ## [1.10.3](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/1.10.3)
 
 1. QOS on internal state queue
