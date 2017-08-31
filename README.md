@@ -11,7 +11,7 @@ Bluebird.swift
 ## Features
 
 - [x] Promise/A+ Compliant
-- [x] Swift 3.1
+- [x] Swift 3.0
 - [x] Performance
 - [x] Lightweight
 - [x] Unit Tests
@@ -34,7 +34,7 @@ Full documentation can be found on [CocoaDocs](http://cocoadocs.org/docsets/Blue
 > CocoaPods 1.1.0+ is required to build Bluebird
 
 ```ruby
-pod 'Bluebird', '~> 1.10'
+pod 'Bluebird', '~> 1.11'
 ```
 
 ### Carthage
@@ -47,6 +47,7 @@ github "AndrewBarba/Bluebird.swift" ~> 1.10
 
 - [Tablelist − A Better Night Out](https://itunes.apple.com/us/app/tablelist-a-better-night-out/id634444177)
 - [NightPro − Venue & Event Management](https://itunes.apple.com/us/app/nightpro-venue-event-management/id1122116578)
+- [EverybodyFights Training Camp](https://itunes.apple.com/us/app/everybodyfights-training-camp/id1254458919)
 
 > Using Bluebird in production? Let me know with a Pull Request or an Issue.
 
