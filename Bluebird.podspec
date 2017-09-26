@@ -1,16 +1,19 @@
 Pod::Spec.new do |s|
   s.name             = 'Bluebird'
-  s.version          = '1.11.0'
-  s.summary          = 'Promise/A+, Bluebird inspired, implementation in Swift 3'
+  s.version          = '2.0.0'
+  s.summary          = 'Promise/A+, Bluebird inspired, implementation in Swift 4'
   s.homepage         = 'https://github.com/AndrewBarba/Bluebird.swift'
   s.license          = 'MIT'
   s.author           = { 'Andrew Barba' => 'abarba.77@gmail.com' }
   s.source           = { :git => 'https://github.com/AndrewBarba/Bluebird.swift.git', :tag => s.version.to_s }
 
+  s.source_files = 'Source/*.swift'
+
+  s.pod_target_xcconfig = { 'SWIFT_WHOLE_MODULE_OPTIMIZATION' => 'YES',
+                            'APPLICATION_EXTENSION_API_ONLY' => 'YES' }
+
   s.ios.deployment_target = '9.0'
   s.osx.deployment_target = '10.11'
   s.tvos.deployment_target = '9.0'
   s.watchos.deployment_target = '2.0'
-
-  s.source_files = 'Source/*.swift'
 end

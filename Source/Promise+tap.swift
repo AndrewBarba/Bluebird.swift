@@ -28,8 +28,7 @@ extension Promise {
     /// - parameter handler: block to run in the middle of the promise chain
     ///
     /// - returns: Promise that resolves to the result of the previous Promise
-    @discardableResult
-    public func tap(on queue: DispatchQueue = .main, _ handler: @escaping (Result) throws -> Void) -> Promise<Result> {
+    @discardableResult public func tap(on queue: DispatchQueue = .main, _ handler: @escaping (Result) throws -> Void) -> Promise<Result> {
         return tap(on: queue) {
             try Promise<Void>(resolve: handler($0))
         }

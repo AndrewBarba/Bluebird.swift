@@ -135,7 +135,7 @@ class BluebirdTests: XCTestCase {
         let promise = VoidPromise()
         let p = Promise<Void> {
             return promise
-        }.then {
+        }.then {_ in
             exp.fulfill()
         }
         XCTAssertNil(p.result)
@@ -215,7 +215,7 @@ class BluebirdTests: XCTestCase {
             getStringError()
         }.tap { _ in
             XCTFail()
-        }.catchThen { _ in
+        }.recover { _ in
             getString(string)
         }.then { result in
             XCTAssertEqual(result, string)
@@ -306,6 +306,26 @@ class BluebirdTests: XCTestCase {
         }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
+    
+    func testFinallyAfterError() {
+        let exp = expectation(description: "Promise.finally.after-error")
+        getIntError().catch { error in
+            XCTAssertEqual(error as! TestError, TestError.int)
+        }.finally {
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+    
+    func testFinallyAfterNonError() {
+        let exp = expectation(description: "Promise.finally.after-non-error")
+        getInt().catch { error in
+            XCTFail()
+        }.finally {
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
 
     // MARK: - Any/Race
 
@@ -367,7 +387,9 @@ class BluebirdTests: XCTestCase {
         let exp = expectation(description: "Promise.join.two")
         let p1 = Promise<Int>(resolve: 1)
         let p2 = getString("hello")
-        join(p1, p2).then { int, string in
+        join(p1, p2).then { (arg) in
+            
+            let (int, string) = arg
             XCTAssertEqual(int, p1.result!)
             XCTAssertEqual(string, p2.result!)
             exp.fulfill()
@@ -382,7 +404,9 @@ class BluebirdTests: XCTestCase {
         let p1 = Promise<Int>(resolve: 1)
         let p2 = getString("hello")
         let p3 = getString("hello2")
-        join(p1, p2, p3).then { int, string1, string2 in
+        join(p1, p2, p3).then { (arg) in
+            
+            let (int, string1, string2) = arg
             XCTAssertEqual(int, p1.result!)
             XCTAssertEqual(string1, p2.result!)
             XCTAssertEqual(string2, p3.result!)
@@ -399,7 +423,9 @@ class BluebirdTests: XCTestCase {
         let p2 = getString("hello")
         let p3 = getString("hello2")
         let p4 = getString("hello3")
-        join(p1, p2, p3, p4).then { int, string1, string2, string3 in
+        join(p1, p2, p3, p4).then { (arg) in
+            
+            let (int, string1, string2, string3) = arg
             XCTAssertEqual(int, p1.result!)
             XCTAssertEqual(string1, p2.result!)
             XCTAssertEqual(string2, p3.result!)

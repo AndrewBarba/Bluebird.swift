@@ -14,8 +14,7 @@ extension Promise {
     /// - parameter handler: block to run when Promise chain rejects
     ///
     /// - returns: Promise
-    @discardableResult
-    public func `catch`(on queue: DispatchQueue = .main, _ handler: @escaping (Error) throws -> Void) -> Promise<Void> {
+    @discardableResult public func `catch`(on queue: DispatchQueue = .main, _ handler: @escaping (Error) throws -> Void) -> Promise<Void> {
         return Promise<Void> { resolve, reject in
             addHandlers([
                 .resolve(queue) { _ in
@@ -39,7 +38,7 @@ extension Promise {
     /// - parameter handler: handler that returns a Promise used to recover the rejected Promise
     ///
     /// - returns: Promise
-    public func catchThen(on queue: DispatchQueue = .main, _ handler: @escaping (Error) throws -> Promise<Result>) -> Promise<Result> {
+    public func recover(on queue: DispatchQueue = .main, _ handler: @escaping (Error) throws -> Promise<Result>) -> Promise<Result> {
         return Promise<Result> { resolve, reject in
             addHandlers([
                 .resolve(queue, resolve),
@@ -63,8 +62,8 @@ extension Promise {
     /// - parameter handler: handler that returns a value used to recover the rejected Promise
     ///
     /// - returns: Promise
-    public func catchThen(on queue: DispatchQueue = .main, _ handler: @escaping (Error) throws -> Result) -> Promise<Result> {
-        return self.catchThen(on: queue) {
+    public func recover(on queue: DispatchQueue = .main, _ handler: @escaping (Error) throws -> Result) -> Promise<Result> {
+        return self.recover(on: queue) {
             try Promise<Result>(resolve: handler($0))
         }
     }

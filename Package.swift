@@ -10,5 +10,6 @@ import PackageDescription
 
 let package = Package(
     name: "Bluebird",
+    swiftLanguageVersions: [3, 4],
     exclude: ["Tests"]
 )
