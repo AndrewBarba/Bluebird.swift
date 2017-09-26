@@ -119,7 +119,6 @@
 		B856C7C41DA063BF00D87A1B /* Promise+errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+errors.swift"; sourceTree = "<group>"; };
 		B856C7C61DA0644900D87A1B /* Promise+race.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+race.swift"; sourceTree = "<group>"; };
 		B856C7C81DA064E800D87A1B /* Promise+map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+map.swift"; sourceTree = "<group>"; };
-		B856C7CC1DA071CE00D87A1B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = Source/LICENSE; sourceTree = SOURCE_ROOT; };
 		B860BE251DAD9BF0006F4327 /* Promise+reflect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+reflect.swift"; sourceTree = "<group>"; };
 		B860BE2A1DAD9F25006F4327 /* Promise+defer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+defer.swift"; sourceTree = "<group>"; };
 		B86D33991DA95883001A3A0B /* Bluebird.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bluebird.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -215,7 +214,6 @@
 				B856C7B31DA026A600D87A1B /* Promise+then.swift */,
 				B89DAE0C1DA3FF1500252AD7 /* Promise+try.swift */,
 				B856C7BB1DA0273900D87A1B /* Promise+void.swift */,
-				B856C7CC1DA071CE00D87A1B /* LICENSE */,
 			);
 			path = Source;
 			sourceTree = "<group>";
