@@ -215,7 +215,7 @@ class BluebirdTests: XCTestCase {
             getStringError()
         }.tap { _ in
             XCTFail()
-        }.catchThen { _ in
+        }.recover { _ in
             getString(string)
         }.then { result in
             XCTAssertEqual(result, string)
@@ -303,6 +303,26 @@ class BluebirdTests: XCTestCase {
             exp.fulfill()
         }.catch { error in
             XCTAssertEqual(error as! TestError, TestError.int)
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+    
+    func testFinallyAfterError() {
+        let exp = expectation(description: "Promise.finally.after-error")
+        getIntError().catch { error in
+            XCTAssertEqual(error as! TestError, TestError.int)
+        }.finally {
+            exp.fulfill()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+    
+    func testFinallyAfterNonError() {
+        let exp = expectation(description: "Promise.finally.after-non-error")
+        getInt().catch { error in
+            XCTFail()
+        }.finally {
+            exp.fulfill()
         }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }

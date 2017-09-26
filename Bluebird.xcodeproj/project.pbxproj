@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		384C75771F7A90EA00CFDCBE /* Bluebird+APlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384C75761F7A90EA00CFDCBE /* Bluebird+APlus.swift */; };
+		384C75791F7A90FF00CFDCBE /* Bluebird+Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384C75781F7A90FF00CFDCBE /* Bluebird+Spec.swift */; };
 		B856C7A01DA0206100D87A1B /* Bluebird.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B856C7961DA0206100D87A1B /* Bluebird.framework */; };
 		B856C7A51DA0206100D87A1B /* BluebirdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7A41DA0206100D87A1B /* BluebirdTests.swift */; };
 		B856C7A71DA0206100D87A1B /* Bluebird.h in Headers */ = {isa = PBXBuildFile; fileRef = B856C7991DA0206100D87A1B /* Bluebird.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -98,6 +100,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		384C75761F7A90EA00CFDCBE /* Bluebird+APlus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bluebird+APlus.swift"; sourceTree = "<group>"; };
+		384C75781F7A90FF00CFDCBE /* Bluebird+Spec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bluebird+Spec.swift"; sourceTree = "<group>"; };
 		38B713681F583F3B00572ADC /* Package.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 		B856C7961DA0206100D87A1B /* Bluebird.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bluebird.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B856C7991DA0206100D87A1B /* Bluebird.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bluebird.h; sourceTree = "<group>"; };
@@ -115,7 +119,6 @@
 		B856C7C41DA063BF00D87A1B /* Promise+errors.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+errors.swift"; sourceTree = "<group>"; };
 		B856C7C61DA0644900D87A1B /* Promise+race.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+race.swift"; sourceTree = "<group>"; };
 		B856C7C81DA064E800D87A1B /* Promise+map.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+map.swift"; sourceTree = "<group>"; };
-		B856C7CA1DA06BFD00D87A1B /* Bluebird.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Bluebird.podspec; path = Source/Bluebird.podspec; sourceTree = SOURCE_ROOT; };
 		B856C7CC1DA071CE00D87A1B /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = Source/LICENSE; sourceTree = SOURCE_ROOT; };
 		B860BE251DAD9BF0006F4327 /* Promise+reflect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+reflect.swift"; sourceTree = "<group>"; };
 		B860BE2A1DAD9F25006F4327 /* Promise+defer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+defer.swift"; sourceTree = "<group>"; };
@@ -194,7 +197,6 @@
 			isa = PBXGroup;
 			children = (
 				B856C7991DA0206100D87A1B /* Bluebird.h */,
-				B856C7CA1DA06BFD00D87A1B /* Bluebird.podspec */,
 				B856C7B01DA020CD00D87A1B /* Promise.swift */,
 				B856C7C01DA05E1B00D87A1B /* Promise+all.swift */,
 				B856C7C21DA05FB500D87A1B /* Promise+any.swift */,
@@ -222,6 +224,8 @@
 			isa = PBXGroup;
 			children = (
 				B856C7A41DA0206100D87A1B /* BluebirdTests.swift */,
+				384C75761F7A90EA00CFDCBE /* Bluebird+APlus.swift */,
+				384C75781F7A90FF00CFDCBE /* Bluebird+Spec.swift */,
 			);
 			path = Tests;
 			sourceTree = "<group>";
@@ -482,7 +486,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				384C75791F7A90FF00CFDCBE /* Bluebird+Spec.swift in Sources */,
 				B856C7A51DA0206100D87A1B /* BluebirdTests.swift in Sources */,
+				384C75771F7A90EA00CFDCBE /* Bluebird+APlus.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -728,6 +734,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.abarba.Bluebird;
 				PRODUCT_NAME = Bluebird;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 			};
 			name = Release;
 		};

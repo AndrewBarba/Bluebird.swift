@@ -14,8 +14,7 @@ extension Promise {
     /// - parameter handler: block to run at the end of the promise chain
     ///
     /// - returns: Promise
-    @discardableResult
-    public func finally(on queue: DispatchQueue = .main, _ handler: @escaping () throws -> Void) -> Promise<Result> {
+    @discardableResult public func finally(on queue: DispatchQueue = .main, _ handler: @escaping () throws -> Void) -> Promise<Result> {
         return Promise<Result> { resolve, reject in
             addHandlers([
                 .resolve(queue, {

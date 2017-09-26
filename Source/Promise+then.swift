@@ -38,8 +38,7 @@ extension Promise {
     /// - parameter handler: block to run when Promise resolved, returns a Promsie that mutates the Promise chain
     ///
     /// - returns: Promise
-    @discardableResult
-    public func then<A>(on queue: DispatchQueue = .main, _ handler: @escaping (Result) throws -> A) -> Promise<A> {
+    @discardableResult public func then<A>(on queue: DispatchQueue = .main, _ handler: @escaping (Result) throws -> A) -> Promise<A> {
         return then(on: queue) {
             try Promise<A>(resolve: handler($0))
         }

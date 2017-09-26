@@ -11,8 +11,8 @@
 /// - pending:  in a pending state, neither resolved or rejected
 /// - resolved: resolved. the promise can never change to another state
 /// - rejected: rejected. the promise can never change to another state
-public enum State<T> {
-    case pending
+internal enum State<T> {
+    case pending(_: [StateHandler<T>])
     case resolved(_: T)
     case rejected(_: Error)
     
@@ -56,16 +56,13 @@ internal enum StateHandler<T> {
     case reject(_: DispatchQueue, _: (Error) -> Void)
 }
 
-open class Promise<Result> {
-    
-    /// Handlers to be called when the promise changes state
-    private var stateHandlers: [StateHandler<Result>] = []
+public final class Promise<Result> {
     
     /// Private dispatch queue for performing state related operations
     private let stateQueue = DispatchQueue(label: "com.abarba.Bluebird.state", qos: .userInteractive)
     
     /// The current state of the promise
-    public private(set) var state: State<Result>
+    internal private(set) var state: State<Result>
     
     /// Is this Promise in a pending state
     public var isPending: Bool {
@@ -112,13 +109,9 @@ open class Promise<Result> {
     ///
     /// - returns: Promise
     public init(_ resolver: (@escaping (Result) -> Void, @escaping (Error) -> Void) throws -> Void) {
-        self.state = .pending
+        self.state = .pending([])
         do {
-            try resolver({
-                self.set(state: .resolved($0))
-            }, {
-                self.set(state: .rejected($0))
-            })
+            try resolver({ self.set(state: .resolved($0)) }, { self.set(state: .rejected($0)) })
         } catch {
             set(state: .rejected(error))
         }
@@ -138,22 +131,16 @@ open class Promise<Result> {
         }
     }
     
-    deinit {
-        stateQueue.sync {
-            stateHandlers = []
-        }
-    }
-    
     /// Safely set the state of this Promise
     ///
     /// - parameter state: the new state of the Promise
     private func set(state newState: State<Result>) {
         stateQueue.sync {
-            guard case .pending = state else { return }
+            guard case .pending(let handlers) = state else { return }
             
             state = newState
             
-            stateHandlers.forEach { handler in
+            handlers.forEach { handler in
                 switch (state, handler) {
                 case (.resolved(let result), .resolve(let queue, let block)):
                     queue.async { block(result) }
@@ -163,8 +150,6 @@ open class Promise<Result> {
                     break
                 }
             }
-            
-            stateHandlers = []
         }
     }
     
@@ -175,12 +160,11 @@ open class Promise<Result> {
     /// - parameter reject:  a block to run when the Promise rejects
     ///
     /// - returns: Self
-    @discardableResult
-    internal func addHandlers(_ handlers: [StateHandler<Result>]) -> Promise<Result> {
+    @discardableResult internal func addHandlers(_ handlers: [StateHandler<Result>]) -> Promise<Result> {
         return stateQueue.sync {
             switch state {
-            case .pending:
-                stateHandlers.append(contentsOf: handlers)
+            case .pending(let currentHandlers):
+                state = .pending(currentHandlers + handlers)
             case .resolved(let result):
                 handlers.forEach { runHandler($0, with: result) }
             case .rejected(let error):
