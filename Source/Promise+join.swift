@@ -6,6 +6,8 @@
 //  Copyright © 2016 Andrew Barba. All rights reserved.
 //
 
+import Foundation
+
 /// Returns a Promise that resolves to a tuple of the passed in Promises. Rejects as soon as one Promise rejects.
 ///
 /// - parameter queue: dispatch queue to run the handler on

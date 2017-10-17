@@ -6,6 +6,8 @@
 //  Copyright © 2016 Andrew Barba. All rights reserved.
 //
 
+import Foundation
+
 /// Identical to `all`, but does not throw an error for an empty array of Promises
 ///
 /// - parameter queue:    dispatch queue to run the handler on

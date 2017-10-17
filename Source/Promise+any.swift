@@ -6,6 +6,8 @@
 //  Copyright © 2016 Andrew Barba. All rights reserved.
 //
 
+import Foundation
+
 /// Returns a Promise that resolves as soon as one passed in Promise resolves
 ///
 /// - parameter queue:    dispatch queue to run the handler on

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'Bluebird'
-  s.version          = '2.0.0'
+  s.version          = '2.0.1'
   s.summary          = 'Promise/A+, Bluebird inspired, implementation in Swift 4'
   s.homepage         = 'https://github.com/AndrewBarba/Bluebird.swift'
   s.license          = 'MIT'

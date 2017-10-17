@@ -6,6 +6,8 @@
 //  Copyright © 2016 Andrew Barba. All rights reserved.
 //
 
+import Foundation
+
 extension Promise {
 
     /// Reject the receiving Promise if it does not resolve / reject after a given number of seconds

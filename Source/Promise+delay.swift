@@ -6,6 +6,8 @@
 //  Copyright © 2016 Andrew Barba. All rights reserved.
 //
 
+import Foundation
+
 /// Delay the start of a Promise chain by some number of seconds
 ///
 /// - parameter queue:   dispatch queue to run the delay on

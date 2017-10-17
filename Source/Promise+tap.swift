@@ -6,6 +6,8 @@
 //  Copyright © 2016 Andrew Barba. All rights reserved.
 //
 
+import Foundation
+
 extension Promise {
 
     /// Perform an operation in the middle of a promise chain that does not effect the resolved value, but can reject the chain

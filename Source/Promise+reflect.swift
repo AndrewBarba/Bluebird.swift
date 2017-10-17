@@ -6,6 +6,8 @@
 //  Copyright © 2016 Andrew Barba. All rights reserved.
 //
 
+import Foundation
+
 /// Enum used to describe the result of a promise
 ///
 /// - resolved: the resolved value

@@ -6,6 +6,8 @@
 //  Copyright © 2016 Andrew Barba. All rights reserved.
 //
 
+import Foundation
+
 /// Enum representing the current state of a Promise
 ///
 /// - pending:  in a pending state, neither resolved or rejected

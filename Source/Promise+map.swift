@@ -6,6 +6,8 @@
 //  Copyright © 2016 Andrew Barba. All rights reserved.
 //
 
+import Foundation
+
 /// Map an array of items to Promises, and resolve when all Promises resolve. Rejects as soon as any Promise rejects.
 ///
 /// - parameter queue:     dispatch queue to run the handler on

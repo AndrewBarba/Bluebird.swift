@@ -6,6 +6,8 @@
 //  Copyright © 2016 Andrew Barba. All rights reserved.
 //
 
+import Foundation
+
 /// Reduce a sequence of items with a asynchronous operation (Promise) to a single value
 ///
 /// - parameter queue:     dispatch queue to run transform on

@@ -6,6 +6,8 @@
 //  Copyright © 2016 Andrew Barba. All rights reserved.
 //
 
+import Foundation
+
 extension Promise {
 
     /// Wrap a Promise and its resolve / reject handlers in a tuple

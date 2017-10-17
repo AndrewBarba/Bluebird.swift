@@ -6,6 +6,8 @@
 //  Copyright © 2016 Andrew Barba. All rights reserved.
 //
 
+import Foundation
+
 /// Begin a promise chain
 ///
 /// - parameter queue:   dispatch queue to start the chain on

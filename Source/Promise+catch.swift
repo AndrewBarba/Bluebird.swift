@@ -6,6 +6,8 @@
 //  Copyright © 2016 Andrew Barba. All rights reserved.
 //
 
+import Foundation
+
 extension Promise {
 
     /// Catches an error in a Promise chain and allows the chain to recover

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		384C75771F7A90EA00CFDCBE /* Bluebird+APlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384C75761F7A90EA00CFDCBE /* Bluebird+APlus.swift */; };
 		384C75791F7A90FF00CFDCBE /* Bluebird+Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 384C75781F7A90FF00CFDCBE /* Bluebird+Spec.swift */; };
-		B856C7A01DA0206100D87A1B /* Bluebird.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B856C7961DA0206100D87A1B /* Bluebird.framework */; };
+		38BCBD5B1F7C0ED7003D78C3 /* Bluebird.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B856C7961DA0206100D87A1B /* Bluebird.framework */; };
 		B856C7A51DA0206100D87A1B /* BluebirdTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7A41DA0206100D87A1B /* BluebirdTests.swift */; };
 		B856C7A71DA0206100D87A1B /* Bluebird.h in Headers */ = {isa = PBXBuildFile; fileRef = B856C7991DA0206100D87A1B /* Bluebird.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B856C7B11DA020CD00D87A1B /* Promise.swift in Sources */ = {isa = PBXBuildFile; fileRef = B856C7B01DA020CD00D87A1B /* Promise.swift */; };
@@ -142,7 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B856C7A01DA0206100D87A1B /* Bluebird.framework in Frameworks */,
+				38BCBD5B1F7C0ED7003D78C3 /* Bluebird.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -170,6 +170,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38BCBD5A1F7C0ED7003D78C3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B856C78C1DA0206100D87A1B = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +184,7 @@
 				B856C7981DA0206100D87A1B /* Source */,
 				B856C7A31DA0206100D87A1B /* Tests */,
 				B856C7971DA0206100D87A1B /* Products */,
+				38BCBD5A1F7C0ED7003D78C3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

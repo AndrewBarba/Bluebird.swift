@@ -6,6 +6,8 @@
 //  Copyright © 2016 Andrew Barba. All rights reserved.
 //
 
+import Foundation
+
 extension Promise {
 
     /// Always run a handler at the end of a promise chain regardless of the whether the chain resolves or rejects

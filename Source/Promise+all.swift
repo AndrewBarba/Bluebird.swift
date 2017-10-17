@@ -6,6 +6,8 @@
 //  Copyright © 2016 Andrew Barba. All rights reserved.
 //
 
+import Foundation
+
 /// Returns a Promise that resolved when all passed in Promises resolve. Rejects as soon as one promise rejects.
 ///
 /// - parameter queue:    dispatch queue to run the handler on

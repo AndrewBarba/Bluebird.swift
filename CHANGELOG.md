@@ -5,6 +5,10 @@ Change Log
 
 ---
 
+## [2.0.1](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/2.0.1)
+
+1. Add missing Foundation imports for Swift Package Manager
+
 ## [2.0.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/2.0.0)
 
 1. Swift 4 and Xcode 9

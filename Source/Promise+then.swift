@@ -6,6 +6,8 @@
 //  Copyright © 2016 Andrew Barba. All rights reserved.
 //
 
+import Foundation
+
 extension Promise {
 
     /// Perform an operation on a Promise once it resolves. The chain will then resolve to the Promise returned from the handler

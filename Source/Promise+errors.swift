@@ -6,6 +6,8 @@
 //  Copyright © 2016 Andrew Barba. All rights reserved.
 //
 
+import Foundation
+
 /// Bluebird errors
 ///
 /// - cancelled:  thrown when a Promise was explicity cancelled
