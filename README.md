@@ -45,6 +45,7 @@ github "AndrewBarba/Bluebird.swift" ~> 2.0
 
 ## Who's Using Bluebird
 
+- [Barstool Sports](https://itunes.apple.com/us/app/barstool-sports/id456805313)
 - [Tablelist − A Better Night Out](https://itunes.apple.com/us/app/tablelist-a-better-night-out/id634444177)
 - [NightPro − Venue & Event Management](https://itunes.apple.com/us/app/nightpro-venue-event-management/id1122116578)
 - [EverybodyFights Training Camp](https://itunes.apple.com/us/app/everybodyfights-training-camp/id1254458919)
