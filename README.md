@@ -19,7 +19,7 @@ Bluebird.swift
 
 ## Documentation
 
-[https://github.com/AndrewBarba/Bluebird.swift](https://github.com/AndrewBarba/Bluebird.swift)
+[https://andrewbarba.github.io/Bluebird.swift/](https://andrewbarba.github.io/Bluebird.swift/)
 
 ## Requirements
 
