@@ -1,26 +1,17 @@
-# OS X
+#### CocoaPods
+Pods/
+*.generated.swift
+
+#### Fastlane
+fastlane/report.xml
+fastlane/README.md
+
+#### macOS
 .DS_Store
 
-# Xcode
-*.pbxuser
-!default.pbxuser
-*.mode1v3
-!default.mode1v3
-*.mode2v3
-!default.mode2v3
-*.perspectivev3
-!default.perspectivev3
-xcuserdata
-*.xccheckout
-profile
-*.moved-aside
-DerivedData
-*.hmap
-*.ipa
+#### Xcode
+xcuserdata/
 *.xcworkspace
-
-# Other
-Carthage/
-Pods/
-build/
-docs/
+*.zip
+*.ipa
+.build

@@ -19,7 +19,7 @@ Bluebird.swift
 
 ## Documentation
 
-Full documentation can be found on [CocoaDocs](http://cocoadocs.org/docsets/Bluebird/)
+[https://github.com/AndrewBarba/Bluebird.swift](https://github.com/AndrewBarba/Bluebird.swift)
 
 ## Requirements
 
@@ -29,18 +29,33 @@ Full documentation can be found on [CocoaDocs](http://cocoadocs.org/docsets/Blue
 
 ## Installation
 
+### Swift Package Manager
+
+```swift
+// swift-tools-version:4.0
+
+import PackageDescription
+
+let package = Package(
+    name: "My Lisk App",
+    dependencies: [
+        .package(url: "https://github.com/AndrewBarba/Bluebird.swift.git", from: "2.1.0")
+    ]
+)
+```
+
 ### CocoaPods
 
 > CocoaPods 1.1.0+ is required to build Bluebird
 
 ```ruby
-pod 'Bluebird', '~> 2.0'
+pod 'Bluebird', '~> 2.1'
 ```
 
 ### Carthage
 
 ```ogdl
-github "AndrewBarba/Bluebird.swift" ~> 2.0
+github "AndrewBarba/Bluebird.swift" ~> 2.1
 ```
 
 ## Who's Using Bluebird

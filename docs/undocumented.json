@@ -1,0 +1,124 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise+errors.swift",
+      "line": 17,
+      "symbol": "BluebirdError.cancelled",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise+errors.swift",
+      "line": 18,
+      "symbol": "BluebirdError.rangeError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise+errors.swift",
+      "line": 19,
+      "symbol": "BluebirdError.timeout",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise+reflect.swift",
+      "line": 16,
+      "symbol": "ReflectionState.resolved",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise+reflect.swift",
+      "line": 17,
+      "symbol": "ReflectionState.rejected",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise.swift",
+      "line": null,
+      "symbol": "Promise",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise.swift",
+      "line": null,
+      "symbol": "Promise",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise.swift",
+      "line": null,
+      "symbol": "Promise",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise.swift",
+      "line": null,
+      "symbol": "Promise",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise.swift",
+      "line": null,
+      "symbol": "Promise",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise.swift",
+      "line": null,
+      "symbol": "Promise",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise.swift",
+      "line": null,
+      "symbol": "Promise",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise.swift",
+      "line": null,
+      "symbol": "Promise",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise.swift",
+      "line": null,
+      "symbol": "Promise",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise.swift",
+      "line": null,
+      "symbol": "Promise",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise.swift",
+      "line": null,
+      "symbol": "Promise",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise.swift",
+      "line": 61,
+      "symbol": "Promise",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/andrewbarba/Code/Bluebird.swift"
+}

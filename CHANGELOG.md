@@ -5,6 +5,12 @@ Change Log
 
 ---
 
+## [2.1.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/2.1.0)
+
+1. Support CocoaPods v1.4.0
+2. Support Swift Package Manager
+3. Hosted documentation generated with Jazzy
+
 ## [2.0.1](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/2.0.1)
 
 1. Add missing Foundation imports for Swift Package Manager

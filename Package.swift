@@ -1,15 +1,23 @@
-//
-//  Package.swift
-//  Bluebird
-//
-//  Created by Andrew Barba on 10/2/16.
-//  Copyright © 2016 Andrew Barba. All rights reserved.
-//
+// swift-tools-version:4.0
 
 import PackageDescription
 
 let package = Package(
     name: "Bluebird",
-    swiftLanguageVersions: [3, 4],
-    exclude: ["Tests"]
+    products: [
+        .library(name: "Bluebird", targets: ["Bluebird"]),
+    ],
+    targets: [
+        .target(
+            name: "Bluebird",
+            dependencies: [],
+            path: "./Sources"
+        ),
+        .testTarget(
+            name: "BluebirdTests",
+            dependencies: ["Bluebird"],
+            path: "./Tests"
+        )
+    ],
+    swiftLanguageVersions: [4]
 )
