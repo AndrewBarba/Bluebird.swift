@@ -697,4 +697,20 @@ class BluebirdTests: XCTestCase {
             }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
+
+    // MARK: - Returns
+
+    func testReturn() {
+        let exp = expectation(description: "Promise.return")
+        getInt(5)
+            .return(8)
+            .then { result in
+                XCTAssertEqual(result, 8)
+                exp.fulfill()
+            }
+            .catch { _ in
+                XCTFail()
+            }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
 }

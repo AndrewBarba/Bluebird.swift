@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		38F1E315201262030084C09B /* Promise+return.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F1E314201262030084C09B /* Promise+return.swift */; };
 		OBJ_38 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_44 /* Bluebird+APlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* Bluebird+APlus.swift */; };
 		OBJ_45 /* Bluebird+Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* Bluebird+Spec.swift */; };
@@ -64,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38F1E314201262030084C09B /* Promise+return.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+return.swift"; sourceTree = "<group>"; };
 		"Bluebird::Bluebird::Product" /* Bluebird.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Bluebird.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Bluebird::BluebirdTests::Product" /* BluebirdTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = BluebirdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Promise+catch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+catch.swift"; sourceTree = "<group>"; };
@@ -128,7 +130,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -136,7 +138,6 @@
 				OBJ_26 /* Tests */,
 				OBJ_30 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -154,6 +155,7 @@
 				OBJ_17 /* Promise+race.swift */,
 				OBJ_18 /* Promise+reduce.swift */,
 				OBJ_19 /* Promise+reflect.swift */,
+				38F1E314201262030084C09B /* Promise+return.swift */,
 				OBJ_20 /* Promise+tap.swift */,
 				OBJ_21 /* Promise+then.swift */,
 				OBJ_22 /* Promise+timeout.swift */,
@@ -229,7 +231,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_30 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -278,6 +280,7 @@
 				OBJ_65 /* Promise+reduce.swift in Sources */,
 				OBJ_66 /* Promise+reflect.swift in Sources */,
 				OBJ_67 /* Promise+tap.swift in Sources */,
+				38F1E315201262030084C09B /* Promise+return.swift in Sources */,
 				OBJ_68 /* Promise+then.swift in Sources */,
 				OBJ_69 /* Promise+timeout.swift in Sources */,
 				OBJ_70 /* Promise+try.swift in Sources */,
