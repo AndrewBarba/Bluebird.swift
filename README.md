@@ -39,7 +39,7 @@ import PackageDescription
 let package = Package(
     name: "My Lisk App",
     dependencies: [
-        .package(url: "https://github.com/AndrewBarba/Bluebird.swift.git", from: "2.1.0")
+        .package(url: "https://github.com/AndrewBarba/Bluebird.swift.git", from: "2.2.0")
     ]
 )
 ```

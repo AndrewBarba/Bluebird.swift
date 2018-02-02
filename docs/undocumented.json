@@ -121,6 +121,20 @@
     },
     {
       "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise.swift",
+      "line": null,
+      "symbol": "Promise",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise.swift",
+      "line": null,
+      "symbol": "Promise",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise.swift",
       "line": 61,
       "symbol": "Promise",
       "symbol_kind": "source.lang.swift.decl.class",

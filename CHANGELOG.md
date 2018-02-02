@@ -5,6 +5,10 @@ Change Log
 
 ---
 
+## [2.2.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/2.2.0)
+
+1. Add `Promise.tapCatch`
+
 ## [2.1.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/2.1.0)
 
 1. Add `Promise.return`
