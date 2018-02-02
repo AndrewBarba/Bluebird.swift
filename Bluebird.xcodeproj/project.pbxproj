@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		3874A67C20251D5C00836E22 /* Bluebird+Performance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3874A67B20251D5C00836E22 /* Bluebird+Performance.swift */; };
 		38C4AE8A20250AA3006DBF0A /* Promise+tapCatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C4AE8920250AA3006DBF0A /* Promise+tapCatch.swift */; };
 		38C4AE8C20250E60006DBF0A /* Promise+recover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C4AE8B20250E60006DBF0A /* Promise+recover.swift */; };
 		38F1E315201262030084C09B /* Promise+return.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F1E314201262030084C09B /* Promise+return.swift */; };
@@ -67,11 +68,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3874A67B20251D5C00836E22 /* Bluebird+Performance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bluebird+Performance.swift"; sourceTree = "<group>"; };
+		3874A67D20251F2F00836E22 /* BluebirdTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BluebirdTests.h; sourceTree = "<group>"; };
 		38C4AE8920250AA3006DBF0A /* Promise+tapCatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+tapCatch.swift"; sourceTree = "<group>"; };
 		38C4AE8B20250E60006DBF0A /* Promise+recover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+recover.swift"; sourceTree = "<group>"; };
 		38F1E314201262030084C09B /* Promise+return.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+return.swift"; sourceTree = "<group>"; };
 		"Bluebird::Bluebird::Product" /* Bluebird.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Bluebird.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"Bluebird::BluebirdTests::Product" /* BluebirdTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = BluebirdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"Bluebird::BluebirdTests::Product" /* BluebirdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = BluebirdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Promise+catch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+catch.swift"; sourceTree = "<group>"; };
 		OBJ_11 /* Promise+defer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+defer.swift"; sourceTree = "<group>"; };
 		OBJ_12 /* Promise+delay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+delay.swift"; sourceTree = "<group>"; };
@@ -118,7 +121,9 @@
 		OBJ_26 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				3874A67D20251F2F00836E22 /* BluebirdTests.h */,
 				OBJ_27 /* Bluebird+APlus.swift */,
+				3874A67B20251D5C00836E22 /* Bluebird+Performance.swift */,
 				OBJ_28 /* Bluebird+Spec.swift */,
 				OBJ_29 /* BluebirdTests.swift */,
 			);
@@ -266,6 +271,7 @@
 				OBJ_44 /* Bluebird+APlus.swift in Sources */,
 				OBJ_45 /* Bluebird+Spec.swift in Sources */,
 				OBJ_46 /* BluebirdTests.swift in Sources */,
+				3874A67C20251D5C00836E22 /* Bluebird+Performance.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +392,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/BluebirdTests.h;
 				SWIFT_VERSION = 4.0;
 				TARGET_NAME = BluebirdTests;
 			};
@@ -404,6 +411,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks @loader_path/Frameworks";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_OBJC_BRIDGING_HEADER = Tests/BluebirdTests.h;
 				SWIFT_VERSION = 4.0;
 				TARGET_NAME = BluebirdTests;
 			};
