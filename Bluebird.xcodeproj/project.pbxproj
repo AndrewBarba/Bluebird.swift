@@ -21,6 +21,8 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		38C4AE8A20250AA3006DBF0A /* Promise+tapCatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C4AE8920250AA3006DBF0A /* Promise+tapCatch.swift */; };
+		38C4AE8C20250E60006DBF0A /* Promise+recover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C4AE8B20250E60006DBF0A /* Promise+recover.swift */; };
 		38F1E315201262030084C09B /* Promise+return.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F1E314201262030084C09B /* Promise+return.swift */; };
 		OBJ_38 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_44 /* Bluebird+APlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* Bluebird+APlus.swift */; };
@@ -65,6 +67,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		38C4AE8920250AA3006DBF0A /* Promise+tapCatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+tapCatch.swift"; sourceTree = "<group>"; };
+		38C4AE8B20250E60006DBF0A /* Promise+recover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+recover.swift"; sourceTree = "<group>"; };
 		38F1E314201262030084C09B /* Promise+return.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+return.swift"; sourceTree = "<group>"; };
 		"Bluebird::Bluebird::Product" /* Bluebird.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Bluebird.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Bluebird::BluebirdTests::Product" /* BluebirdTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = BluebirdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -153,10 +157,12 @@
 				OBJ_15 /* Promise+join.swift */,
 				OBJ_16 /* Promise+map.swift */,
 				OBJ_17 /* Promise+race.swift */,
+				38C4AE8B20250E60006DBF0A /* Promise+recover.swift */,
 				OBJ_18 /* Promise+reduce.swift */,
 				OBJ_19 /* Promise+reflect.swift */,
 				38F1E314201262030084C09B /* Promise+return.swift */,
 				OBJ_20 /* Promise+tap.swift */,
+				38C4AE8920250AA3006DBF0A /* Promise+tapCatch.swift */,
 				OBJ_21 /* Promise+then.swift */,
 				OBJ_22 /* Promise+timeout.swift */,
 				OBJ_23 /* Promise+try.swift */,
@@ -274,12 +280,14 @@
 				OBJ_59 /* Promise+delay.swift in Sources */,
 				OBJ_60 /* Promise+errors.swift in Sources */,
 				OBJ_61 /* Promise+finally.swift in Sources */,
+				38C4AE8A20250AA3006DBF0A /* Promise+tapCatch.swift in Sources */,
 				OBJ_62 /* Promise+join.swift in Sources */,
 				OBJ_63 /* Promise+map.swift in Sources */,
 				OBJ_64 /* Promise+race.swift in Sources */,
 				OBJ_65 /* Promise+reduce.swift in Sources */,
 				OBJ_66 /* Promise+reflect.swift in Sources */,
 				OBJ_67 /* Promise+tap.swift in Sources */,
+				38C4AE8C20250E60006DBF0A /* Promise+recover.swift in Sources */,
 				38F1E315201262030084C09B /* Promise+return.swift in Sources */,
 				OBJ_68 /* Promise+then.swift in Sources */,
 				OBJ_69 /* Promise+timeout.swift in Sources */,

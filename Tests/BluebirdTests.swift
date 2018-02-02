@@ -698,6 +698,19 @@ class BluebirdTests: XCTestCase {
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
 
+    // MARK: - Tap Catch
+
+    func testTapCatch() {
+        let exp1 = expectation(description: "Promise.tapCatch")
+        let exp2 = expectation(description: "Promise.tapCatch.catch")
+        getIntError()
+            .then { _ in XCTFail() }
+            .tapCatch { _ in exp1.fulfill() }
+            .then { _ in XCTFail() }
+            .catch { _ in exp2.fulfill() }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
+    }
+
     // MARK: - Returns
 
     func testReturn() {
