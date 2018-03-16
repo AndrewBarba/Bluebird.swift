@@ -744,15 +744,4 @@ class BluebirdTests: XCTestCase {
         }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
-
-    func testOnCancelMain() {
-        let exp = expectation(description: "Promise.cancel")
-        let promise: Promise<Int> = Promise { resolve, reject, onCancel in
-            onCancel { exp.fulfill() }
-        }
-        DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
-            promise.cancel()
-        }
-        waitForExpectations(timeout: defaultTimeout, handler: nil)
-    }
 }
