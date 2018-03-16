@@ -12,6 +12,7 @@ Bluebird.swift
 
 - [x] Promise/A+ Compliant
 - [x] Swift 4.0
+- [x] Promise Cancellation
 - [x] Performance
 - [x] Lightweight
 - [x] Unit Tests
@@ -39,7 +40,7 @@ import PackageDescription
 let package = Package(
     name: "My Lisk App",
     dependencies: [
-        .package(url: "https://github.com/AndrewBarba/Bluebird.swift.git", from: "2.2.0")
+        .package(url: "https://github.com/AndrewBarba/Bluebird.swift.git", from: "2.3.0")
     ]
 )
 ```
@@ -49,13 +50,13 @@ let package = Package(
 > CocoaPods 1.1.0+ is required to build Bluebird
 
 ```ruby
-pod 'Bluebird', '~> 2.1'
+pod 'Bluebird', '~> 2.3'
 ```
 
 ### Carthage
 
 ```ogdl
-github "AndrewBarba/Bluebird.swift" ~> 2.1
+github "AndrewBarba/Bluebird.swift" ~> 2.3
 ```
 
 ## Who's Using Bluebird

@@ -135,7 +135,7 @@
     },
     {
       "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise.swift",
-      "line": 61,
+      "line": 73,
       "symbol": "Promise",
       "symbol_kind": "source.lang.swift.decl.class",
       "warning": "undocumented"

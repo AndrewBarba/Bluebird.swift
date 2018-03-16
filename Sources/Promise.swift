@@ -17,11 +17,22 @@ internal enum State<T> {
     case pending(_: [StateHandler<T>])
     case resolved(_: T)
     case rejected(_: Error)
+    case canceled
     
     /// Is this a pending state
     public var isPending: Bool {
         switch self {
         case .pending:
+            return true
+        default:
+            return false
+        }
+    }
+
+    /// Is this promise canceled
+    public var isCanceled: Bool {
+        switch self {
+        case .canceled:
             return true
         default:
             return false
@@ -56,6 +67,7 @@ internal enum State<T> {
 internal enum StateHandler<T> {
     case resolve(_: DispatchQueue, _: (T) -> Void)
     case reject(_: DispatchQueue, _: (Error) -> Void)
+    case cancel(_: DispatchQueue, _: () -> Void)
 }
 
 public final class Promise<Result> {
@@ -107,13 +119,52 @@ public final class Promise<Result> {
     
     /// Initialize using a resolver function
     ///
-    /// - parameter resolver: takes in a two blocks, one to resolve and one to reject the promise. Can be called synchronously or asynchronously
+    /// - parameter resolver: takes in two blocks, one to resolve and one to reject the promise. Can be called synchronously or asynchronously
     ///
     /// - returns: Promise
     public init(_ resolver: (@escaping (Result) -> Void, @escaping (Error) -> Void) throws -> Void) {
         self.state = .pending([])
         do {
-            try resolver({ self.set(state: .resolved($0)) }, { self.set(state: .rejected($0)) })
+            try resolver(
+                { self.set(state: .resolved($0)) },
+                { self.set(state: .rejected($0)) }
+            )
+        } catch {
+            set(state: .rejected(error))
+        }
+    }
+
+    /// Initialize using a resolver function and onCancel block
+    ///
+    /// - parameter resolver: takes in three blocks, one to resolve, one to reject the promise, and one to run when canceled. onCancel must be called synchronously
+    ///
+    /// - returns: Promise
+    public init(_ resolver: (@escaping (Result) -> Void, @escaping (Error) -> Void, (DispatchQueue, @escaping () -> Void) -> Void) throws -> Void) {
+        self.state = .pending([])
+        do {
+            try resolver(
+                { self.set(state: .resolved($0)) },
+                { self.set(state: .rejected($0)) },
+                { addHandlers([.cancel($0, $1)]) }
+            )
+        } catch {
+            set(state: .rejected(error))
+        }
+    }
+
+    /// Initialize using a resolver function and onCancel block
+    ///
+    /// - parameter resolver: takes in three blocks, one to resolve, one to reject the promise, and one to run when canceled. onCancel must be called synchronously
+    ///
+    /// - returns: Promise
+    public init(_ resolver: (@escaping (Result) -> Void, @escaping (Error) -> Void, (@escaping () -> Void) -> Void) throws -> Void) {
+        self.state = .pending([])
+        do {
+            try resolver(
+                { self.set(state: .resolved($0)) },
+                { self.set(state: .rejected($0)) },
+                { addHandlers([.cancel(.main, $0)]) }
+            )
         } catch {
             set(state: .rejected(error))
         }
@@ -132,6 +183,15 @@ public final class Promise<Result> {
             ])
         }
     }
+
+    /// Cancels the promise synchronously
+    ///
+    /// - Returns: Promise
+    @discardableResult
+    public func cancel() -> Promise<Result> {
+        set(state: .canceled)
+        return self
+    }
     
     /// Safely set the state of this Promise
     ///
@@ -148,6 +208,8 @@ public final class Promise<Result> {
                     queue.async { block(result) }
                 case (.rejected(let error), .reject(let queue, let block)):
                     queue.async { block(error) }
+                case (.canceled, .cancel(let queue, let block)):
+                    queue.async { block() }
                 default:
                     break
                 }
@@ -171,6 +233,8 @@ public final class Promise<Result> {
                 handlers.forEach { runHandler($0, with: result) }
             case .rejected(let error):
                 handlers.forEach { runHandler($0, with: error) }
+            case .canceled:
+                handlers.forEach { runCanceledHandler($0) }
             }
             return self
         }
@@ -197,6 +261,19 @@ public final class Promise<Result> {
         switch handler {
         case .reject(let queue, let block):
             queue.async { block(error) }
+        default:
+            break
+        }
+    }
+
+    /// Runs a handler if canceled
+    ///
+    /// - parameter handler: handler to run
+    /// - parameter error:   resolved error
+    private func runCanceledHandler(_ handler: StateHandler<Result>) {
+        switch handler {
+        case .cancel(let queue, let block):
+            queue.async { block() }
         default:
             break
         }

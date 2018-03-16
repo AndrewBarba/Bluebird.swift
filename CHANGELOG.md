@@ -5,6 +5,11 @@ Change Log
 
 ---
 
+## [2.3.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/2.3.0)
+
+1. Add `Promise.cancel`
+2. Add `Promise { resolve, reject, onCancel in }`
+
 ## [2.2.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/2.2.0)
 
 1. Add `Promise.tapCatch`

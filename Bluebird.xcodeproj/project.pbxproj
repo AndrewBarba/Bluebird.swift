@@ -152,6 +152,7 @@
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				OBJ_25 /* Promise.swift */,
 				OBJ_8 /* Promise+all.swift */,
 				OBJ_9 /* Promise+any.swift */,
 				OBJ_10 /* Promise+catch.swift */,
@@ -172,7 +173,6 @@
 				OBJ_22 /* Promise+timeout.swift */,
 				OBJ_23 /* Promise+try.swift */,
 				OBJ_24 /* Promise+void.swift */,
-				OBJ_25 /* Promise.swift */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
