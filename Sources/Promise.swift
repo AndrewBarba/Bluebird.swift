@@ -136,7 +136,7 @@ public final class Promise<Result> {
 
     /// Initialize using a resolver function and onCancel block
     ///
-    /// - parameter resolver: takes in three blocks, one to resolve, one to reject the promise, and one to run when canceled. onCancel must be called synchronously
+    /// - parameter resolver: takes in three blocks: one to resolve, one to reject, and one to run when cancelled. onCancel block must be called synchronously, and you pass in a DispatchQueue to run the block on as the first argument
     ///
     /// - returns: Promise
     public init(_ resolver: (@escaping (Result) -> Void, @escaping (Error) -> Void, (DispatchQueue, @escaping () -> Void) -> Void) throws -> Void) {
@@ -146,24 +146,6 @@ public final class Promise<Result> {
                 { self.set(state: .resolved($0)) },
                 { self.set(state: .rejected($0)) },
                 { addHandlers([.cancel($0, $1)]) }
-            )
-        } catch {
-            set(state: .rejected(error))
-        }
-    }
-
-    /// Initialize using a resolver function and onCancel block
-    ///
-    /// - parameter resolver: takes in three blocks, one to resolve, one to reject the promise, and one to run when canceled. onCancel must be called synchronously
-    ///
-    /// - returns: Promise
-    public init(_ resolver: (@escaping (Result) -> Void, @escaping (Error) -> Void, (@escaping () -> Void) -> Void) throws -> Void) {
-        self.state = .pending([])
-        do {
-            try resolver(
-                { self.set(state: .resolved($0)) },
-                { self.set(state: .rejected($0)) },
-                { addHandlers([.cancel(.main, $0)]) }
             )
         } catch {
             set(state: .rejected(error))

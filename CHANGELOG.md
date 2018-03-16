@@ -5,10 +5,14 @@ Change Log
 
 ---
 
-## [2.3.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/2.3.0)
+## [2.4.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/2.4.0)
 
 1. Add `Promise.cancel`
 2. Add `Promise { resolve, reject, onCancel in }`
+
+## [2.3.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/2.3.0)
+
+1. Bad release - see [v2.4.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/2.4.0)
 
 ## [2.2.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/2.2.0)
 

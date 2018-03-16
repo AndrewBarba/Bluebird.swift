@@ -14,7 +14,7 @@
     <a title="Promise Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">Bluebird Docs</a> (72% documented)</p>
+        <p><a href="../index.html">Bluebird Docs</a> (71% documented)</p>
         <p class="header-right"><a href="https://github.com/AndrewBarba/Bluebird.swift"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -388,57 +388,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>takes in three blocks, one to resolve, one to reject the promise, and one to run when canceled. onCancel must be called synchronously</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div>
-                        <h4>Return Value</h4>
-                        <p>Promise</p>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8Bluebird7PromiseCACyxGyyxc_ys5Error_pcyyycctKccfc"></a>
-                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Bluebird7PromiseCACyxGyyxc_ys5Error_pcyyycctKccfc">init(_:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Initialize using a resolver function and onCancel block</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">resolver</span><span class="p">:</span> <span class="p">(</span><span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Result</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="kd">@escaping</span> <span class="p">(</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">,</span> <span class="p">(</span><span class="kd">@escaping</span> <span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>resolver</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>takes in three blocks, one to resolve, one to reject the promise, and one to run when canceled. onCancel must be called synchronously</p>
+                                  <p>takes in three blocks: one to resolve, one to reject, and one to run when cancelled. onCancel block must be called synchronously, and you pass in a DispatchQueue to run the block on as the first argument</p>
                                 </div>
                               </td>
                             </tr>

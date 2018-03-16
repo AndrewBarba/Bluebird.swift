@@ -40,7 +40,7 @@ import PackageDescription
 let package = Package(
     name: "My Lisk App",
     dependencies: [
-        .package(url: "https://github.com/AndrewBarba/Bluebird.swift.git", from: "2.3.0")
+        .package(url: "https://github.com/AndrewBarba/Bluebird.swift.git", from: "2.4.0")
     ]
 )
 ```
@@ -50,13 +50,13 @@ let package = Package(
 > CocoaPods 1.1.0+ is required to build Bluebird
 
 ```ruby
-pod 'Bluebird', '~> 2.3'
+pod 'Bluebird', '~> 2.4'
 ```
 
 ### Carthage
 
 ```ogdl
-github "AndrewBarba/Bluebird.swift" ~> 2.3
+github "AndrewBarba/Bluebird.swift" ~> 2.4
 ```
 
 ## Who's Using Bluebird
