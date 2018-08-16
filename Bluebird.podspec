@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/AndrewBarba/Bluebird.swift'
   s.documentation_url = 'https://andrewbarba.github.io/Bluebird.swift/'
   s.license = { :type => 'MIT', :file => 'LICENSE.md' }
-  s.swift_version = '4.0'
+  s.swift_version = '4.1'
   s.author = { 'Andrew Barba' => 'abarba.77@gmail.com' }
   s.source = { :git => 'https://github.com/AndrewBarba/Bluebird.swift.git', :tag => s.version.to_s }
 

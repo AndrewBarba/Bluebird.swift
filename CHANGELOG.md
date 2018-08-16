@@ -8,7 +8,7 @@ Change Log
 ## [3.0.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/3.0.0)
 
 1. On iOS 10+ and macOS 10.12+ the locking mechanism for `Promise` is backed by `os_unfair_lock` bringing a significant performance improvement. On prior versions of iOS and macOS the locking mechanism falls back to a serial `DispatchQueue`
-2. Expose a new `Lock` class that hides the implementation detail of the underlying lock class, preferring `os_unfair_lock` when available, and falling back to a serial `DispatchQueue` when it's not.
+2. Expose a new `Lock` class that hides the implementation detail of the underlying lock, preferring `os_unfair_lock` when available, and falling back to a serial `DispatchQueue` when it's not.
 
 ## [2.4.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/2.4.0)
 
