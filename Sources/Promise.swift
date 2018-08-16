@@ -72,31 +72,30 @@ internal enum StateHandler<T> {
 
 public final class Promise<Result> {
     
-    /// Private dispatch queue for performing state related operations
-    private let stateQueue = DispatchQueue(label: "com.abarba.Bluebird.state", qos: .userInteractive)
+    /// Private lock for performing state related operations
+    private let lock = Lock()
     
     /// The current state of the promise
     internal private(set) var state: State<Result>
     
     /// Is this Promise in a pending state
     public var isPending: Bool {
-        return stateQueue.sync {
-            state.isPending
-        }
+        return lock.sync { state.isPending }
+    }
+
+    /// Is this Promise in a canceled state
+    public var isCanceled: Bool {
+        return lock.sync { state.isCanceled }
     }
     
     /// The resolved result of the promise
     public var result: Result? {
-        return stateQueue.sync {
-            return state.result
-        }
+        return lock.sync { state.result }
     }
     
     /// The rejected error of the promise
     public var error: Error? {
-        return stateQueue.sync {
-            return state.error
-        }
+        return lock.sync { state.error }
     }
     
     /// Initialize to a resolved result
@@ -179,7 +178,7 @@ public final class Promise<Result> {
     ///
     /// - parameter state: the new state of the Promise
     private func set(state newState: State<Result>) {
-        stateQueue.sync {
+        lock.sync {
             guard case .pending(let handlers) = state else { return }
             
             state = newState
@@ -207,7 +206,7 @@ public final class Promise<Result> {
     ///
     /// - returns: Self
     @discardableResult internal func addHandlers(_ handlers: [StateHandler<Result>]) -> Promise<Result> {
-        return stateQueue.sync {
+        return lock.sync {
             switch state {
             case .pending(let currentHandlers):
                 state = .pending(currentHandlers + handlers)
@@ -216,7 +215,7 @@ public final class Promise<Result> {
             case .rejected(let error):
                 handlers.forEach { runHandler($0, with: error) }
             case .canceled:
-                handlers.forEach { runCanceledHandler($0) }
+                break
             }
             return self
         }
@@ -243,19 +242,6 @@ public final class Promise<Result> {
         switch handler {
         case .reject(let queue, let block):
             queue.async { block(error) }
-        default:
-            break
-        }
-    }
-
-    /// Runs a handler if canceled
-    ///
-    /// - parameter handler: handler to run
-    /// - parameter error:   resolved error
-    private func runCanceledHandler(_ handler: StateHandler<Result>) {
-        switch handler {
-        case .cancel(let queue, let block):
-            queue.async { block() }
         default:
             break
         }

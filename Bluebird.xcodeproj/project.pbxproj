@@ -25,6 +25,7 @@
 		38C4AE8A20250AA3006DBF0A /* Promise+tapCatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C4AE8920250AA3006DBF0A /* Promise+tapCatch.swift */; };
 		38C4AE8C20250E60006DBF0A /* Promise+recover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38C4AE8B20250E60006DBF0A /* Promise+recover.swift */; };
 		38F1E315201262030084C09B /* Promise+return.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38F1E314201262030084C09B /* Promise+return.swift */; };
+		38FABAE621251B0200C77BCB /* Lock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38FABAE521251B0200C77BCB /* Lock.swift */; };
 		OBJ_38 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_44 /* Bluebird+APlus.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_27 /* Bluebird+APlus.swift */; };
 		OBJ_45 /* Bluebird+Spec.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* Bluebird+Spec.swift */; };
@@ -73,6 +74,7 @@
 		38C4AE8920250AA3006DBF0A /* Promise+tapCatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+tapCatch.swift"; sourceTree = "<group>"; };
 		38C4AE8B20250E60006DBF0A /* Promise+recover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+recover.swift"; sourceTree = "<group>"; };
 		38F1E314201262030084C09B /* Promise+return.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+return.swift"; sourceTree = "<group>"; };
+		38FABAE521251B0200C77BCB /* Lock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lock.swift; sourceTree = "<group>"; };
 		"Bluebird::Bluebird::Product" /* Bluebird.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Bluebird.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"Bluebird::BluebirdTests::Product" /* BluebirdTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = BluebirdTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* Promise+catch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Promise+catch.swift"; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_25 /* Promise.swift */,
+				38FABAE521251B0200C77BCB /* Lock.swift */,
 				OBJ_8 /* Promise+all.swift */,
 				OBJ_9 /* Promise+any.swift */,
 				OBJ_10 /* Promise+catch.swift */,
@@ -285,6 +288,7 @@
 				OBJ_58 /* Promise+defer.swift in Sources */,
 				OBJ_59 /* Promise+delay.swift in Sources */,
 				OBJ_60 /* Promise+errors.swift in Sources */,
+				38FABAE621251B0200C77BCB /* Lock.swift in Sources */,
 				OBJ_61 /* Promise+finally.swift in Sources */,
 				38C4AE8A20250AA3006DBF0A /* Promise+tapCatch.swift in Sources */,
 				OBJ_62 /* Promise+join.swift in Sources */,
