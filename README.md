@@ -1,7 +1,6 @@
 Bluebird.swift
 ==============
 
-[![Build Status](https://www.bitrise.io/app/701ab7c9f38d6256.svg?token=iG7jwI_9wFXyDl886lLAWw&branch=master)](https://www.bitrise.io/app/701ab7c9f38d6256)
 [![CocoaPods Compatible](https://img.shields.io/cocoapods/v/Bluebird.svg)](https://img.shields.io/cocoapods/v/Bluebird.svg)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Twitter](https://img.shields.io/badge/twitter-@andrew_barba-blue.svg?style=flat)](http://twitter.com/andrew_barba)
