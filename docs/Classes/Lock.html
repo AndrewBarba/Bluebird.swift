@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>ReflectionState Enumeration Reference</title>
+    <title>Lock Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Enum/ReflectionState" class="dashAnchor"></a>
-    <a title="ReflectionState Enumeration Reference"></a>
+    <a name="//apple_ref/swift/Class/Lock" class="dashAnchor"></a>
+    <a title="Lock Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">Bluebird Docs</a> (69% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">Bluebird Reference</a>
         <img id="carat" src="../img/carat.png" />
-        ReflectionState Enumeration Reference
+        Lock Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -111,19 +111,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>ReflectionState</h1>
+            <h1>Lock</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">ReflectionState</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Lock</span></code></pre>
 
                 </div>
               </div>
-            <p>Enum used to describe the result of a promise</p>
-
-<ul>
-<li>resolved: the resolved value</li>
-<li>error: the error the promise was rejected with</li>
-</ul>
+            <p>Undocumented</p>
 
           </section>
           <section class="section task-group-section">
@@ -132,9 +127,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8Bluebird15ReflectionStateO8resolvedyACyxGxcAEmlF"></a>
-                    <a name="//apple_ref/swift/Element/resolved(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Bluebird15ReflectionStateO8resolvedyACyxGxcAEmlF">resolved(_:)</a>
+                    <a name="/s:8Bluebird4LockCACycfc"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Bluebird4LockCACycfc">init()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -149,23 +144,19 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">resolved</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:8Bluebird15ReflectionStateO8rejectedyACyxGs5Error_pcAEmlF"></a>
-                    <a name="//apple_ref/swift/Element/rejected(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Bluebird15ReflectionStateO8rejectedyACyxGs5Error_pcAEmlF">rejected(_:)</a>
+                    <a name="/s:8Bluebird4LockC4sync7executexxyKXE_tKlF"></a>
+                    <a name="//apple_ref/swift/Method/sync(execute:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:8Bluebird4LockC4sync7executexxyKXE_tKlF">sync(execute:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -180,65 +171,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="nf">rejected</span><span class="p">(</span><span class="nv">_</span><span class="p">:</span> <span class="kt">Error</span><span class="p">)</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8Bluebird15ReflectionStateO6resultxSgvp"></a>
-                    <a name="//apple_ref/swift/Property/result" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Bluebird15ReflectionStateO6resultxSgvp">result</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The resolved result</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">result</span><span class="p">:</span> <span class="kt">T</span><span class="p">?</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:8Bluebird15ReflectionStateO5errors5Error_pSgvp"></a>
-                    <a name="//apple_ref/swift/Property/error" class="dashAnchor"></a>
-                    <a class="token" href="#/s:8Bluebird15ReflectionStateO5errors5Error_pSgvp">error</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The rejected error</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">sync</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">execute</span> <span class="nv">block</span><span class="p">:</span> <span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="p">)</span> <span class="k">rethrows</span> <span class="o">-&gt;</span> <span class="kt">T</span></code></pre>
 
                         </div>
                       </div>

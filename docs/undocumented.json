@@ -1,6 +1,27 @@
 {
   "warnings": [
     {
+      "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Lock.swift",
+      "line": 10,
+      "symbol": "Lock",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Lock.swift",
+      "line": 15,
+      "symbol": "Lock.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Lock.swift",
+      "line": 23,
+      "symbol": "Lock.sync(execute:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise+errors.swift",
       "line": 17,
       "symbol": "BluebirdError.cancelled",
@@ -17,21 +38,21 @@
     {
       "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise+errors.swift",
       "line": 19,
-      "symbol": "BluebirdError.timeout",
+      "symbol": "BluebirdError.timeout(_:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise+reflect.swift",
       "line": 16,
-      "symbol": "ReflectionState.resolved",
+      "symbol": "ReflectionState.resolved(_:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/andrewbarba/Code/Bluebird.swift/Sources/Promise+reflect.swift",
       "line": 17,
-      "symbol": "ReflectionState.rejected",
+      "symbol": "ReflectionState.rejected(_:)",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
