@@ -6,12 +6,12 @@ Bluebird.swift
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Twitter](https://img.shields.io/badge/twitter-@andrew_barba-blue.svg?style=flat)](http://twitter.com/andrew_barba)
 
-[Promise/A+](https://promisesaplus.com/) compliant, [Bluebird](http://bluebirdjs.com) inspired, implementation in Swift 4
+[Promise/A+](https://promisesaplus.com/) compliant, [Bluebird](http://bluebirdjs.com) inspired, implementation in Swift 4.2
 
 ## Features
 
 - [x] Promise/A+ Compliant
-- [x] Swift 4.0
+- [x] Swift 4.2
 - [x] Promise Cancellation
 - [x] Performance
 - [x] Lightweight
@@ -25,38 +25,38 @@ Bluebird.swift
 ## Requirements
 
 - iOS 9.0+ / macOS 10.11+ / tvOS 9.0+ / watchOS 2.0+
-- Xcode 9.0+
-- Swift 4.0+
+- Xcode 10
+- Swift 4.2
 
 ## Installation
 
 ### Swift Package Manager
 
 ```swift
-// swift-tools-version:4.0
+// swift-tools-version:4.2
 
 import PackageDescription
 
 let package = Package(
-    name: "My Lisk App",
+    name: "My App",
     dependencies: [
-        .package(url: "https://github.com/AndrewBarba/Bluebird.swift.git", from: "2.4.0")
+        .package(url: "https://github.com/AndrewBarba/Bluebird.swift.git", from: "4.0.0")
     ]
 )
 ```
 
 ### CocoaPods
 
-> CocoaPods 1.1.0+ is required to build Bluebird
+> CocoaPods 1.5.0+ is required to build Bluebird
 
 ```ruby
-pod 'Bluebird', '~> 2.4'
+pod 'Bluebird', '~> 4.0'
 ```
 
 ### Carthage
 
 ```ogdl
-github "AndrewBarba/Bluebird.swift" ~> 2.4
+github "AndrewBarba/Bluebird.swift" ~> 4.0
 ```
 
 ## Who's Using Bluebird
