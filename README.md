@@ -10,7 +10,7 @@ Bluebird.swift
 ## Features
 
 - [x] Promise/A+ Compliant
-- [x] Swift 4.2
+- [x] Swift 5
 - [x] Promise Cancellation
 - [x] Performance
 - [x] Lightweight
@@ -24,15 +24,15 @@ Bluebird.swift
 ## Requirements
 
 - iOS 9.0+ / macOS 10.11+ / tvOS 9.0+ / watchOS 2.0+
-- Xcode 10
-- Swift 4.2
+- Xcode 10.2
+- Swift 5
 
 ## Installation
 
 ### Swift Package Manager
 
 ```swift
-// swift-tools-version:4.2
+// swift-tools-version:5.0
 
 import PackageDescription
 
@@ -49,13 +49,13 @@ let package = Package(
 > CocoaPods 1.5.0+ is required to build Bluebird
 
 ```ruby
-pod 'Bluebird', '~> 4.0'
+pod 'Bluebird', '~> 5.0'
 ```
 
 ### Carthage
 
 ```ogdl
-github "AndrewBarba/Bluebird.swift" ~> 4.0
+github "AndrewBarba/Bluebird.swift" ~> 5.0
 ```
 
 ## Who's Using Bluebird
