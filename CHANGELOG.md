@@ -5,6 +5,10 @@ Change Log
 
 ---
 
+## [5.0.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/5.0.0)
+
+1. Built with Swift 5.0
+
 ## [4.0.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/4.0.0)
 
 1. Built with Swift 4.2
