@@ -5,7 +5,7 @@ Bluebird.swift
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 [![Twitter](https://img.shields.io/badge/twitter-@andrew_barba-blue.svg?style=flat)](http://twitter.com/andrew_barba)
 
-[Promise/A+](https://promisesaplus.com/) compliant, [Bluebird](http://bluebirdjs.com) inspired, implementation in Swift 4.2
+[Promise/A+](https://promisesaplus.com/) compliant, [Bluebird](http://bluebirdjs.com) inspired, implementation in Swift 5
 
 ## Features
 
