@@ -5,6 +5,10 @@ Change Log
 
 ---
 
+## [5.1.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/5.1.0)
+
+1. Support Combine framework with new `.publisher()` method
+
 ## [5.0.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/5.0.0)
 
 1. Built with Swift 5.0
