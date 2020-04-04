@@ -6,7 +6,7 @@ clean:
 
 deps:
 	swift build
-	swift package generate-xcodeproj
+	swift package generate-xcodeproj --xcconfig-overrides Sources/Library.xcconfig
 
 docs:
 	jazzy \
