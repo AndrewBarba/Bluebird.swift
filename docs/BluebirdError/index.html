@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bluebird - Bluebird</title>
+    <title>Bluebird - BluebirdError</title>
     <style type="text/css">
     :root {
     --system-red: rgb(255, 59, 48);
@@ -1197,56 +1197,73 @@ nav li[class] {
     <nav>
         <div class="wrapper">
             <h2>On This Page</h2>
-            <ol><li><a href="#classes">Classes</a></li><li><a href="#enumerations">Enumerations</a></li></ol>
+            <ol><li><a href="#relationships">Relationships</a><ul><li><a href="#relationships">Conforms To</a></li></ul></li><li><a href="#enumeration cases">Enumeration Cases</a><ul><li class="case"><a href="#bluebirderror.cancelled">cancelled</a></li><li class="case"><a href="#bluebirderror.rangeerror">range​Error</a></li><li class="case"><a href="#bluebirderror.timeout">timeout</a></li></ul></li></ol>
         </div>
     </nav>
 
     <main>
         <article>
-                <section id="classes">
-        <h2>Classes</h2>
-        <dl>
-            <dt class="class">
-    <a href="Lock" title="class - Lock">
-        Lock
-    </a>
-</dt>
-<dd>
-    
-</dd>
-<dt class="class">
-    <a href="State_StateHandler_Promise" title="class - State.StateHandler.Promise">
-        State.​State​Handler.​Promise
-    </a>
-</dt>
-<dd>
-    
-</dd>
-        </dl>
-    </section>
-    <section id="enumerations">
-        <h2>Enumerations</h2>
-        <dl>
-            <dt class="enumeration">
-    <a href="BluebirdError" title="enumeration - BluebirdError">
-        Bluebird​Error
-    </a>
-</dt>
-<dd>
+            <h1>
+    <small>Enumeration</small>
+    <code class="name">Bluebird​Error</code>
+</h1>
+
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">enum</span> <span class="type">BluebirdError</span></code></pre></body></html>
+<div class="summary" role="doc-abstract">
     <p>Bluebird errors</p>
 
-</dd>
-<dt class="enumeration">
-    <a href="ReflectionState" title="enumeration - ReflectionState">
-        Reflection​State
-    </a>
-</dt>
-<dd>
-    <p>Enum used to describe the result of a promise</p>
+</div>
+<div class="discussion">
+    <html><body><ul>
+<li>cancelled:  thrown when a Promise was explicity cancelled</li>
+</ul>
+ </body></html>
+<html><body><ul>
+<li>rangeError: thrown when a function that expects a non-empty array recieves an empty array</li>
+</ul>
+ </body></html>
+<html><body><ul>
+<li>timeout:    thrown if a Promise does not resolve in the givin number of seconds</li>
+</ul>
+ </body></html>
+</div>
+<section id="relationships">
+    <h2 hidden>Relationships</h2>
+    <figure>
+        
 
-</dd>
-        </dl>
+        <figcaption hidden>Inheritance graph for BluebirdError.</figcaption>
+    </figure>
+        <h3>Conforms To</h3>
+<dl>
+    <dt class="unknown"><code>Error</code></dt>
+</dl>
+</section>
+    <section id="enumeration cases">
+        <h2>Enumeration Cases</h2>
+
+        <div role="article" class="enumeration" id="bluebirderror.cancelled">
+    <h3>
+        <code>cancelled</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">cancelled</span></code></pre></body></html>
+</div>
+<div role="article" class="enumeration" id="bluebirderror.rangeerror">
+    <h3>
+        <code>range​Error</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">rangeError</span></code></pre></body></html>
+</div>
+<div role="article" class="enumeration" id="bluebirderror.timeout">
+    <h3>
+        <code>timeout</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">case</span> <span class="variable">timeout</span>(: <span class="type">TimeInterval</span>)</code></pre></body></html>
+</div>
     </section>
+
+
+
         </article>
     </main>
 

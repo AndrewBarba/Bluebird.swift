@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bluebird - Bluebird</title>
+    <title>Bluebird - Lock</title>
     <style type="text/css">
     :root {
     --system-red: rgb(255, 59, 48);
@@ -1197,56 +1197,42 @@ nav li[class] {
     <nav>
         <div class="wrapper">
             <h2>On This Page</h2>
-            <ol><li><a href="#classes">Classes</a></li><li><a href="#enumerations">Enumerations</a></li></ol>
+            <ol><li><a href="#initializers">Initializers</a><ul><li class="initializer"><a href="#lock.init()">init()</a></li></ul></li><li><a href="#methods">Methods</a><ul><li class="method"><a href="#lock.sync(execute:)">sync(execute:​)</a></li></ul></li></ol>
         </div>
     </nav>
 
     <main>
         <article>
-                <section id="classes">
-        <h2>Classes</h2>
-        <dl>
-            <dt class="class">
-    <a href="Lock" title="class - Lock">
-        Lock
-    </a>
-</dt>
-<dd>
-    
-</dd>
-<dt class="class">
-    <a href="State_StateHandler_Promise" title="class - State.StateHandler.Promise">
-        State.​State​Handler.​Promise
-    </a>
-</dt>
-<dd>
-    
-</dd>
-        </dl>
-    </section>
-    <section id="enumerations">
-        <h2>Enumerations</h2>
-        <dl>
-            <dt class="enumeration">
-    <a href="BluebirdError" title="enumeration - BluebirdError">
-        Bluebird​Error
-    </a>
-</dt>
-<dd>
-    <p>Bluebird errors</p>
+            <h1>
+    <small>Class</small>
+    <code class="name">Lock</code>
+</h1>
 
-</dd>
-<dt class="enumeration">
-    <a href="ReflectionState" title="enumeration - ReflectionState">
-        Reflection​State
-    </a>
-</dt>
-<dd>
-    <p>Enum used to describe the result of a promise</p>
+<html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">class</span> <span class="type">Lock</span></code></pre></body></html>
 
-</dd>
-        </dl>
+    <section id="initializers">
+        <h2>Initializers</h2>
+
+        <div role="article" class="class" id="lock.init()">
+    <h3>
+        <code>init()</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">init</span>()</code></pre></body></html>
+</div>
     </section>
+    <section id="methods">
+        <h2>Methods</h2>
+
+        <div role="article" class="class" id="lock.sync(execute:)">
+    <h3>
+        <code>sync(execute:​)</code>
+    </h3>
+    <html><body><pre class="highlight"><code><span class="keyword">public</span> <span class="keyword">func</span> <span class="function">sync</span>&lt;<span class="variable">T</span>&gt;(<span class="variable">execute</span> <span class="variable">block</span>: () <span class="keyword">throws</span> -&gt; <span class="type">T</span>) <span class="keyword">rethrows</span> -&gt; <span class="type">T</span></code></pre></body></html>
+</div>
+    </section>
+
+
+
         </article>
     </main>
 
