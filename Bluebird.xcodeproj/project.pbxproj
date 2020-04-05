@@ -642,7 +642,7 @@
                "-sdk",
                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
                "-package-description-version",
-               "5.0.0"
+               "5.2.0"
             );
             SWIFT_VERSION = "5.0";
          };
@@ -668,7 +668,7 @@
                "-sdk",
                "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk",
                "-package-description-version",
-               "5.0.0"
+               "5.2.0"
             );
             SWIFT_VERSION = "5.0";
          };
