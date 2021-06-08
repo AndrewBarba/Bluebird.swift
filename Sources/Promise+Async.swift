@@ -20,4 +20,21 @@ extension Promise {
                 .catch(on: queue) { promise.resume(throwing: $0) }
         }
     }
+
+
+    /// Initialize a promise with an async handler
+    /// 
+    /// - Parameter resolver: Async resolver
+    public convenience init(_ resolver: @escaping () async throws -> Result) {
+        self.init { resolve, reject in
+            async {
+                do {
+                    let value = try await resolver()
+                    resolve(value)
+                } catch {
+                    reject(error)
+                }
+            }
+        }
+    }
 }

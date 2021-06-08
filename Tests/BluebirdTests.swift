@@ -486,16 +486,16 @@ class BluebirdTests: XCTestCase {
         let exp = expectation(description: "Promise.map.concurrent")
         let arr = [1, 10, 5, 6, 8, 94, 4]
         map(arr) { getInt($0) }
-            .then { results in
-                XCTAssertEqual(results.count, arr.count)
-                for (index, result) in results.enumerated() {
-                    XCTAssertEqual(result, arr[index])
-                }
-                exp.fulfill()
+        .then { results in
+            XCTAssertEqual(results.count, arr.count)
+            for (index, result) in results.enumerated() {
+                XCTAssertEqual(result, arr[index])
             }
-            .catch { _ in
-                XCTFail()
-            }
+            exp.fulfill()
+        }
+        .catch { _ in
+            XCTFail()
+        }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
 
@@ -503,16 +503,16 @@ class BluebirdTests: XCTestCase {
         let exp = expectation(description: "Promise.map.series")
         let arr = [1, 10, 5, 6, 8, 94, 4]
         mapSeries(arr) { getInt($0) }
-            .then { results in
-                XCTAssertEqual(results.count, arr.count)
-                for (index, result) in results.enumerated() {
-                    XCTAssertEqual(result, arr[index])
-                }
-                exp.fulfill()
+        .then { results in
+            XCTAssertEqual(results.count, arr.count)
+            for (index, result) in results.enumerated() {
+                XCTAssertEqual(result, arr[index])
             }
-            .catch { _ in
-                XCTFail()
-            }
+            exp.fulfill()
+        }
+        .catch { _ in
+            XCTFail()
+        }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
 
@@ -520,17 +520,17 @@ class BluebirdTests: XCTestCase {
         let exp = expectation(description: "Promise.map.chain.concurrent")
         let arr = [1, 10, 5, 6, 8, 94, 4]
         map(arr) { getInt($0) }
-            .map { getInt($0 + 1) }
-            .then { results in
-                XCTAssertEqual(results.count, arr.count)
-                for (index, result) in results.enumerated() {
-                    XCTAssertEqual(result, arr[index] + 1)
-                }
-                exp.fulfill()
+        .map { getInt($0 + 1) }
+        .then { results in
+            XCTAssertEqual(results.count, arr.count)
+            for (index, result) in results.enumerated() {
+                XCTAssertEqual(result, arr[index] + 1)
             }
-            .catch { _ in
-                XCTFail()
-            }
+            exp.fulfill()
+        }
+        .catch { _ in
+            XCTFail()
+        }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
 
@@ -538,17 +538,17 @@ class BluebirdTests: XCTestCase {
         let exp = expectation(description: "Promise.map.chain.series")
         let arr = [1, 10, 5, 6, 8, 94, 4]
         mapSeries(arr) { getInt($0) }
-            .mapSeries { getInt($0 + 1) }
-            .then { results in
-                XCTAssertEqual(results.count, arr.count)
-                for (index, result) in results.enumerated() {
-                    XCTAssertEqual(result, arr[index] + 1)
-                }
-                exp.fulfill()
+        .mapSeries { getInt($0 + 1) }
+        .then { results in
+            XCTAssertEqual(results.count, arr.count)
+            for (index, result) in results.enumerated() {
+                XCTAssertEqual(result, arr[index] + 1)
             }
-            .catch { _ in
-                XCTFail()
-            }
+            exp.fulfill()
+        }
+        .catch { _ in
+            XCTFail()
+        }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
 
@@ -656,7 +656,7 @@ class BluebirdTests: XCTestCase {
             }
             .catch { error in
                 XCTFail()
-        }
+            }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
 
@@ -748,8 +748,24 @@ class BluebirdTests: XCTestCase {
     // MARK: - Async/Await
 
     @available(macOS 12.0, iOS 15.0, watchOS 8.0, tvOS 15.0, *)
-    func testAsyncAwait() async throws {
+    func testAsyncAwaitValue() async throws {
         let result = try await getInt(5).value()
         XCTAssertEqual(result, 5)
+    }
+
+    @available(macOS 12.0, iOS 15.0, watchOS 8.0, tvOS 15.0, *)
+    func testAsyncAwaitInit() async throws {
+        let exp = expectation(description: "Promise.async.init")
+        let promise: Promise<Int> = Promise {
+            return try await getInt(5).value()
+        }
+        promise.then { result in
+            XCTAssertEqual(result, 8)
+            exp.fulfill()
+        }
+        .catch { _ in
+            XCTFail()
+        }
+        waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
 }
