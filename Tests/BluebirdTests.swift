@@ -744,4 +744,12 @@ class BluebirdTests: XCTestCase {
         }
         waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
+
+    // MARK: - Async/Await
+
+    @available(macOS 12.0, iOS 15.0, watchOS 8.0, tvOS 15.0, *)
+    func testAsyncAwait() async throws {
+        let result = try await getInt(5).value()
+        XCTAssertEqual(result, 5)
+    }
 }
