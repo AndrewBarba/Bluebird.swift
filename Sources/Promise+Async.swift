@@ -13,11 +13,11 @@ extension Promise {
     /// Retrieve the value of the promise using async/await in Swift 5.5
     ///
     /// - Returns: Result
-    public func value() async throws -> Result {
+    public func value(on queue: DispatchQueue = .main) async throws -> Result {
         return try await withUnsafeThrowingContinuation { promise in
             self
-                .then { promise.resume(returning: $0) }
-                .catch { promise.resume(throwing: $0) }
+                .then(on: queue) { promise.resume(returning: $0) }
+                .catch(on: queue) { promise.resume(throwing: $0) }
         }
     }
 }
