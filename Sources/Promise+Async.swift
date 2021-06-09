@@ -14,10 +14,14 @@ extension Promise {
     ///
     /// - Returns: Result
     public func value(on queue: DispatchQueue = .main) async throws -> Result {
-        return try await withUnsafeThrowingContinuation { promise in
+        return try await withCheckedThrowingContinuation { promise in
             self
-                .then(on: queue) { promise.resume(returning: $0) }
-                .catch(on: queue) { promise.resume(throwing: $0) }
+                .then(on: queue) {
+                    promise.resume(returning: $0)
+                }
+                .catch(on: queue) {
+                    promise.resume(throwing: $0)
+                }
         }
     }
 
@@ -34,6 +38,18 @@ extension Promise {
                 } catch {
                     reject(error)
                 }
+            }
+        }
+    }
+
+
+    /// Continue a promise with the value of an async handler
+    ///
+    /// - Returns: Promise
+    public func then<A>(on queue: DispatchQueue = .main, _ handler: @escaping (Result) async throws -> A) -> Promise<A> {
+        return then(on: queue) { result in
+            return Promise<A> {
+                return try await handler(result)
             }
         }
     }
