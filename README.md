@@ -39,7 +39,7 @@ import PackageDescription
 let package = Package(
     name: "My App",
     dependencies: [
-        .package(url: "https://github.com/AndrewBarba/Bluebird.swift.git", from: "4.0.0")
+        .package(url: "https://github.com/AndrewBarba/Bluebird.swift.git", from: "5.1.0")
     ]
 )
 ```
