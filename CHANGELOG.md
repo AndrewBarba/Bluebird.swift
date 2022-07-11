@@ -5,6 +5,10 @@ Change Log
 
 ---
 
+## [6.0.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/6.0.0)
+
+1. Support async/await with `Promise.value()`
+
 ## [5.1.0](https://github.com/AndrewBarba/Bluebird.swift/releases/tag/5.1.0)
 
 1. Support Combine framework with new `.publisher()` method
