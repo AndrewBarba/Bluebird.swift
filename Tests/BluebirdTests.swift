@@ -766,6 +766,6 @@ class BluebirdTests: XCTestCase {
         .catch { _ in
             XCTFail()
         }
-        waitForExpectations(timeout: defaultTimeout, handler: nil)
+        await waitForExpectations(timeout: defaultTimeout, handler: nil)
     }
 }

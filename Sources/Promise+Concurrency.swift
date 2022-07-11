@@ -31,7 +31,7 @@ extension Promise {
     /// - Parameter resolver: Async resolver
     public convenience init(_ resolver: @escaping () async throws -> Result) {
         self.init { resolve, reject in
-            async {
+            Task {
                 do {
                     let value = try await resolver()
                     resolve(value)
